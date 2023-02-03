@@ -6,7 +6,7 @@
 `Vue CLI`现已处于维护模式!  :point_right:[Admin (CLI)](/web-fe/vue2/admin-cli/01-project-build)
 :::
 1. 创建项目
-```sh
+```sh{2}
 `npm create vue@3` or `npm init vue@3` // Vue3
 `npm create vue@2` or `npm init vue@2` // Vue2
 ``` 
