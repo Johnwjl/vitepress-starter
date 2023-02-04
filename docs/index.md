@@ -8,9 +8,9 @@ hero:
   name: Jello's Blog
   text: Personal Website
   tagline: Web FE , Works , and Life .
-#   image:
-#     src: /avatar-1.jpg
-#     alt: avatar
+# image:
+#   src: /avatar-1.jpg
+#   alt: avatar
 #   actions:
 #     - theme: brand
 #       text: 更多详情
@@ -30,5 +30,5 @@ features:
     details: Admin ( Vue2 / Vue3 + Vite + TypeScript ) 
   - icon: 🖖
     title: Life Share
-    details: Books , Movies , and Travel .
+    details: Book , Movie , and Travel .
 ---
