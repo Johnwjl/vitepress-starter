@@ -1,6 +1,6 @@
 # Reading Log
 
-## Web FE Dev Books
+## Web FE Dev book
 
 |  Name        | Author           | Progress  |
 | ------------- |:-------------:| -----:|
@@ -8,7 +8,7 @@
 | [《ES6标准入门（第2版）》](https://weread.qq.com/web/bookDetail/57b32bd0811e1af4ag013594)  <br> [ECMAScript 6 入门 (第3版)](https://es6.ruanyifeng.com/)   | [阮一峰](https://www.ruanyifeng.com/)      |   10% |
 <!-- | zebra stripes | are neat      |    $1 | -->
 
-## Other Publishing books
+## Other Publishing book
 |  Name        | author           | progress  |
 | ------------- |:-------------:| -----:|
 | [《胜者思维》](https://weread.qq.com/web/bookDetail/c64321307239b3b5c648b2a)    | [金一南](https://zh.wikipedia.org/wiki/%E9%87%91%E4%B8%80%E5%8D%97)         | ✅ |
