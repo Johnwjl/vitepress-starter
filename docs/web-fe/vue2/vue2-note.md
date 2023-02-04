@@ -91,3 +91,107 @@
 ##
 
 
+# vue2 技术栈面试题
+## vue 2.0 核心
+- 响应式原理
+    <details>
+    <summary>答案</summary>
+
+    - 通过 Object.defineProperty 对每个属性进行监听，当对属性进行读取的时候，就会触发 getter，对属性进行设置的时候，就会触发 setter。
+    - 为了可以监测对象 ，Vue2 创建了一个 Observer 类
+    - Vue2 对数组的监测，是通过重写数组原型上的 7 个方法来实现
+    - 实际上 Object.defineProperty 可以做到通过下标的形式可以监听数组，但却无法监听到所有数组的操作。
+    - vue3 使用 proxy API 对数据实现 getter/setter 代理 ，原生支持对于数组和对象的监听。
+    </details>
+- vue 生命周期
+    <details>
+    <summary>答案</summary>
+    
+    8个阶段：创建前/后，载入前/后，更新前/后，销毁前/后。
+    1. beforeCreate：vue实例的挂载el未定义，data未定义
+    2. created：data已经定义，但未初始化。通常在这个阶段进行一些数据、资源的请求。
+    3. beforeMounted:
+    4. mounted: 实例挂载完毕。可以进行一些DOM操作。
+    5. beforeUpdate: 在数据发生改变后，DOM 被更新之前被调用。
+    6. updated: DOM重新渲染完毕之后被调用
+    7. beforeDestroy：组件实例销毁之前调用。
+    8. destroyed：实例销毁后调用。可以执行一些性能优化操作，清空计时器，解除绑定事件
+
+    activated：被 keep-alive 缓存的组件激活时调用。
+    deactivated： 被 keep-alive 缓存的组件失活时调用。
+
+    </details>
+- data为什么只能是函数
+    <details>
+    <summary>答案</summary>
+
+    如果是对象，由于是引用类型，每个组件的data都指向内存的同一个地址，一个数据改变 其他的也都被影响
+    </details>
+- 组件通信
+    <details>
+    <summary>答案</summary>
+    
+    1. 父传子：props 接受传值
+    2. 子传父：$emit 事件发送
+    3. 兄弟组件： 中央总线 event bus，$emit 发送，$on接受
+    </details>
+- $nextTick 的作用
+    <details>
+    <summary>答案</summary>
+    
+    保证整个视图都被渲染之后才会运行其中的代码
+    </details>
+- 刷新页面后vuex值丢失
+    <details>
+    <summary>答案</summary>
+    <pre>
+    原因：因为store里的数据是保存在运行内存中的，当页面刷新会重载vue实例，store里面的数据就会被初始化
+    解决：将state的数据保存在localstorage、sessionstorage或cookie中
+    </pre>
+    </details>
+
+## vue router
+- 权限控制
+    1. 接口权限
+        采用 JWT（Json Web Token）做接口权限校验。没有通过就返回401，路由挑转至登陆页做登陆鉴权，
+        登录完拿到token存起来。通过axios请求拦截器进行拦截，每次请求时候头部携带token。
+
+        ```js
+        axios.interceptors.request.use(config => {
+            config.headers['token'] = cookie.get('token')
+            return config
+        })
+        axios.interceptors.response.use(res=>{},{response}=>{
+            if (response.data.code === 40099 || response.data.code === 40098) { //token过期或者错误
+                router.push('/login')
+            }
+        })
+        ```
+    2. 按钮权限
+        - 通过自定义指令的方式 通过路由权限去动态渲染按钮
+    3. 路由菜单权限
+        - 前端定义路由、做路由守卫，与后端返回的菜单信息做比对
+        - 两种方式：
+            1. 动态生成路由表（addRoutes）
+            2. 路由元信息（meta）里添加roles
+
+- 怎么重定向页面
+    <details>
+    <summary>答案</summary>
+
+    在路由配置里添加redirect跳转url
+    ```
+    const router = new VueRouter({
+        routes: [
+            { path: '/a', redirect: '/b' }
+        ]
+    })
+    ```
+    </details>
+
+## 实战技巧
+
+### 局部刷新
+- 用key属性来刷新组件，将key存储到vuex，每次刷新页面，只需要更新key进行+1
+
+
