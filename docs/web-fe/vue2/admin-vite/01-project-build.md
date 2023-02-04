@@ -149,3 +149,18 @@ module.exports = {
 ::: tip
 Now we can code [Login & Router & permissions](./02-login-router-permissions)
 :::
+
+
+
+### Axios 
+
+
+
+### vuex
+
+
+## 三、框架功能及业务实现
+
+### 1. 基于 `Vue Router` 和 `Element-UI` 实现 `登陆页`、`导航菜单`、`菜单权限`
+
+> vue官方组件命名规范：多个单词、大驼峰命名。
