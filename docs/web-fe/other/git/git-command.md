@@ -37,7 +37,9 @@ git config --global --unset https.proxy
 git config --global --unset http.https://github.com.proxy
 
 // 查看git config
-git config -l
+```sh
+git config -l // git config --list
+```
 
 // 通过 shadowsocks 右键菜单 `复制终端代理命令`
 export http_proxy=http://127.0.0.1:1087
@@ -61,7 +63,7 @@ git update-ref -d HEAD
 ### Git 全局设置
 
 ```sh
-git config --global user.name "Jello"
+git config --global user.name "Johnwjl"
 git config --global user.email "johnwangjl@gmail.com"
 ```
 
