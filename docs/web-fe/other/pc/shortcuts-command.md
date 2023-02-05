@@ -14,6 +14,10 @@
 - `Control(⌃) + Up(⌃)` 窗口调度
 - `Command(⌘) + Up(⌃)/Down(⌄)` 跳至文档头部/底部
 - `Control(⌃) + Mouse Scroll` 放大/缩小 PC Viewport
+- `Shfit(⇧) + Command(⌘) + G`  访达中查找文件
+- `killall Finder` 重启访达
+- `Control(⌃) + Command(⌘) + 1` 整理访达文件 -按名称排列
+- `Control(⌃) + Command(⌘) + 2` 整理访达文件 -按种类排列
 
 ## Mac VSCode
 

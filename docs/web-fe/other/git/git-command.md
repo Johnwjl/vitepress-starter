@@ -84,7 +84,7 @@ git push -u origin main
 ```sh
 cd existing_folder
 git init --initial-branch=main
-git remote add origin git@gitlab.com:Johnwjl/vitepress-starter.git
+git remote add origin git@gitlab.com:Johnwjl/Vue2_admin_vite.git
 git add .
 git commit -m "Initial commit"
 git push -u origin main
@@ -100,3 +100,24 @@ git push -u origin --all
 git push -u origin --tags
 ```
 
+### git pull
+
+- `git pull` = `git fetch` + `git merge`
+
+### 命令行内vim编辑操作
+- 在当前这个页面键入i(进入编辑模式)，此时会出现光标
+- 按esc，然后输入:(键盘上shift+：)，输入wq，即保存退出
+
+### 镜像（同步）到 Github
+
+#### Github 操作
+- 新建一个仓库
+- 新建一个Token密钥 `setting` -> `Developer setting` -> `personal access tokens`
+<!-- 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 -->
+#### Gitlab 操作
+- `设置` -> `仓库` -> `镜像仓库`
+- 填写Github URL 需要加上 `username` : https://Johnwjl@github.com/Johnwjl/Vue2_admin_vite.git
+- 填写 Token密钥
+- 点击更新（refresh）
+
+[参考](read://https_www.jianshu.com/?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fcf61a7408175)
