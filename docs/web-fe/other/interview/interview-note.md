@@ -1,17 +1,31 @@
-<h1>初级vue前端基础高频必问面试题</h1>
+# 面试知识点梳理
 
-# vue 2 技术栈
+## Vue
 
-## 核心
+#### 概念原理
 
-#### 各种概念原理
-- MVVM （数据驱动）
-  1. 全名：Model-View-ViewModel (模型-视图-视图模型)
-  2. ViewModel 是 MVVM软件架构的核心，视图的状态（展示）和行为（交互）都封装在了 ViewModel 里。
-  3. ViewModel 包含 Data Bindings 和 DOM Listeners。Data Bindings 用于将数据绑定到 View 上显示，DOM Listeners 用于监听操作。
-  4. 由于实现了双向绑定，ViewModel和View的任何变化都会使彼此同步更新，不需要再手动操作dom。 
-  5. 在MVVM框架中，你只需要处理和维护 ViewModel，更新数据 视图就会自动更新，这就是数据驱动。
-- 单向数据流 
+::: details MVVM & 数据驱动
+- MVVM：Model-View-ViewModel (模型-视图-视图模型)
+- `ViewModel`是`MVVM`软件架构的核心，视图的状态（展示）和行为（交互）都封装在`ViewModel`。
+- `ViewModel` 包含`Data Bindings`和`DOM Listeners`。`Data Bindings`用于将数据绑定到`View`上显示，`DOM Listeners`用于监听操作。
+- 由于实现了双向绑定，`ViewModel`和`View`的任何变化都会使彼此同步更新，不需要再手动操作DOM。 
+- 在MVVM框架中，你只需要处理和维护`ViewModel`，更新数据视图就会自动更新，这就是数据驱动。
+:::
+
+::: details 单向数据流
+单向数据流（unidirectional data flow），简单的讲：用户访问View，View发出用户交互的Action，在Action里对state进行相应更新。 state更新后会触发View更新页面的过程。 这样数据总是清晰的单向进行流动，便于维护并且可以预测。
+:::
+::: details 响应式原理 （双向绑定原理）
+1. 通过 Object.defineProperty 对每个属性进行监听，当对属性进行读取的时候，就会触发 getter，对属性进行设置的时候，就会触发 setter。
+2. 为了可以监测对象 ，Vue2 创建了一个 Observer 类
+3. Vue2 对数组的监测，是通过重写数组原型上的 7 个方法来实现
+4. 实际上 Object.defineProperty 可以做到通过下标的形式可以监听数组，但却无法监听到所有数组的操作。
+5. vue3 使用 proxy API 对数据实现 getter/setter 代理 ，原生支持对于数组和对象的监听。
+:::
+::: details 单向数据流
+单向数据流（unidirectional data flow），简单的说是指：用户访问View，View发出用户交互的Action，在Action里对state进行相应更新。 state更新后会触发View更新页面的过程。 这样数据总是清晰的单向进行流动，便于维护并且可以预测。
+:::
+
 - 响应式原理 （双向绑定原理）
   1. 通过 Object.defineProperty 对每个属性进行监听，当对属性进行读取的时候，就会触发 getter，对属性进行设置的时候，就会触发 setter。
   2. 为了可以监测对象 ，Vue2 创建了一个 Observer 类
