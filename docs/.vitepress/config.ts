@@ -171,7 +171,16 @@ export default {
                 text: 'Interview',
                 collapsed: true,
                 items: [
+                  { text: 'Interview Log', link: '/web-fe/other/interview/interview-log' }, 
+                  {
+                    text: 'Interview Detail Log', 
+                    collapsed: true,
+                    items: [
+                      { text: '20230207 才信网络科技', link: '/web-fe/other/interview/interview-detail-log/20230207-cxwlkj' }, 
+                    ]
+                  }, 
                   { text: 'Interview Note', link: '/web-fe/other/interview/interview-note' }, 
+                  { text: 'Resume Ask Mock', link: '/web-fe/other/interview/resume-ask-mock' }, 
                 ]
               },
               {
