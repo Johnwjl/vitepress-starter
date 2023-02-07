@@ -1,46 +1,45 @@
-# 基于简历模拟一场面试
-
+# 简历提问模拟
 ## 面试官问
-
-### 技术层面
-
+### 初级（15K）
 <br>
 
-#### 理论篇
+#### Vue
 
 ::: details 响应式原理（数据双向绑定原理）
 - Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
 - Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
-::: 
+:::
 
 ::: details v-model 原理
 - 用于在表单类元素上实现双向绑定
 - v-bind(绑定属性) 与 v-on(触发事件) 的语法糖
-::: 
+:::
 
 ::: details Vue 生命周期钩子 有哪些？
 - 8个阶段：创建前/后，载入前/后，更新前/后，销毁前/后。
-::: 
+:::
 
 ::: details Vue 常用的指令 有哪些？
 - v-if , v-show , v-for , v-bind , v-model
-::: 
+:::
 
 ::: details Vue 自定义指令 你用过吗？
-- 
-::: 
+- v-if , v-show , v-for , v-bind , v-model
+:::
 
 ::: details Vue 你常用的修饰符 有哪些？
 - stop , prevent , trim , number
-::: 
+:::
+
 ::: details Vue 组件间传值方式有哪些？
-- 
-::: 
+- v-if , v-show , v-for , v-bind , v-model
+:::
 
 ::: details `hash` 和 `history` 两种路由的区别
 - `hash`模式下，URL中会带有`#`，通过监听URL中hash部分的变化，从而做出对应的渲染逻辑
 - `history` 则是 通过 HTML5 的 history API 来实现 路由的跳转
-::: 
+:::
+
 ::: details Vue 路由导航 & 权限控制 ，你是怎么实现的？
 - 登录以后，后端接口会返回当前用户可访问的完整路由菜单
 - 拿这张动态路由表与我们前端自己的静态路由表做比对和筛选，从而展示出当前用户权限下的菜单
@@ -56,10 +55,59 @@
   - 解决方案，一般是在Echart初始化方法添加`this.$nextTick`,等当前元素或动画帧渲染完毕才执行后续事件操作。
 ::: 
 
-#### 细节问题点
+#### JavaScript
 
-- 如何修改数组
-- const 能改变 引用类型吗
+::: details 数据类型
+- 基本类型：String、Number、Boolean、Undefined、Null、Bigint、Symbol。
+- BigInt是一种表示`大整数`新的数据类型，用于当整数值大于Number数据类型支持的范围时。
+- Symbol 是`唯一并且不可变`的原始值，并且可以用来作为`对象属性的键`。
+- 引用类型：Object、Array、Function、Data、Math、RegExp。
+```js
+// 工具方法 判断数据类型
+function checkType(val){
+  let type  = typeof val;
+  if (type !== "object") {    // 先进行typeof判断，如果是基础数据类型，直接返回
+    return type;
+  }
+  // 对于typeof返回结果是object的，再进行如下的判断，正则返回结果
+  return Object.prototype.toString.call(val).replace(/^\[object (\S+)\]$/, '$1');
+}
+```
+:::
+
+::: details 原型链继承
+- Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
+- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+:::
+
+::: details ES6中你常用的知识
+- Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
+- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+:::
+
+::: details let const var 区别
+- Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
+- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+:::
+
+::: details promise 有几种状态
+- pending fullfill reject
+- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+:::
+
+::: details 数组 map() 的返回值
+- pending fullfill reject
+- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+:::
+
+#### CSS
+
+::: details css如何优化 重排和重绘
+- Reflow（重排）: 元素改变影响了文档流布局
+- Repaint（重绘）: 元素改变但未影响文档流布局
+- 重绘不一定导致重排，但重排一定会导致重绘。
+- 重排的开销代价很大，建议：不要使用Table 布局，缩小重排元素的DOM层级
+:::
 
 ### 履历层面
 
@@ -113,7 +161,7 @@
 :::
 
 ::: details 社保和个税按照什么标准缴纳
-- 
+- 111
 :::
 
 ::: details 年薪多少薪、年终奖制度
