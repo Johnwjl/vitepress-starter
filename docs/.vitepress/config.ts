@@ -186,6 +186,7 @@ export default {
                 text: 'iPhone 使用指南',
                 collapsed: true,
                 items: [
+                  { text: '目录', link: '/life/iPhone/index' }, 
                   { text: '录屏及通话录音', link: '/life/iPhone/screen-record' }, 
                   // { 
                   //   text: 'Watching Note',

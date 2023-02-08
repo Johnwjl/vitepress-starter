@@ -9,6 +9,7 @@
 - `Shfit(⇧) + Command(⌘) + 5`  区域录屏
 - `Command(⌘) + Back(⌫)` 丢入垃圾篓（删除文件）
 - `Control(⌃) + Command(⌘) + Space(␣)` 表情与特殊符号
+- `Option(⌥) + Shfit(⇧) + K` Apple 苹果标志图标
 - `Control(⌃) + Left(←)/Right(→)` 快速平移切换所有窗口
 - `Option(⌥) + Command(⌘) + Left(←)/Right(→)` 切换应用内部的Tab页签
 - `Shfit(⇧) + Control(⌃) + Left(←)/Right(→)` 选择文字范围/撤销选择文字范围
