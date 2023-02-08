@@ -66,10 +66,10 @@
 <!-- GIF -->
 <!-- ![2023-02-08 11.02.22.gif](https://s2.loli.net/2023/02/08/zEBVGhqe89UjxIv.gif) -->
 <!-- GIF（带底部标题）-->
-<figure>
+<!-- <figure>
   <img src="https://s2.loli.net/2023/02/08/zEBVGhqe89UjxIv.gif" alt="2023-02-08 11.02.22.gif" style="width:100%;height:100%" >
   <figcaption style="text-align: center;color: #9e9e9e;">2023-02-08 11.02.22.gif</figcaption>
-</figure>
+</figure> -->
 <!-- 图片缩放 （单个设备）-->
 <!-- ![](path/to/file.jpg){data-zoomable} -->
 
