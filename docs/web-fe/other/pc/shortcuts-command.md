@@ -6,6 +6,7 @@
 - `Control(⌃) + Command(⌘) + Q`  快速锁屏
 - `Shfit(⇧) + Command(⌘) + 3`  截屏
 - `Shfit(⇧) + Command(⌘) + 4`  区域截图
+- `Shfit(⇧) + Command(⌘) + 5`  区域录屏
 - `Command(⌘) + Back(⌫)` 丢入垃圾篓（删除文件）
 - `Control(⌃) + Command(⌘) + Space(␣)` 表情与特殊符号
 - `Control(⌃) + Left(←)/Right(→)` 快速平移切换所有窗口
