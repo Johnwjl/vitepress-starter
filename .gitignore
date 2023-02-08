@@ -21,4 +21,4 @@ selenium-debug.log
 *.sln
 
 # ad
-docs/.vitepress/theme
+# docs/.vitepress/theme
