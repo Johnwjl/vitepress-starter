@@ -1,4 +1,4 @@
-# 截屏、录屏、通话录音
+# 截屏、录屏、通话录音、录音（语音备忘录）
 
 ## 截屏
 
@@ -7,13 +7,11 @@
 
 ## 录屏
 
-- 打开 `控制中心` （手机屏幕右上角往下滑），轻点`屏幕录制`按钮
-<img src="https://help.apple.com/assets/6387F6CB0C1E2145A22E8306/6387F6E20C1E2145A22E8317/zh_CN/bcf0ae9a9a6be53769cb52055ea2552c.png" alt="“屏幕录制”按钮" height="30" width="31" originalimagename="GlobalArt/IL_ScreenRecordGray.png">
+- 打开 **控制中心** `从屏幕右上角往下轻扫`，轻点`屏幕录制`按钮 <img src="https://help.apple.com/assets/6387F6CB0C1E2145A22E8306/6387F6E20C1E2145A22E8317/zh_CN/bcf0ae9a9a6be53769cb52055ea2552c.png" alt="“屏幕录制”按钮" height="30" width="31" originalimagename="GlobalArt/IL_ScreenRecordGray.png" style="display: inline-block;vertical-align: bottom;">
 
 ## 停止录屏
 
-- 打开 `控制中心` （手机屏幕右上角往下滑），再次轻点`屏幕录制`按钮
-<img src="https://help.apple.com/assets/6387F6CB0C1E2145A22E8306/6387F6E20C1E2145A22E8317/zh_CN/a5528a3fcf15083141f9576956adebbd.png" alt="所选“屏幕录制”按钮" height="30" width="30" originalimagename="GlobalArt/IL_ScreenRecordRed.png">
+- 打开 **控制中心** `从屏幕右上角往下轻扫`，再次轻点`屏幕录制`按钮 <img src="https://help.apple.com/assets/6387F6CB0C1E2145A22E8306/6387F6E20C1E2145A22E8317/zh_CN/a5528a3fcf15083141f9576956adebbd.png" alt="所选“屏幕录制”按钮" height="30" width="30" originalimagename="GlobalArt/IL_ScreenRecordRed.png" style="display: inline-block;vertical-align: bottom;">
 
 ## 通话录音
 
@@ -27,3 +25,8 @@
   <img src="https://s2.loli.net/2023/02/08/myA9wGkxVdvBbHQ.gif" alt="RPReplay_Final1675831843.mov.gif" style="width:50%;margin: 0 auto;">
   <figcaption style="text-align: center;color: #9e9e9e;">长按录音，打开麦克风</figcaption>
 </figure>
+
+## 录音（语音备忘录）
+
+- 方式一：打开`语音备忘录` <img src="https://help.apple.com/assets/6387F6CB0C1E2145A22E8306/6387F6E20C1E2145A22E8317/zh_CN/24849252a2cb8cd7e049378aa79f50ec.png" alt="所选“屏幕录制”按钮" height="30" width="30" originalimagename="GlobalArt/IL_ScreenRecordRed.png" style="display: inline-block;vertical-align: bottom;">
+- 方式二：通过 **控制中心** `从屏幕右上角往下轻扫` 点击`录音按钮` <img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iOS/ios11-control-center-voice-memos-icon.png" alt="所选“屏幕录制”按钮" height="30" width="30" originalimagename="GlobalArt/IL_ScreenRecordRed.png" style="width: 25px;height: 30px;display: inline-block;vertical-align: middle;">
