@@ -95,6 +95,11 @@ function checkType(val){
 - Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
 :::
 
+::: details promise setTimeout 触发顺序
+- pending fullfill reject
+- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+:::
+
 ::: details 数组 map() 的返回值
 - pending fullfill reject
 - Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
@@ -187,3 +192,5 @@ function checkType(val){
 ::: details 开会或者团建 会占用休息日时间吗
 - 有
 :::
+
+

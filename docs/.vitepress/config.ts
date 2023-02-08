@@ -19,7 +19,7 @@ export default {
           items: [
             { text: 'Vue2', link: '/web-fe/vue2/vue2-note' },
             { text: 'Vue3', link: '/web-fe/vue3' },
-            { text: 'JavaScript', link: '/web-fe/javascript' },
+            { text: 'JavaScript', link: '/web-fe/javaScript/es6+/promise' },
             { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
             { text: 'Other', link: '/web-fe/other/interview/interview-note' },
           ]
@@ -100,6 +100,29 @@ export default {
       //   copyright: '© 2023 Jello'
       // },
       sidebar: {
+        '/web-fe/javaScript/': [
+          {
+            text: 'JavaScript',
+            // collapsed: false,
+            items: [
+              {
+                text: 'ES5',
+                collapsed: true,
+                items: [
+                  { text: '01. Project Build', link: '/web-fe/vue2/admin-cli/01-project-build' }, 
+                  // { text: '02. Login & Router & Permissions', link: '/web-fe/vue2/admin-cli/02-login-router-permissions' }, 
+                ]
+              },
+              {
+                text: 'ES6+',
+                collapsed: true,
+                items: [
+                  { text: 'Promise', link: '/web-fe/javaScript/es6+/promise' }, 
+                ]
+              }
+            ]
+          }
+        ],
         '/web-fe/vue2/': [
           {
             text: 'Vue2',
@@ -157,6 +180,20 @@ export default {
                       { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
                     ]
                   }, 
+                ]
+              },
+              {
+                text: 'iPhone 使用指南',
+                collapsed: true,
+                items: [
+                  { text: '录屏及通话录音', link: '/life/iPhone/screen-record' }, 
+                  // { 
+                  //   text: 'Watching Note',
+                  //   collapsed: true,
+                  //   items: [
+                  //     { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
+                  //   ]
+                  // }, 
                 ]
               }
             ]
