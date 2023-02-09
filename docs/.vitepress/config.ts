@@ -217,8 +217,6 @@ export default {
                       { text: '图片点击放大', link: '/web-fe/other/blog-upgrade/blog-upgrade-log-note/img-zoom' }, 
                     ]
                   }, 
-                  { text: 'Interview Note', link: '/web-fe/other/interview/interview-note' }, 
-                  { text: 'Resume Ask Mock', link: '/web-fe/other/interview/resume-ask-mock' }, 
                 ]
               },
               {
