@@ -15,6 +15,10 @@
 - v-bind(绑定属性) 与 v-on(触发事件) 的语法糖
 :::
 
+::: details 虚拟Dom 的优势 及 diff 原理
+- 123
+:::
+
 ::: details Vue 生命周期钩子 有哪些？🌟
 - 8个阶段：`创建`前/后，`挂载`前/后，`更新`前/后，`销毁`前/后。
 - `生命周期钩子`具体描述：
@@ -38,51 +42,67 @@
 - 销毁：父beforeDestroy->子beforeDestroy->子destroyed->父destroyed
 :::
 
-::: details Vue 常用的指令 有哪些？🌟
-- v-if , v-show , v-for , v-bind , v-model
+::: details Vue常用的指令有哪些？🌟
+- v-if , v-show , v-for , v-model，v-bind , v-on
 :::
 
 ::: details v-if 和 v-show 区别？🌟
-- v-if 是真正的条件渲染，v-show 只是css层面的显示隐藏。
-- v-show 更适合元素频繁切换的场景，v-if则相反。
+- `v-if`是真正的条件渲染，`v-show`只是css层面的显示隐藏。
+- `v-show`更适合元素切换频繁的场景，`v-if`则相反。
 :::
 
-::: details v-for key的作用? 🌟
-- 在 虚拟DOM diff 过程中，新旧nodes对比时 通过 key 来辨识VNodes；
-- 不使用key的情况下，vue默认遵循 就地更新/复用 策略，最大限度减少动态元素
-- 使用key之后，vue会基于key的变化重新排列元素顺序，以及 移除/销毁 key不存在的元素
+::: details `v-for`的`key`属性的作用? 🌟
+- 在虚拟DOM`diff`过程中，新旧`Nodes`对比时,通过`key`来辨识`VNodes`；
+- 不使用key的情况下，Vue默认遵循`就地更新/复用`策略，最大限度减少动态元素;
+- 使用key之后，Vue会基于key的变化重新排列元素顺序，以及移除/销毁key不存在的元素。
 :::
 
-::: details v-for为何不推荐使用index来作为key? 🌟
-- 在`differ`算法比较虚拟DOM时，每项的`index`都会随着数据变更发生变化，进而更新每项的真实Dom，违背了Key就地复用的原则，造成了不必要的性能开销。
+::: details `v-for`为何不建议使用`index`来作为key? 🌟
+- 在虚拟DOM`diff`过程中，每一项的`index`都会随着数据变更而发生变化，进而更新每一项的DOM节点，这就造成了不必要的性能开销。
 :::
 
-::: details v-for v-if 为什么不能一起用？ 🌟
-- `v-for`的优先级比`v-if`高，每次`v-for`都会执行一次`v-if`，造成重复计算的问题，会影响性能。
-:::
-
-::: details Vue 自定义指令 你用过吗？
-- 123
+::: details `v-for`与`v-if`为什么不能一起用？ 🌟
+- `v-for`的优先级比`v-if`高，`v-for`的每次循环都会执行一次`v-if`，这就造成了不必要的性能开销。
 :::
 
 ::: details Vue 你常用的修饰符 有哪些？
 - stop , prevent , trim , number
 :::
 
-::: details Vue 组件间传值方式有哪些？🌟
+::: details Vue组件间传值方式有哪些？🌟
 - 父传子：props 接受传值
 - 子传父：$emit 事件发送
 - 兄弟组件：中央总线(Event-Bus)，`$emit`发送，`$on`接受
 :::
 
+::: details 页面输入URL回车后刷新的空白时间做了什么
+- 123
+:::
+
 ::: details `hash` 和 `history` 两种路由的区别 🌟
 - `hash`模式下，URL中会带有`#`，通过监听URL中hash部分的变化，从而做出对应的渲染逻辑
-- `history` 则是 通过 HTML5 的 history API 来实现 路由的跳转
+- `history` 则是通过HTML5的`history API`来实现路由的跳转
+:::
+
+::: details 路由History模式, 页面刷新为什么会404 🌟
+- 123
 :::
 
 ::: details Vue 路由权限是怎么实现的？
 - 登录以后，后端接口会返回当前用户可访问的路由菜单
 - 拿这张动态路由表与我们前端自己的静态路由表做比对和筛选，从而展示出当前用户权限下的菜单
+::: 
+
+::: details Vue 自定义指令 你用过吗？
+- 123
+:::
+
+::: details Vue 按钮级权限怎么实现的？
+- 123
+::: 
+
+::: details 路由守卫钩子
+- 123
 ::: 
 
 ::: details vuex mutation?
@@ -115,6 +135,12 @@
 - 获取不到DOM
   - 原因：vue执行异步DOM更新，当数据变化，视图变更会进入队列。出于 接口缓慢或者 动画过渡等效果 影响，视图变更受到延迟
   - 解决：Vue.nextTick(callback) ，在 DOM 更新完成后再调用。
+- API 接口调用时间长，前端界面如何处理的
+  - 123
+- 大数据量展示：分页处理
+  - 123
+- 如何提升页面渲染性能
+  - 123
 ::: 
 
 #### JavaScript
@@ -137,9 +163,12 @@ function checkType(val){
 ```
 :::
 
-::: details 原型链继承
-- Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
-- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+::: details 原型链与继承
+- 123
+:::
+
+::: details JS有哪些作用域
+- 123
 :::
 
 ::: details 闭包
@@ -147,6 +176,20 @@ function checkType(val){
 - 外部作用域能够访问内部作用域的变量
 - 实际用的不多，因为闭包会引起内存泄漏等性能问题。
 - 在一些第三方工具库里，比如 防抖的 工具函数中 会使用到 闭包。
+:::
+
+::: details 闭包为什么会引起内存泄漏
+- 123
+:::
+
+::: details 如何避免内存泄漏
+- 减少闭包，
+- 减少全局变量声明，
+- 使用let块级作用域
+:::
+
+::: details 事件捕获和事件冒泡 ，如何设置捕获和冒泡
+- 123
 :::
 
 ::: details 常用到的ES6知识点 🌟
@@ -159,6 +202,14 @@ function checkType(val){
 - 箭头函数
 - promise
 - async await
+:::
+
+::: details const定义的对象，可以更改对象的属性吗
+- 123
+:::
+
+::: details 对象深拷贝
+- `JSON.parse(JSON.stringify(obj))`
 :::
 
 ::: details let const var 区别
@@ -175,9 +226,8 @@ function checkType(val){
 - 一组`promise实例`的数组
 :::
 
-::: details promise setTimeout 触发顺序
-- pending fullfill reject
-- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+::: details Promise内的setTimeout执行顺序是怎么样的
+- 123
 :::
 
 ::: details 数组 map() 的返回值
@@ -196,32 +246,85 @@ function checkType(val){
 
 ### 中级（20K）
 
+#### Vue
+
+::: details `$nexttick()`是如何实现的
+- 123
+:::
+
 #### js
 
 ::: details `sessionStorage`在同域下的多窗口之间能共享状态吗？
 - 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
 :::
 
-::: details `EventLoop` 事件循环
+::: details `EventLoop` 事件循环机制
+- 123
+:::
+
+::: details JS是单线程, 那它是如何处理异步的
+- 123
+- [参考](https://juejin.cn/post/6844904159385223175)
+:::
+
+::: details New关键字的底层原理
+- 123
+:::
+
+::: details get和set分别应用于基本数据类型和引用类型，有何不同
+- 123
+:::
+
+#### Webpack
+
+::: details Webpack的工作流程是怎么样的
+- 123
+:::
+
+#### 实际项目中遇到问题及解决
+::: details 表格前端导出
 - 123
 :::
 
 ### 履历层面
 
+::: details 最近做的项目讲一下, 具体包含什么功能
+- 123
+::: 
+
 ::: details 什么时候离职的？
 - 2月初离职
 ::: 
+
 ::: details 这次离职原因是？
 - 职业发展
 :::
+
 ::: details 上次离职原因是？
 - 个人因素
 :::
+
 ::: details 离职证明有吗？
 - 有的
 - ~~离职证明 还在走流程，最迟下周能够提供~~
 :::
 
+
+### Vue3 
+
+#### 初级
+
+::: details Vue3 怎么定义响应式数据
+- 123
+:::
+
+### TS
+
+#### 初级
+
+::: details 什么是Ts泛型，什么时候会用泛型
+- 123
+:::
 
 ## 求职者问
 
