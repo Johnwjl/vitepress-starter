@@ -151,6 +151,8 @@
     </details>
 
 ## vue router
+
+- [路由权限](../vue2/vue2-note-details/router-permissions.md)
 - 权限控制
     1. 接口权限
         采用 JWT（Json Web Token）做接口权限校验。没有通过就返回401，路由挑转至登陆页做登陆鉴权，
