@@ -15,37 +15,92 @@
 - v-bind(绑定属性) 与 v-on(触发事件) 的语法糖
 :::
 
-::: details Vue 生命周期钩子 有哪些？
-- 8个阶段：创建前/后，载入前/后，更新前/后，销毁前/后。
+::: details Vue 生命周期钩子 有哪些？🌟
+- 8个阶段：`创建`前/后，`挂载`前/后，`更新`前/后，`销毁`前/后。
+- `生命周期钩子`具体描述：
+  1. beforeCreate：vue实例的挂载el未定义，data未定义
+  2. **created**：`data`已经定义，但未初始化。通常在这个阶段进行一些`数据资源的请求`。
+  3. beforeMounted:
+  4. **mounted**: 实例el挂载完毕。可以进行一些`DOM操作`。
+  5. beforeUpdate: 在数据发生改变后，DOM 被更新之前被调用。
+  6. updated: DOM重新渲染完毕之后被调用
+  7. beforeDestroy：组件实例销毁之前调用。
+  8. destroyed：实例销毁后调用。可以执行一些性能优化操作，清空计时器，解除绑定事件
+- 还有别的`生命周期钩子`吗
+  - 用于 `keep-alive` 组件缓存的 两个钩子：`activated` `deactivated`
+    - `activated`：被 keep-alive 缓存的组件激活时调用。
+    - `deactivated`：被 keep-alive 缓存的组件失活时调用。
 :::
 
-::: details Vue 常用的指令 有哪些？
+::: details 父子组件的生命周期顺序
+- 加载渲染：父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted
+- 更新：父beforeUpdate->子beforeUpdate->子updated->父updated
+- 销毁：父beforeDestroy->子beforeDestroy->子destroyed->父destroyed
+:::
+
+::: details Vue 常用的指令 有哪些？🌟
 - v-if , v-show , v-for , v-bind , v-model
+:::
+
+::: details v-if 和 v-show 区别？🌟
+- v-if 是真正的条件渲染，v-show 只是css层面的显示隐藏。
+- v-show 更适合元素频繁切换的场景，v-if则相反。
+:::
+
+::: details v-for key的作用? 🌟
+- 在 虚拟DOM diff 过程中，新旧nodes对比时 通过 key 来辨识VNodes；
+- 不使用key的情况下，vue默认遵循 就地更新/复用 策略，最大限度减少动态元素
+- 使用key之后，vue会基于key的变化重新排列元素顺序，以及 移除/销毁 key不存在的元素
+:::
+
+::: details v-for为何不推荐使用index来作为key? 🌟
+- 在`differ`算法比较虚拟DOM时，每项的`index`都会随着数据变更发生变化，进而更新每项的真实Dom，违背了Key就地复用的原则，造成了不必要的性能开销。
+:::
+
+::: details v-for v-if 为什么不能一起用？ 🌟
+- `v-for`的优先级比`v-if`高，每次`v-for`都会执行一次`v-if`，造成重复计算的问题，会影响性能。
 :::
 
 ::: details Vue 自定义指令 你用过吗？
-- v-if , v-show , v-for , v-bind , v-model
+- 123
 :::
 
 ::: details Vue 你常用的修饰符 有哪些？
 - stop , prevent , trim , number
 :::
 
-::: details Vue 组件间传值方式有哪些？
-- v-if , v-show , v-for , v-bind , v-model
+::: details Vue 组件间传值方式有哪些？🌟
+- 父传子：props 接受传值
+- 子传父：$emit 事件发送
+- 兄弟组件：中央总线(Event-Bus)，`$emit`发送，`$on`接受
 :::
 
-::: details `hash` 和 `history` 两种路由的区别
+::: details `hash` 和 `history` 两种路由的区别 🌟
 - `hash`模式下，URL中会带有`#`，通过监听URL中hash部分的变化，从而做出对应的渲染逻辑
 - `history` 则是 通过 HTML5 的 history API 来实现 路由的跳转
 :::
 
-::: details Vue 路由导航 & 权限控制 ，你是怎么实现的？
-- 登录以后，后端接口会返回当前用户可访问的完整路由菜单
+::: details Vue 路由权限是怎么实现的？
+- 登录以后，后端接口会返回当前用户可访问的路由菜单
 - 拿这张动态路由表与我们前端自己的静态路由表做比对和筛选，从而展示出当前用户权限下的菜单
 ::: 
 
-::: details 项目中碰到过的实际问题及解决方案？
+::: details vuex mutation?
+- 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。
+- commit 推送一个mutation
+::: 
+
+::: details vuex action？
+- Action 提交 mutation，而非直接变更状态。
+- Action 可以包含任意异步操作。
+::: 
+
+::: details vuex commit dispatch 区别？
+- dispatch 推送一个action (因此 dispatch 包含了异步操作)，this.$store.dispatch('mutations方法名',值)
+- commit：同步操作，写法：this.$store.commit('mutations方法名',值)
+::: 
+
+::: details 项目中碰到过的实际问题及解决方案？🌟
 - 在vue项目的开发中，遇到过的典型问题之一就是 `vuex状态存储数据在刷新后丢失`，围绕如何将`vuex持久化存储`去解决这个问题。
   - 解决问题的前提是定位问题。因为Vuex里的数据是保存在运行内存中的，当页面刷新时，页面会重新加载Vue实例，Vuex里面的数据就会被重新赋值。
   - 第一种解决方案 是 同时将数据存在 sessionstorge，页面刷新初始化阶段vuex通过接收sessionStorage的数据来进行数据响应式。
@@ -53,6 +108,13 @@
 - 另一个经典的问题是在 Vue使用Echart时init初始化失败，debug提示获取不到DOM元素
   - 定位问题的时候，首先想到可能是由于`页面元素渲染顺序`的问题。一般是由于`v-if`条件渲染或是`v-show`切换tab页，又或者是存在`animation`动画或`transition`过渡效果，导致目标元素要延迟几毫秒才出现，而该Dom元素的相关事件操作则先行了一步。
   - 解决方案，一般是在Echart初始化方法添加`this.$nextTick`,等当前元素或动画帧渲染完毕才执行后续事件操作。
+- 数据更新,视图却没更新 
+  - 原因：在vue组件中,data初始化的数据是具有响应性的，而在vue2当中有一些数组和对象的操作变动是无法被监测的。
+  - 比如：使用数组索引直接赋值，或通过length直接修改数组长度。
+  - 解决：`vue.$set(object, key, value)` 添加具有响应性的属性
+- 获取不到DOM
+  - 原因：vue执行异步DOM更新，当数据变化，视图变更会进入队列。出于 接口缓慢或者 动画过渡等效果 影响，视图变更受到延迟
+  - 解决：Vue.nextTick(callback) ，在 DOM 更新完成后再调用。
 ::: 
 
 #### JavaScript
@@ -80,9 +142,23 @@ function checkType(val){
 - Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
 :::
 
-::: details ES6中你常用的知识
-- Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
-- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+::: details 闭包
+- 函数的嵌套函数及其作用域上下文，
+- 外部作用域能够访问内部作用域的变量
+- 实际用的不多，因为闭包会引起内存泄漏等性能问题。
+- 在一些第三方工具库里，比如 防抖的 工具函数中 会使用到 闭包。
+:::
+
+::: details 常用到的ES6知识点 🌟
+- let const
+- 解构赋值
+- 模版字符串
+- 展开运算符
+- 数组方法：`find` `findIndex` `entries` `keys` `values` `flat` `sort`
+- 对象方法：`assign()`(用于对象的合并 浅拷贝) `entries()` `keys()` `values()`
+- 箭头函数
+- promise
+- async await
 :::
 
 ::: details let const var 区别
@@ -93,6 +169,10 @@ function checkType(val){
 ::: details promise 有几种状态
 - pending fullfill reject
 - Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+:::
+
+::: details `promise.all()`的参数
+- 一组`promise实例`的数组
 :::
 
 ::: details promise setTimeout 触发顺序
