@@ -55,7 +55,57 @@
         err => console.log("rejected: ", err)
     );
   ```
-- `.catch()` 捕捉发生错误时的回调函数
+- `.catch()` 捕捉发生错误时的回调函数，建议总是使用`catch`方法,而不是在`then`中定义第二个参数。
+- `.finally()` 不管 Promise 对象最后状态如何，都会执行。它是与状态无关的，不依赖于 Promise 的执行结果。
+- `.all()` 
+  ```js
+  const p = Promise.all([p1, p2, p3]);
+  ```
+  
+  > p的状态由p1、p2、p3决定，分成两种情况: 
+
+  > - （1）只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
+
+  > - （2）只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
+- `.race()` 
+  ```js 
+  const p = Promise.race([p1, p2, p3]);
+  ```
+
+  > 只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。
+
+- `.allSettled()` 用来确定一组异步操作是否都结束了（不管成功或失败）。
+  ```js
+  const resolved = Promise.resolve(42);
+  const rejected = Promise.reject(-1);
+
+  const allSettledPromise = Promise.allSettled([resolved, rejected]);
+
+  allSettledPromise.then(function (results) {
+    console.log(results);
+  });
+  // [
+  //    { status: 'fulfilled', value: 42 },
+  //    { status: 'rejected', reason: -1 }
+  // ]
+  ```
+
+- `.any()`
+  ```js
+  Promise.any([
+    fetch('https://v8.dev/').then(() => 'home'),
+    fetch('https://v8.dev/blog').then(() => 'blog'),
+    fetch('https://v8.dev/docs').then(() => 'docs')
+  ]).then((first) => {  // 只要有一个 fetch() 请求成功
+    console.log(first);
+  }).catch((error) => { // 所有三个 fetch() 全部请求失败
+    console.log(error);
+  });
+  ```
+
+  > 参数实例`只要有一个`变成`fulfilled`状态，包装实例就会变成`fulfilled`状态；
+
+  > 参数实例如果`所有`都变成`rejected`状态，包装实例就会变成`rejected`状态。
 
 ## 参考
 

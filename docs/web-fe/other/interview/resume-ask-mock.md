@@ -114,6 +114,18 @@ function checkType(val){
 - 重排的开销代价很大，建议：不要使用Table 布局，缩小重排元素的DOM层级
 :::
 
+### 中级（20K）
+
+#### js
+
+::: details `sessionStorage`在同域下的多窗口之间能共享状态吗？
+- 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
+:::
+
+::: details `EventLoop` 事件循环
+- 123
+:::
+
 ### 履历层面
 
 ::: details 什么时候离职的？

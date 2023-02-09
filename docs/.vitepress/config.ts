@@ -19,7 +19,7 @@ export default {
           items: [
             { text: 'Vue2', link: '/web-fe/vue2/vue2-note' },
             { text: 'Vue3', link: '/web-fe/vue3' },
-            { text: 'JavaScript', link: '/web-fe/javaScript/es6+/promise' },
+            { text: 'JavaScript', link: '/web-fe/javascript/es6+/promise' },
             { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
             { text: 'Other', link: '/web-fe/other/interview/interview-note' },
           ]
@@ -100,7 +100,7 @@ export default {
       //   copyright: '© 2023 Jello'
       // },
       sidebar: {
-        '/web-fe/javaScript/': [
+        '/web-fe/javascript/': [
           {
             text: 'JavaScript',
             // collapsed: false,
@@ -117,7 +117,7 @@ export default {
                 text: 'ES6+',
                 collapsed: true,
                 items: [
-                  { text: 'Promise', link: '/web-fe/javaScript/es6+/promise' }, 
+                  { text: 'Promise', link: '/web-fe/javascript/es6+/promise' }, 
                 ]
               }
             ]
