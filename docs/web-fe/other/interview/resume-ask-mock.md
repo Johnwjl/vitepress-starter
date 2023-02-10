@@ -204,8 +204,35 @@
   ```
 ::: 
 
-::: details 路由守卫钩子
-- 123
+::: details Vue路由守卫
+- 全局守卫 `router.beforeEach`
+  ```js
+  router.beforeEach((to, from, next) => {
+    if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+    else next()
+  })
+  ```
+- 路由独享守卫 `beforeEnter`
+  ```js
+  const routes = [
+    {
+      path: '/users/:id',
+      component: UserDetails,
+      beforeEnter: (to, from) => {
+        // reject the navigation
+        return false
+      },
+    },
+  ]
+  ```
+- 组件内的守卫 `beforeRouteEnter`
+  ```js
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      // 通过 `vm` 访问组件实例
+    })
+  }
+  ```
 ::: 
 
 ::: details vuex mutation?
@@ -266,12 +293,14 @@ function checkType(val){
 ```
 :::
 
-::: details 原型链与继承
+::: details 原型链与继承 待补充
 - 123
 :::
 
 ::: details JS有哪些作用域
-- 123
+- 全局作用域
+- 函数作用域
+- 块级作用域
 :::
 
 ::: details 闭包
@@ -282,17 +311,28 @@ function checkType(val){
 :::
 
 ::: details 闭包为什么会引起内存泄漏
-- 123
+- 根据`垃圾回收机制`，被另一个作用域引用的变量不会被回收。
 :::
 
 ::: details 如何避免内存泄漏
-- 减少闭包，
-- 减少全局变量声明，
-- 使用let块级作用域
+- 减少闭包，以及释放闭包内存占用
+  - create = null // 释放对匿名函数的引用 
+  - 匿名函数立即执行
+- 减少全局变量声明，使用l块级作用域
 :::
 
 ::: details 事件捕获和事件冒泡 ，如何设置捕获和冒泡
-- 123
+- 事件冒泡：事件流的触发顺序从里一直向外传递
+- 事件捕获：事件流的触发顺序从外一直向里传递
+- `addEventListener`函数的`第三个参数`是个`布尔值`。
+  - 当布尔值是`false`时（默认值），表示向上冒泡触发事件；
+  - 当布尔值是`true`时，表示向下捕获触发事件；
+:::
+
+::: details 事件委托（代理)
+- 描述：把事件监听器设置在目标元素的父节点上，然后利用冒泡原理设置每个子节点。
+- 好处：只操作了一次 DOM ，提高了程序的性能。
+- 例如：给`ul`注册点击事件，然后利用事件对象的`target`来找到当前点击的`li`，然后事件冒泡到`ul`上，`ul`有注册事件，就会触发事件监听器。
 :::
 
 ::: details 常用到的ES6知识点 🌟
@@ -307,8 +347,9 @@ function checkType(val){
 - async await
 :::
 
-::: details const定义的对象，可以更改对象的属性吗
-- 123
+::: details `const`定义的对象可以更改里面的属性吗
+- 可以。因为const声明的对象，只是保存对象的引用地址，只要地址不变，就不会出错。
+- 如何使之不变：使用`Object.freeze(obj)`冻结对象，就能使其内部的属性不可变，但有局限，就是obj对象中要是有属性是对象，该对象内属性还能改变，要全不可变的话，就需要使用`递归`等方式一层一层全部冻结。
 :::
 
 ::: details 对象深拷贝
@@ -316,13 +357,13 @@ function checkType(val){
 :::
 
 ::: details let const var 区别
-- Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
-- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+- var： 存在变量提升；一个变量可多次声明
+- let ，const： 块级作用域；不存在变量提升；声明前变量不可用（暂时性死区）；不允许在相同作用域中重复声明
+- const：只读的变量，声明后值类型数据不能改变，引用类型地址指向不能改变 内部属性可以改变；const必须初始化
 :::
 
 ::: details promise 有几种状态
-- pending fullfill reject
-- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+- `pending` `fullfill` `reject`
 :::
 
 ::: details `promise.all()`的参数
@@ -330,7 +371,29 @@ function checkType(val){
 :::
 
 ::: details Promise内的setTimeout执行顺序是怎么样的
-- 123
+- 面试题
+  ```js
+    setTimeout(function () {
+      console.log(1);
+    }, 0);
+
+    new Promise(function (resolve) {
+      console.log(2)
+      for (let i = 0; i < 10000; i++) {
+        i == 9999 && resolve();
+      }
+      console.log(3)
+    }).then(function () {
+      console.log(4)
+    });
+    console.log(5);
+    // 2 3 5 4 1
+  ```
+- 解析
+  - 首先，Promise定以后会立即执行，所以会先打印2；
+  - 然后，resolve和reject调用不会终止Promise内的参数函数继续执行，所以会打印3；
+  - 之后，Promise的then方法和setTimeout都是异步任务，会先执行完本轮“事件循环”，所以会打印5；
+  - 最后，由于then方法是异步里面的微任务，而setTimeout是异步的宏任务，会先打印4.
 :::
 
 ::: details 数组 map() 的返回值
@@ -340,7 +403,7 @@ function checkType(val){
 
 #### CSS
 
-::: details css如何优化 重排和重绘
+::: details css如何优化 重排（回流）和重绘
 - Reflow（重排）: 元素改变影响了文档流布局
 - Repaint（重绘）: 元素改变但未影响文档流布局
 - 重绘不一定导致重排，但重排一定会导致重绘。
