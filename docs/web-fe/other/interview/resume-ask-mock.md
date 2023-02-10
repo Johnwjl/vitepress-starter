@@ -6,30 +6,32 @@
 #### Vue
 
 ::: details 响应式原理（数据双向绑定原理）
-- Vue2是通过 Object.defineProperty 去监听属性的 getter 和 setter,
-- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+- `Vue2`是通过`Object.defineProperty`去监听属性的`getter`和`setter`,
+- `Vue3`是通过`Proxy API`实现对属性的`getter`和`setter` 的代理，并原生支持对数组和对象的监听。
 :::
 
-::: details v-model 原理
-- 用于在表单类元素上实现双向绑定
-- v-bind(绑定属性) 与 v-on(触发事件) 的语法糖
+::: details `v-model`
+- 作用：在表单类元素上实现双向绑定
+- 原理：`v-bind`(绑定属性)与`v-on`(触发事件)的语法糖
 :::
 
-::: details 虚拟Dom 的优势 及 diff 原理
-- 123
+::: details `虚拟Dom`及`diff算法`
+- 虚拟Dom：一个用来表示真实DOM的对象
+- 虚拟DOM`diff`算法操作真实DOM，性能高于直接操作真实DOM
+- `diff`算法比对新旧VDom中有哪些VNodes更改了，从而实现精准地更新真实DOM，进而提高效率。
 :::
 
-::: details Vue 生命周期钩子 有哪些？🌟
+::: details Vue生命周期 🌟
 - 8个阶段：`创建`前/后，`挂载`前/后，`更新`前/后，`销毁`前/后。
 - `生命周期钩子`具体描述：
   1. beforeCreate：vue实例的挂载el未定义，data未定义
   2. **created**：`data`已经定义，但未初始化。通常在这个阶段进行一些`数据资源的请求`。
-  3. beforeMounted:
+  3. beforeMounted: `template`模板已导入渲染函数编译。此时虚拟Dom已经创建完成，即将开始渲染。
   4. **mounted**: 实例el挂载完毕。可以进行一些`DOM操作`。
   5. beforeUpdate: 在数据发生改变后，DOM 被更新之前被调用。
   6. updated: DOM重新渲染完毕之后被调用
-  7. beforeDestroy：组件实例销毁之前调用。
-  8. destroyed：实例销毁后调用。可以执行一些性能优化操作，清空计时器，解除绑定事件
+  7. beforeDestroy：组件实例销毁之前调用。可以执行一些性能优化操作，清空计时器，解除绑定事件
+  8. destroyed：实例已销毁。
 - 还有别的`生命周期钩子`吗
   - 用于 `keep-alive` 组件缓存的 两个钩子：`activated` `deactivated`
     - `activated`：被 keep-alive 缓存的组件激活时调用。
@@ -40,6 +42,10 @@
 - 加载渲染：父beforeCreate->父created->父beforeMount->子beforeCreate->子created->子beforeMount->子mounted->父mounted
 - 更新：父beforeUpdate->子beforeUpdate->子updated->父updated
 - 销毁：父beforeDestroy->子beforeDestroy->子destroyed->父destroyed
+:::
+
+::: details 可以使用箭头函数来定义生命周期方法吗？
+- 不可以，因为箭头函数绑定了父级作用域上下文，因此`this`与预期的`Vue`实例不同
 :::
 
 ::: details Vue常用的指令有哪些？🌟
@@ -65,8 +71,19 @@
 - `v-for`的优先级比`v-if`高，`v-for`的每次循环都会执行一次`v-if`，这就造成了不必要的性能开销。
 :::
 
-::: details Vue 你常用的修饰符 有哪些？
-- stop , prevent , trim , number
+::: details Vue常用的修饰符
+- 表单修饰符
+  - .lazy（在光标离开input框才会更新数据）
+  - .trim（过滤首尾的空格）
+  - .number（先输入数字就会限制输入只能是数字）
+- 事件修饰符
+  - .stop （阻止事件冒泡 //`event.stopPropagation()`）
+  - .prevent (阻止默认行为 // `event.preventDefault()`)
+  - .self (只有元素本身触发时才触发方法)
+  - .once (事件只执行一次，无论点击几次)
+  - .sync （对prop进行双向绑定）
+  - .keyCode （监听按键的指令）
+  - .capture （添加事件侦听器时使用事件捕获模式）
 :::
 
 ::: details Vue组件间传值方式有哪些？🌟
@@ -75,8 +92,18 @@
 - 兄弟组件：中央总线(Event-Bus)，`$emit`发送，`$on`接受
 :::
 
-::: details 页面输入URL回车后刷新的空白时间做了什么
-- 123
+::: details 页面输入URL回车后刷新的空白时间做了什么？
+- DNS域名解析
+- 建立TCP连接、三次握手
+- 发送HTTP请求、服务端处理请求、返回响应结果
+- 关闭TCP连接、四次挥手
+- 浏览器渲染
+  - 构建DOM树
+  - 样式计算
+  - 创建布局树
+  - 转为分层树
+  - 为每个图层生成绘制列表
+  - 通过合成线程渲染到页面
 :::
 
 ::: details `hash` 和 `history` 两种路由的区别 🌟
@@ -84,21 +111,97 @@
 - `history` 则是通过HTML5的`history API`来实现路由的跳转
 :::
 
-::: details 路由History模式, 页面刷新为什么会404 🌟
-- 123
+::: details HTML `history` 常用 API
+- `history.pushState` 浏览器历史纪录添加记录
+- `history.replaceState` 修改浏览器历史纪录中当前纪录
+- `history.popState` 当 history 发生变化时触发
 :::
 
-::: details Vue 路由权限是怎么实现的？
+::: details 路由History模式, 页面刷新为什么会404 🌟
+- 因为需要服务端的配置,如果`URL`不匹配任何静态资源，重定向到`index.html`
+  - nginx
+  ```json
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+  ```
+  - Vercel 在项目根目录创建一个vercel.json文件，内容如下：
+  ```json
+  {
+    "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
+  }
+  ```
+- 而在hash模式中，连同`#`及后面路由参数的hash部分，虽然出现在`URL`中，但不会被包括在`HTTP`请求中，对服务端完全没有影响，因此改变`hash`不会重新加载页面
+:::
+
+::: details Vue路由权限是怎么实现的？
 - 登录以后，后端接口会返回当前用户可访问的路由菜单
 - 拿这张动态路由表与我们前端自己的静态路由表做比对和筛选，从而展示出当前用户权限下的菜单
 ::: 
 
-::: details Vue 自定义指令 你用过吗？
-- 123
+::: details Vue自定义指令
+- 注册
+  ```js
+    // 注册一个全局自定义指令 `v-focus`
+    Vue.directive('focus', {
+      // 当被绑定的元素插入到 DOM 中时……
+      inserted: function (el) {
+        // 聚焦元素
+        el.focus()
+      }
+    })
+  ```
+  ```js
+  // 注册局部指令
+  directives: {
+    focus: {
+      // 指令的定义
+      inserted: function (el) {
+        el.focus()
+      }
+    }
+  }
+  ```
+- 使用
+  ```html
+  <input v-focus>
+  ```
+- 钩子
+  - `bind`: 只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。
+  - `inserted`: 被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。
+  - `update`: VNode 更新时调用
+  - `componentUpdated`: 组件的 VNode 及其子 VNode 全部更新后调用。
+  - `unbind`: 只调用一次，指令与元素解绑时调用。
+- 钩子参数
+  - `el`: 指令绑定元素
+  - `binding` : 
+    - `name`: 指令名
+    - `value`: 指令的绑定值
+    - `oldValue`: 指令绑定的前一个值.(仅在 update 和 componentUpdated 钩子中可用)
+    - `expression`: 字符串形式的指令表达式。
+    - `arg`: 传给指令的参数. 如: `v-my-directive:foo` 中，参数为 `"foo"`
+    - `modifiers`: 一个包含修饰符的对象. 如：`v-my-directive.foo.bar` 中，修饰符对象为 `{ foo: true, bar: true }`。
 :::
 
 ::: details Vue 按钮级权限怎么实现的？
-- 123
+- 思路：接收自定义指令`binding`中传递的参数，通过`check`函数进行校验，校验未通过时，获取当前指令所在节点的父节点，来删除掉当前节点，实现权限控制。
+- 实现：
+  ```js
+  //./directives/auth.js
+  import { check } from '../utils/auth.js';
+
+  function install(Vue, options = {}) {
+      Vue.directive(options.name || 'auth', {
+          inserted(el, binding) {
+              if (!check(binding.value)) {
+                  el.parentNode && el.parentNode.removeChild(el);
+              }
+          }
+      })
+  }
+
+  export default { install }
+  ```
 ::: 
 
 ::: details 路由守卫钩子
