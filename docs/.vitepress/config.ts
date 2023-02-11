@@ -254,5 +254,9 @@ export default {
         ],
       },
       lastUpdatedText: 'Updated Date'
+    },
+    async buildEnd(siteConfig) {
+      // console.log('siteConfig', siteConfig)
+      // ...
     }
   }
