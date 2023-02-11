@@ -1,29 +1,19 @@
 {
-  "hash": "0bbfa1d4",
-  "browserHash": "d7733885",
+  "hash": "a4d52cef",
+  "browserHash": "893255eb",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "c85b4c78",
+      "fileHash": "02104205",
       "needsInterop": false
     },
     "medium-zoom": {
       "src": "../../../../node_modules/medium-zoom/dist/medium-zoom.esm.js",
       "file": "medium-zoom.js",
-      "fileHash": "25b43ce0",
+      "fileHash": "0635e013",
       "needsInterop": false
-    },
-    "github-calendar": {
-      "src": "../../../../node_modules/github-calendar/lib/index.js",
-      "file": "github-calendar.js",
-      "fileHash": "ae39c9bb",
-      "needsInterop": true
     }
   },
-  "chunks": {
-    "chunk-RSJERJUL": {
-      "file": "chunk-RSJERJUL.js"
-    }
-  }
+  "chunks": {}
 }

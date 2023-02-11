@@ -424,11 +424,19 @@ function checkType(val){
 - 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
 :::
 
+::: details `EventLoop` 微任务 宏任务
+- 123
+:::
+
 ::: details `EventLoop` 事件循环机制
 - 123
 :::
 
-::: details JS是单线程, 那它是如何处理异步的
+::: details `EventLoop` 事件循环机制
+- 123
+:::
+
+::: details 单线程的JavaScript是如何实现异步的
 - 123
 - [参考](https://juejin.cn/post/6844904159385223175)
 :::
