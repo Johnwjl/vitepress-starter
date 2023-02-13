@@ -266,11 +266,17 @@
   - 原因：vue执行异步DOM更新，当数据变化，视图变更会进入队列。出于 接口缓慢或者 动画过渡等效果 影响，视图变更受到延迟
   - 解决：Vue.nextTick(callback) ，在 DOM 更新完成后再调用。
 - API 接口调用时间长，前端界面如何处理的
-  - 123
-- 大数据量展示：分页处理
-  - 123
-- 如何提升页面渲染性能
-  - 123
+  - 在用户体验层面，前端需要在接口数据未抵达渲染前添加loading元素。
+  - 最根本的办法，还是需要去和后端一起来协作，配合后端去将接口进行改造和切分，前端分次调用，提高接口响应性能。
+- 大数据量展示优化性能
+  - 懒加载和分页
+  - 虚拟滚动技术
+- 如何提升页面渲染性能（优化首屏加载）
+  - 减少HTTP请求
+  - 资源懒加载
+  - CDN 加速
+  - 浏览器缓存
+  - 异步加载
 ::: 
 
 #### JavaScript
@@ -458,18 +464,23 @@ function checkType(val){
 :::
 
 #### 实际项目中遇到问题及解决
+::: details 基于ElementUI的组件二次封装
+- 123
+:::
 ::: details 表格前端导出
 - 123
 :::
 
 ### 履历层面
 
-::: details 最近做的项目讲一下, 具体包含什么功能
-- 123
+::: details 最近项目描述、功能亮点
+- 最近一个项目是 媒体流量供应方平台，平台为媒体管理收入渠道，为优质媒体提供有效的拓展品牌广告和客户资源
+- 本质上它是一个admin的项目，我们使用的技术是 vue2 + elementUI 
+- 主要包括 媒体管理、广告展示位管理，我的收益报表管理
 ::: 
 
 ::: details 什么时候离职的？
-- 2月初离职
+- 上周
 ::: 
 
 ::: details 这次离职原因是？
@@ -494,12 +505,60 @@ function checkType(val){
 - 123
 :::
 
-### TS
+### TypeScript
 
 #### 初级
 
-::: details 什么是Ts泛型，什么时候会用泛型
-- 123
+::: details 说说泛型及其使用场景
+- 描述：不预先指定具体的类型，相当于给类型先设一个占位符
+- 例子：
+  ```ts
+  // 在函数名后添加了 <T>，其中 T 用来指代任意输入的类型，在后面的输入 value: T 和输出 Array<T> 中即可使用了。
+  function createArray<T>(length: number, value: T): Array<T> {
+    let result: T[] = [];
+    for (let i = 0; i < length; i++) {
+        result[i] = value;
+    }
+    return result;
+  }
+  // 在调用的时候，可以指定它具体的类型;
+  createArray<string>(3, 'x'); // ['x', 'x', 'x']
+  // 也可以不手动指定，而让类型推论自动推算出来
+  createArray(3, 'x'); // ['x', 'x', 'x']
+  ```
+  ```ts
+  // 多个类型参数
+  function swap<T, U>(tuple: [T, U]): [U, T] {
+    return [tuple[1], tuple[0]];
+  }
+
+  swap([7, 'seven']); // ['seven', 7]
+  ```
+  ```ts
+  // 使用 extends 作 泛型约束， T 必须符合接口 Lengthwise 的形状，即 必须包含 length 属性。
+  interface Lengthwise {
+    length: number;
+  }
+
+  function loggingIdentity<T extends Lengthwise>(arg: T): T {
+      console.log(arg.length);
+      return arg;
+  }
+  ```
+  ```ts
+  // 多个类型参数之间也可互相约束
+  // 例子里的约束为：T 继承 U
+  function copyFields<T extends U, U>(target: T, source: U): T {
+    for (let id in source) {
+        target[id] = (<T>source)[id];
+    }
+    return target;
+  }
+
+  let x = { a: 1, b: 2, c: 3, d: 4 };
+
+  copyFields(x, { b: 10, d: 20 });
+  ```
 :::
 
 ## 求职者问
