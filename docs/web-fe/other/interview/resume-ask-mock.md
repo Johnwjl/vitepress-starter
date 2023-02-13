@@ -424,21 +424,23 @@ function checkType(val){
 - 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
 :::
 
-::: details `EventLoop` 微任务 宏任务
-- 123
-:::
-
-::: details `EventLoop` 事件循环机制
-- 123
-:::
 
 ::: details `EventLoop` 事件循环机制
 - 123
 :::
 
 ::: details 单线程的JavaScript是如何实现异步的
-- 123
+- JavaScript通常的宿主环境是浏览器，浏览器是多线程的。
+- 浏览器主线程负责自上而下`顺序执行`，当遇到`setTimeout()`后，便将其交给`定时器线程`去执行，自己继续执行下面的代码, 从而达到异步的目的。
+- 任务队列: 当定时器线程计时执行完之后，会将回调函数放入任务队列中。当这些任务加入到任务队列后并不会立即执行，而是处于等候状态。等主线程处理完了自己的事情后，才来执行任务队列中任务。
+
 - [参考](https://juejin.cn/post/6844904159385223175)
+:::
+
+::: details `EventLoop` 微任务 宏任务
+- 宏任务：`setTimeout` `setInterval` `I/O` `requestAnimationFrame`
+- 微任务：`Promise.then` `MutationObserver`
+- 当前的微任务没有执行完成时，不会执行下一个宏任务
 :::
 
 ::: details New关键字的底层原理
