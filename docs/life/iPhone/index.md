@@ -9,3 +9,7 @@
 ## 使用指南
 
 - [截屏、录屏、通话录音、录音（语音备忘录）](../iPhone/screen-record.md)
+
+## 进阶
+
+- [Shadowrocket shadowsocks vpn 科学上网 翻墙](../iPhone/Shadowrocket.md)
