@@ -4,6 +4,8 @@
 
 - `Option(⌥) + Command(⌘) + V` 复制后的剪切
 - `Control(⌃) + Command(⌘) + Q`  快速锁屏
+- `Command(⌘) + R` 刷新页面
+- `Shfit(⇧) + Command(⌘) + R` 硬刷新页面
 - `Shfit(⇧) + Command(⌘) + 3`  截屏
 - `Shfit(⇧) + Command(⌘) + 4`  区域截图
 - `Shfit(⇧) + Command(⌘) + 5`  区域录屏
