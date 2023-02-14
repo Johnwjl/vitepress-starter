@@ -183,11 +183,11 @@ export default {
                 ]
               },
               {
-                text: 'iPhone 使用指南',
+                text: 'iPhone',
                 collapsed: true,
                 items: [
-                  { text: '目录', link: '/life/iPhone/index' }, 
-                  { text: '录屏及通话录音', link: '/life/iPhone/screen-record' }, 
+                  { text: '使用指南', link: '/life/iPhone/basic' }, 
+                  { text: '进阶指南', link: '/life/iPhone/advance' }, 
                   // { 
                   //   text: 'Watching Note',
                   //   collapsed: true,
