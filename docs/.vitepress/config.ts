@@ -21,7 +21,7 @@ export default {
             { text: 'Vue3', link: '/web-fe/vue3' },
             { text: 'JavaScript', link: '/web-fe/javascript/es6+/promise' },
             { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
-            { text: 'Other', link: '/web-fe/other/interview/interview-note' },
+            { text: 'Other', link: '/web-fe/other/interview/resume-ask-mock' },
           ]
         },
         { text: "Works", 
@@ -148,58 +148,6 @@ export default {
             ]
           }
         ],
-        // 当用户在 `Life` 目录页面下将会展示这个侧边栏
-        '/life/': [
-          {
-            text: 'Life',
-            items: [
-              {
-                text: 'Book',
-                collapsed: true,
-                items: [
-                  { text: 'Reading Log', link: '/life/book/reading-log' }, 
-                  {
-                    text: 'Reading Note', 
-                    collapsed: true,
-                    items: [
-                      { text: '《胜者思维》', link: '/life/book/reading-note/szsw' }, 
-                      // { text: 'Watching Note', link: '/life/book/reading-note' }, 
-                    ]
-                  }, 
-                ]
-              },
-              {
-                text: 'Movie',
-                collapsed: true,
-                items: [
-                  { text: 'Watching Log', link: '/life/Movie/watching-log' }, 
-                  { 
-                    text: 'Watching Note',
-                    collapsed: true,
-                    items: [
-                      { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
-                    ]
-                  }, 
-                ]
-              },
-              {
-                text: 'iPhone',
-                collapsed: true,
-                items: [
-                  { text: '使用指南', link: '/life/iPhone/basic' }, 
-                  { text: '进阶指南', link: '/life/iPhone/advance' }, 
-                  // { 
-                  //   text: 'Watching Note',
-                  //   collapsed: true,
-                  //   items: [
-                  //     { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
-                  //   ]
-                  // }, 
-                ]
-              }
-            ]
-          }
-        ],
         '/web-fe/other/': [
           {
             text: 'Other',
@@ -249,6 +197,58 @@ export default {
                   { text: 'PC Shortcuts & Command', link: '/web-fe/other/pc/shortcuts-command' }, 
                 ]
               },
+            ]
+          }
+        ],
+        // 当用户在 `Life` 目录页面下将会展示这个侧边栏
+        '/life/': [
+          {
+            text: 'Life',
+            items: [
+              {
+                text: 'Book',
+                collapsed: true,
+                items: [
+                  { text: 'Reading Log', link: '/life/book/reading-log' }, 
+                  {
+                    text: 'Reading Note', 
+                    collapsed: true,
+                    items: [
+                      { text: '《胜者思维》', link: '/life/book/reading-note/szsw' }, 
+                      // { text: 'Watching Note', link: '/life/book/reading-note' }, 
+                    ]
+                  }, 
+                ]
+              },
+              {
+                text: 'Movie',
+                collapsed: true,
+                items: [
+                  { text: 'Watching Log', link: '/life/Movie/watching-log' }, 
+                  { 
+                    text: 'Watching Note',
+                    collapsed: true,
+                    items: [
+                      { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
+                    ]
+                  }, 
+                ]
+              },
+              {
+                text: 'iPhone',
+                collapsed: true,
+                items: [
+                  { text: '使用指南', link: '/life/iPhone/basic' }, 
+                  { text: '进阶指南', link: '/life/iPhone/advance' }, 
+                  // { 
+                  //   text: 'Watching Note',
+                  //   collapsed: true,
+                  //   items: [
+                  //     { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
+                  //   ]
+                  // }, 
+                ]
+              }
             ]
           }
         ],

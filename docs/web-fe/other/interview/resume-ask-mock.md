@@ -17,6 +17,81 @@
 ### 初级（15K）
 <br>
 
+#### 实际开发问题
+
+::: details 项目中碰到过的实际问题及解决方案？🌟
+- 在vue项目的开发中，遇到过的典型问题之一就是 `vuex状态存储数据在刷新后丢失`，围绕如何将`vuex持久化存储`去解决这个问题。
+  - 解决问题的前提是定位问题。因为Vuex里的数据是保存在运行内存中的，当页面刷新时，页面会重新加载Vue实例，Vuex里面的数据就会被重新赋值。
+  - 第一种解决方案 是 同时将数据存在 sessionstorge，页面刷新初始化阶段vuex通过接收sessionStorage的数据来进行数据响应式。
+  - 第二种解决方案，使用 vue-persistedstate (一款 vuex 持久化插件)，安装后通过配置plugins来接入vuex持久化存储的能力。
+- 另一个经典的问题是在 Vue使用Echart时init初始化失败，debug提示获取不到DOM元素
+  - 定位问题的时候，首先想到可能是由于`页面元素渲染顺序`的问题。一般是由于`v-if`条件渲染或是`v-show`切换tab页，又或者是存在`animation`动画或`transition`过渡效果，导致目标元素要延迟几毫秒才出现，而该Dom元素的相关事件操作则先行了一步。
+  - 解决方案，一般是在Echart初始化方法添加`this.$nextTick`,等当前元素或动画帧渲染完毕才执行后续事件操作。
+- 数据更新,视图却没更新 
+  - 原因：在vue组件中,data初始化的数据是具有响应性的，而在vue2当中有一些数组和对象的操作变动是无法被监测的。
+  - 比如：使用数组索引直接赋值，或通过length直接修改数组长度。
+  - 解决：`vue.$set(object, key, value)` 添加具有响应性的属性
+- 获取不到DOM
+  - 原因：vue执行异步DOM更新，当数据变化，视图变更会进入队列。出于 接口缓慢或者 动画过渡等效果 影响，视图变更受到延迟
+  - 解决：Vue.nextTick(callback) ，在 DOM 更新完成后再调用。
+- API 接口调用时间长，前端界面如何处理的
+  - 在用户体验层面，前端需要在接口数据未抵达渲染前添加loading元素。
+  - 最根本的办法，还是需要去和后端一起来协作，配合后端去将接口进行改造和切分，前端分次调用，提高接口响应性能。
+- 大数据量展示优化性能
+  - 懒加载和分页
+  - 虚拟滚动技术
+- 如何提升页面渲染性能（优化首屏加载）（前端性能优化）
+  - 减少HTTP请求
+  - 资源懒加载
+  - CDN 加速
+  - 浏览器缓存
+  - 异步加载
+- 大屏适配方案
+  - rem vw vh
+  - flex 
+  - echarts resize
+- 移动端H5适配方案
+
+久誉
+- 大屏适配方案
+- echarts 自定义形状
+- echarts 动画
+- svg 动画
+- 大屏实时数据更新展示 解决方案
+- 表哥 列自定义 动态复合表单
+- 组件通信
+- 更改数据无法响应性
+- computed watch 使用场景
+- 封装过哪些组件
+- ES6 常用操作
+- 合并数组的方法 有哪些
+- 数组去重有哪些方式
+- 深拷贝的方式
+- websocket
+- vue 过渡组件
+- vue 性能优化
+-  webpack
+-  sessinostoge loacalstorge
+-  tab sessinostoge
+-  小程序 unniapp 配置
+
+
+
+
+::: 
+
+::: details 大屏实时数据展示解决方案
+- 定时轮询
+:::
+
+::: details 登录鉴权 判断当前用户已登陆
+- token 存到 headers里
+:::
+
+::: details 地图大数据量 的撒点 很卡顿
+- 
+:::
+
 #### Vue
 
 ::: details 响应式原理（数据双向绑定原理）
@@ -264,35 +339,6 @@
 - commit：同步操作，写法：this.$store.commit('mutations方法名',值)
 ::: 
 
-::: details 项目中碰到过的实际问题及解决方案？🌟
-- 在vue项目的开发中，遇到过的典型问题之一就是 `vuex状态存储数据在刷新后丢失`，围绕如何将`vuex持久化存储`去解决这个问题。
-  - 解决问题的前提是定位问题。因为Vuex里的数据是保存在运行内存中的，当页面刷新时，页面会重新加载Vue实例，Vuex里面的数据就会被重新赋值。
-  - 第一种解决方案 是 同时将数据存在 sessionstorge，页面刷新初始化阶段vuex通过接收sessionStorage的数据来进行数据响应式。
-  - 第二种解决方案，使用 vue-persistedstate (一款 vuex 持久化插件)，安装后通过配置plugins来接入vuex持久化存储的能力。
-- 另一个经典的问题是在 Vue使用Echart时init初始化失败，debug提示获取不到DOM元素
-  - 定位问题的时候，首先想到可能是由于`页面元素渲染顺序`的问题。一般是由于`v-if`条件渲染或是`v-show`切换tab页，又或者是存在`animation`动画或`transition`过渡效果，导致目标元素要延迟几毫秒才出现，而该Dom元素的相关事件操作则先行了一步。
-  - 解决方案，一般是在Echart初始化方法添加`this.$nextTick`,等当前元素或动画帧渲染完毕才执行后续事件操作。
-- 数据更新,视图却没更新 
-  - 原因：在vue组件中,data初始化的数据是具有响应性的，而在vue2当中有一些数组和对象的操作变动是无法被监测的。
-  - 比如：使用数组索引直接赋值，或通过length直接修改数组长度。
-  - 解决：`vue.$set(object, key, value)` 添加具有响应性的属性
-- 获取不到DOM
-  - 原因：vue执行异步DOM更新，当数据变化，视图变更会进入队列。出于 接口缓慢或者 动画过渡等效果 影响，视图变更受到延迟
-  - 解决：Vue.nextTick(callback) ，在 DOM 更新完成后再调用。
-- API 接口调用时间长，前端界面如何处理的
-  - 在用户体验层面，前端需要在接口数据未抵达渲染前添加loading元素。
-  - 最根本的办法，还是需要去和后端一起来协作，配合后端去将接口进行改造和切分，前端分次调用，提高接口响应性能。
-- 大数据量展示优化性能
-  - 懒加载和分页
-  - 虚拟滚动技术
-- 如何提升页面渲染性能（优化首屏加载）
-  - 减少HTTP请求
-  - 资源懒加载
-  - CDN 加速
-  - 浏览器缓存
-  - 异步加载
-::: 
-
 #### JavaScript
 
 ::: details 数据类型
@@ -313,8 +359,32 @@ function checkType(val){
 ```
 :::
 
-::: details 原型链与继承 待补充
-- 123
+::: details 原型链与继承
+- 原型链：每个对象拥有一个原型对象，对象从原型继承方法和属性，原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推，直到一个对象的原型对象为`null`。这种关系常被称为原型链 (prototype chain)
+- 这些属性和方法定义在 Object 的 `构造器函数` (constructor functions) 之上的 `prototype` 属性上，而非对象实例本身。
+- 从构造函数的·prototype·属性派生出`__proto__`属性，它是`对象实例`和它的`构造器`之间建立的链接,作用是将原型中的所有属性和方法都被复制到实例中
+-  实例的 `__proto__` == constructor 的 `prototype` 属性
+-  当访问实例(对象)的一个属性时，会先查找实例本身是否有这个属性，如果没有，就从实例的 `__proto__`中查找这个属性 (也就是 constructor 的 prototype)
+-  继承的属性和方法是定义在`prototype`属性之上的。
+-  构造器是函数也是对象类型
+-  每个实例对象（object）都有一个私有属性（称之为 `__proto__`）指向它的构造函数的原型对象（prototype）。
+-  参考
+   - [对象原型](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes)
+   - [继承与原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+   - [Vue3 面向对象编程](read://https_juejin.cn/?url=https%3A%2F%2Fjuejin.cn%2Fpost%2F7039252967374979103)
+   - [从函数式编程和面向对象的思考到Vue3的函数式编程](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fqq_21561833%2Farticle%2Fdetails%2F118969397)
+:::
+
+::: details 实现继承的方式有哪些
+- 原型链继承
+- 构造函数继承
+- 组合式继承
+- 寄生组合式继承
+- Object.create()
+- ES6 Class extends
+- 参考
+  - [javascript实现继承的七种方式](https://juejin.cn/post/6844904161071333384)
+  - [彻底弄清js继承的几种实现方式](https://segmentfault.com/a/1190000022677985)
 :::
 
 ::: details JS有哪些作用域
@@ -421,7 +491,30 @@ function checkType(val){
 - Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
 :::
 
+::: details 数组去重有哪些方法（过往文档里找一找）
+- 123
+:::
+
+::: details 判断数组的方法有哪些
+- 123
+:::
+
+::: details sessionStorge localStorge cookie (过往文件里找找)
+- 123
+:::
+
 #### CSS
+
+::: details 元素水平垂直居中
+- 水平居中
+  - `flex: display:flex`; `just-content:center`
+  - `text-aglin: center`
+  - `margin : 0 auto`
+- 垂直居中
+  - flex: `aglin-items:center`
+  - line-height
+  - vertle-again: middle
+:::
 
 ::: details css如何优化 重排（回流）和重绘
 - Reflow（重排）: 元素改变影响了文档流布局
@@ -438,7 +531,7 @@ function checkType(val){
 - 123
 :::
 
-#### js
+#### JavaScript
 
 ::: details `sessionStorage`在同域下的多窗口之间能共享状态吗？
 - 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
@@ -471,6 +564,10 @@ function checkType(val){
 - 123
 :::
 
+::: details 强制缓存和协商缓存
+- 123
+:::
+
 #### Webpack
 
 ::: details Webpack的工作流程是怎么样的
@@ -478,12 +575,16 @@ function checkType(val){
 :::
 
 #### 实际项目中遇到问题及解决
-::: details 基于ElementUI的组件二次封装
+::: details 基于ElementUI的组件二次封装（封装过哪些公共组件）（自己的组件库）
 - 123
 :::
 ::: details 表格前端导出
 - 123
 :::
+
+常用的数组操作
+
+- 
 
 ### 履历层面
 
