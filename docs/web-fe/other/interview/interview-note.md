@@ -296,45 +296,7 @@ this.$router.push({path:'/home',query: {id:'1'}})
     - 场景：```arrayLike``` 可以是 String、Set、Map 、arguments
   - new Set() 、new Map()
 - 数组的用法 及返回值 （ES5、ES6）
-#### 数组去重
-1.  ES6 的 new Set
-```js
-const arr = [1,1,2,2,3,3,4,4,5,5];
-const setData = Array.from(new Set(arr));
-console.log(setData);
-```
-```js
-//去重合并
-function combine(){
-    let arr = [].concat.apply([], arguments);  //没有去重复的新数组
-    return Array.from(new Set(arr));
-}
 
-var m = [1, 2, 2], n = [2,3,3];
-console.log(combine(m,n));                     // [1, 2, 3]
-
-```
-- 缺陷：无法去重引用类型的数据。比如对象数组
-2. fllter + indexOf
-```js
-const handleRemoveRepeat = (arr) => arr.filter((item,index) => arr.indexOf(item,0) === index);
-```
-3.  Map + set 
-```js
-function arrayToHeavy(arr) {
-	const result = [];
-	const mapList = new Map();
-	arr.forEach((item) => {
-		if(!mapList.has(item.id)) {
-			result.push(item);
-			mapList.set(item.id,true);
-		}
-	})
-	return result;
-}
-```
-
-#### 数组排序
 #### 数组扁平化
 - let const 和var 区别；const 常量真的不可以修改吗，如果我想修改要怎么做
 - 
@@ -480,16 +442,6 @@ function arrayToHeavy(arr) {
 #### 前端文件导出如何实现
 
 # js 面试题
-- localstorage、sessionstorage，cookie 三者区别
-    <details>
-    <summary>答案</summary>
-    <pre>
-    localStorage: localStorage的生命周期是永久的，关闭页面或浏览器之后localStorage中的数据也不会消失。localStorage除非主动删除数据，否则数据永远不会消失。
-    sessionStorage:sessionStorage的生命周期是在仅在当前会话下有效。sessionStorage引入了一个“浏览器窗口”的概念，sessionStorage是在同源的窗口中始终存在的数据。只要这个浏览器窗口没有关闭，即使刷新页面或者进入同源另一个页面，数据依然存在。但是sessionStorage在关闭了浏览器窗口后就会被销毁。同时独立的打开同一个窗口同一个页面，sessionStorage也是不一样的。
-    cookie:cookie生命期为只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。 存放数据大小为4K左右,有个数限制（各浏览器不同），一般不能超过20个。缺点是不能储存大数据且不易读取。
-    数据存放大小：cookie：4KB左右，localStorage和sessionStorage：可以保存5MB的信息。
-    </pre>
-    </details>
 - 前端性能优化
     <details>
     <summary>答案</summary>

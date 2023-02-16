@@ -51,45 +51,27 @@
   - flex 
   - echarts resize
 - 移动端H5适配方案
-
-久誉
-- 大屏适配方案
-- echarts 自定义形状
-- echarts 动画
-- svg 动画
-- 大屏实时数据更新展示 解决方案
-- 表哥 列自定义 动态复合表单
-- 组件通信
-- 更改数据无法响应性
-- computed watch 使用场景
-- 封装过哪些组件
-- ES6 常用操作
-- 合并数组的方法 有哪些
-- 数组去重有哪些方式
-- 深拷贝的方式
-- websocket
-- vue 过渡组件
-- vue 性能优化
--  webpack
--  sessinostoge loacalstorge
--  tab sessinostoge
--  小程序 unniapp 配置
-
-
-
-
 ::: 
 
 ::: details 大屏实时数据展示解决方案
-- 定时轮询
+- 方式
+  - 定时轮询
+  - 通过 websocket 即时通信技术
+- 参考
+  - [websocket实时获取数据（数据可视化大屏）](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fweixin_52703987%2Farticle%2Fdetails%2F122956621)
 :::
 
 ::: details 登录鉴权 判断当前用户已登陆
-- token 存到 headers里
+- JWT 前端将token存到本地，在请求的headers里提供token
+- [判断用户是否的登录的方式：JWT 与 session 、cookies](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fweixin_43822185%2Farticle%2Fdetails%2F104074147)
 :::
 
-::: details 地图大数据量 的撒点 很卡顿
-- 
+::: details 地图大数据量的撒点很卡顿,如何解决
+- 监听地图缩放，把「海量标注」放在用户放大区域时再加载
+- 检测「海量标注」中的数据项，判断其坐标是否在浏览器视口区域，从而进行分片渲染
+
+- 参考
+  - [高德地图「海量点标记 + 海量标注」卡顿问题 解决方案](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2FMarker__%2Farticle%2Fdetails%2F124321573)
 :::
 
 #### Vue
@@ -179,6 +161,65 @@
 - 父传子：props 接受传值
 - 子传父：$emit 事件发送
 - 兄弟组件：中央总线(Event-Bus)，`$emit`发送，`$on`接受
+:::
+
+::: details computed watch 用法、特性及使用场景区别
+- computed（计算属性）：
+  - 用法：
+    ```js
+    computed:{
+      mergeText1(){
+        return this.firstText + ' ' + this.lastText;
+      },
+      mergeText2:{  /* 通过mergeText2反向赋值给 firstText和lastText */
+        // getter
+        get() {  // 回调函数 当需要读取当前属性值是执行，根据相关数据计算并返回当前属性的值
+          return `${this.firstText} ${this.lastText}`;
+        },
+        // setter
+        set(val) {  //监视当前属性值的变化，当属性值发生变化时执行，更新相关的属性数据,val就是fullName的最新属性值
+          const names = val.split(' ');
+          console.log(names);
+          this.firstText = names[0];
+          this.lastText = names[names.length - 1];
+        }
+      }
+    },
+    ```
+  - 特性：
+    - 支持基于响应式依赖进行缓存
+    - 只有依赖数据发生改变时才会重新计算
+  - 场景：某个属性是依赖于其他的属性计算得来的，或者说 拿到某个数据后需要进行处理和转换
+- watch（侦听属性）：
+  - 用法：
+    ```js
+    watch:{
+      // 监听当firstText的值变化，触发此事件，改变mergeText的值
+      firstText(newText,oldText){
+        console.log(newText, oldText);
+        this.mergeText = newText + ' ' + this.lastText;
+      },
+      // 监听对象obj的变化
+      obj:{
+        handler (newVal,oldval) {
+          console.log(newVal,oldval)
+        },
+        deep: true, // 深度监听
+        immediate: true
+      },
+      // 监听对象单个属性text
+      'obj.text':{
+        handler (newVal,oldval) {
+          console.log(newVal,oldval)
+        },
+        immediate: true, // 该属性会先执行一次handler
+      }
+    },
+    ```
+  - 特性：
+    - 监听数据变化
+    - 支持异步操作
+  - 场景：当需要在数据变化时执行异步或开销较大的操作时，即 当一个属性发生变化时，需要执行对应的操作
 :::
 
 ::: details 页面输入URL回车后刷新的空白时间做了什么？
@@ -491,16 +532,94 @@ function checkType(val){
 - Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
 :::
 
-::: details 数组去重有哪些方法（过往文档里找一找）
-- 123
+::: details 数组去重有哪些方法
+  1.  ES6 的 new Set
+  ```js
+  const arr = [1,1,2,2,3,3,4,4,5,5];
+  const setData = Array.from(new Set(arr));
+  console.log(setData);
+  ```
+  ```js
+  //去重合并
+  function combine(){
+      let arr = [].concat.apply([], arguments);  //没有去重复的新数组
+      return Array.from(new Set(arr));
+  }
+
+  var m = [1, 2, 2], n = [2,3,3];
+  console.log(combine(m,n));                     // [1, 2, 3]
+
+  ```
+  - 缺陷：无法去重引用类型的数据。比如对象数组
+  2. fllter + indexOf
+  ```js
+  const handleRemoveRepeat = (arr) => arr.filter((item,index) => arr.indexOf(item,0) === index);
+  ```
+  3.  Map + set 
+  ```js
+  function arrayToHeavy(arr) {
+  	const result = [];
+  	const mapList = new Map();
+  	arr.forEach((item) => {
+  		if(!mapList.has(item.id)) {
+  			result.push(item);
+  			mapList.set(item.id,true);
+  		}
+  	})
+  	return result;
+  }
+  ```
+:::
+
+::: details 数组排序的方法有哪些
+- sort()、reverse()
+  ```js
+  // 字符串 排序
+  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  fruits.sort();            // 对 fruits 中的元素进行排序
+  fruits.reverse();         // 反转元素顺序
+  ```
+  ```js
+  // 数字排序 比值函数
+  var points = [40, 100, 1, 5, 25, 10];
+  points.sort(function(a, b){return a - b}); // 升序
+  points.sort(function(a, b){return b - a}); // 降序
+  ```
 :::
 
 ::: details 判断数组的方法有哪些
-- 123
+  ```js
+  console.log(Array.isArray(arr));   //true
+
+  console.log(arr instanceof Array);   //true
+
+  console.log(arr.constructor === Array);   //true
+
+  console.log(Object.prototype.toString.call(arr) === '[object Array]');   //true
+
+  console.log(Array.prototype.isPrototypeOf(arr));   //true
+
+  console.log(Object.getPrototypeOf(arr) === Array.prototype); // true
+  ```
 :::
 
-::: details sessionStorge localStorge cookie (过往文件里找找)
-- 123
+::: details 数组合并的方法有哪些
+```js
+var array3 = array1.concat(array2);
+
+var array3 = [...array1, ...array2];
+```
+:::
+
+::: details localstorage、sessionstorage，cookie 三者区别
+- localStorage: localStorage的生命周期是永久的，关闭页面或浏览器之后localStorage中的数据也不会消失。localStorage除非主动删除数据，否则数据永远不会消失。
+- sessionStorage:sessionStorage的生命周期是在仅在当前会话下有效。sessionStorage引入了一个“浏览器窗口”的概念，sessionStorage是在同源的窗口中始终存在的数据。只要这个浏览器窗口没有关闭，即使刷新页面或者进入同源另一个页面，数据依然存在。但是sessionStorage在关闭了浏览器窗口后就会被销毁。同时独立的打开同一个窗口同一个页面，sessionStorage也是不一样的。
+- cookie:cookie在过期时间之前一直有效，即使窗口或浏览器关闭。 存放数据大小为`4KB`左右,有个数限制（各浏览器不同），一般不能超过`20`个。缺点是不能储存大数据且不易读取。
+- 数据存放大小：cookie：`4KB`左右，localStorage和sessionStorage：可以保存`5MB`的信息。
+:::
+
+::: details `sessionStorage`在同域下的多窗口之间能共享状态吗？
+- 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
 :::
 
 #### CSS
@@ -527,16 +646,11 @@ function checkType(val){
 
 #### Vue
 
-::: details `$nexttick()`是如何实现的
+::: details `$nextTick()`是如何实现的
 - 123
 :::
 
 #### JavaScript
-
-::: details `sessionStorage`在同域下的多窗口之间能共享状态吗？
-- 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
-:::
-
 
 ::: details `EventLoop` 事件循环机制
 - 123
@@ -558,25 +672,35 @@ function checkType(val){
 
 ::: details New关键字的底层原理
 - 123
-:::
-
-::: details get和set分别应用于基本数据类型和引用类型，有何不同
-- 123
+- [参考](https://segmentfault.com/q/1010000004557184)
 :::
 
 ::: details 强制缓存和协商缓存
 - 123
+- 参考
+  - [http面试必会的：强制缓存和协商缓存](read://https_juejin.cn/?url=https%3A%2F%2Fjuejin.cn%2Fpost%2F6844903838768431118)
 :::
 
 #### Webpack
 
 ::: details Webpack的工作流程是怎么样的
-- 123
+- Webpack 的运行流程
+  - 初始化参数
+  - 开始编译
+  - 确定入口
+  - 编译模块
+  - 完成模块编译
+  - 输出资源
+  - 输出完成
+- [参考](https://webpack.wuhaolin.cn/5%E5%8E%9F%E7%90%86/5-1%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%A6%82%E6%8B%AC.html)
 :::
 
 #### 实际项目中遇到问题及解决
 ::: details 基于ElementUI的组件二次封装（封装过哪些公共组件）（自己的组件库）
-- 123
+- 思路
+  - 父子组件的通信传值
+  - 通过在el原生组件上 使用 `v-bind="$attrs"` 和 `v-on="$listeners"` 尽量保持 element-ui 组件原有的特性与方法
+- [参考](read://https_segmentfault.com/?url=https%3A%2F%2Fsegmentfault.com%2Fa%2F1190000041757434)
 :::
 ::: details 表格前端导出
 - 123
