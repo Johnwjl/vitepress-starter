@@ -402,6 +402,10 @@ function checkType(val){
 - 块级作用域
 :::
 
+::: details 说说你对this的理解
+- `this`实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里`被调用`。
+:::
+
 ::: details 常用到的ES6知识点
 - let const
 - 解构赋值
