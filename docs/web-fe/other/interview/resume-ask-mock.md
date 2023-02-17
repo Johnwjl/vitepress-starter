@@ -1,7 +1,7 @@
 # 简历提问模拟
 ## 面试官问
 
-### 那我们开始，你先做个自我介绍吧。
+### 🌟 那我们开始，你先做个自我介绍吧。
 
 ::: details 自我介绍
 - 我上一家公司主要是做交通道路智能化监控`可视化大屏`系统平台，我们开发部门主要承接上海各区级政府对于辖区内路道病害智能化监控维护的相关需求，我们开发部做的智慧大屏系统就是基于我们数据算法部门采集的路道病害等相关数据对路面的综合路况做实时展示及相应的图形化渲染。主要技术栈是用 Vue2 + Element-UI、Echarts、高德地图 API
@@ -16,12 +16,12 @@
 - 可视化大屏，主要有几个菜单：首页、路面病害、综合路况、道路巡查、车辆巡检。大屏可视区域有以下几个模块：主区域是智慧大屏的地图撒点，顶部是title栏和菜单栏，左右两侧是可隐藏的一系列Echarts图表和table列表。
 :::
 
-### 初级（15K）
+### 🌟 初级（必备）（高频）（15K）
 <br>
 
 #### 你在实际开发中遇到过哪些问题，你是怎么解决的
 
-::: details 项目中碰到过的实际问题及解决方案？🌟
+::: details 项目中碰到过的实际问题及解决方案？
 - 在vue项目的开发中，遇到过的典型问题之一就是 `vuex状态存储数据在刷新后丢失`，围绕如何将`vuex持久化存储`去解决这个问题。
   - 解决问题的前提是定位问题。因为Vuex里的数据是保存在运行内存中的，当页面刷新时，页面会重新加载Vue实例，Vuex里面的数据就会被重新赋值。
   - 第一种解决方案 是 同时将数据存在 sessionstorge，页面刷新初始化阶段vuex通过接收sessionStorage的数据来进行数据响应式。
@@ -75,7 +75,6 @@
 - 参考
   - [高德地图「海量点标记 + 海量标注」卡顿问题 解决方案](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2FMarker__%2Farticle%2Fdetails%2F124321573)
 :::
-
 #### Vue
 
 ::: details 响应式原理（数据双向绑定原理）
@@ -94,7 +93,7 @@
 - `diff`算法比对新旧VDom中有哪些VNodes更改了，从而实现精准地更新真实DOM，进而提高效率。
 :::
 
-::: details Vue生命周期 🌟
+::: details Vue生命周期
 - 8个阶段：`创建`前/后，`挂载`前/后，`更新`前/后，`销毁`前/后。
 - `生命周期钩子`具体描述：
   1. beforeCreate：vue实例的挂载el未定义，data未定义
@@ -117,51 +116,31 @@
 - 销毁：父beforeDestroy->子beforeDestroy->子destroyed->父destroyed
 :::
 
-::: details 可以使用箭头函数来定义生命周期方法吗？
-- 不可以，因为箭头函数绑定了父级作用域上下文，因此`this`与预期的`Vue`实例不同
-:::
-
-::: details Vue常用的指令有哪些？🌟
+::: details Vue常用的指令有哪些？
 - v-if , v-show , v-for , v-model，v-bind , v-on
 :::
 
-::: details v-if 和 v-show 区别？🌟
+::: details v-if 和 v-show 区别？
 - `v-if`是真正的条件渲染，`v-show`只是css层面的显示隐藏。
 - `v-show`更适合元素切换频繁的场景，`v-if`则相反。
 :::
 
-::: details `v-for`的`key`属性的作用? 🌟
+::: details `v-for`的`key`属性的作用? 
 - 在虚拟DOM`diff`过程中，新旧`Nodes`对比时,通过`key`来辨识`VNodes`；
 - 不使用key的情况下，Vue默认遵循`就地更新/复用`策略，最大限度减少动态元素;
 - 使用key之后，Vue会基于key的变化重新排列元素顺序，以及移除/销毁key不存在的元素。
 :::
 
-::: details `v-for`为何不建议使用`index`来作为key? 🌟
+::: details `v-for`为何不建议使用`index`来作为key? 
 - 在虚拟DOM`diff`过程中，每一项的`index`都会随着数据变更而发生变化，进而更新每一项的DOM节点，这就造成了不必要的性能开销。
 :::
 
-::: details `v-for`与`v-if`为什么不能一起用？ 🌟
+::: details `v-for`与`v-if`为什么不能一起用？ 
 - `v-for`的优先级比`v-if`高，`v-for`的每次循环都会执行一次`v-if`，这就造成了不必要的性能开销。
 :::
 
-::: details Vue常用的修饰符
-- 表单修饰符
-  - .lazy（在光标离开input框才会更新数据）
-  - .trim（过滤首尾的空格）
-  - .number（先输入数字就会限制输入只能是数字）
-- 事件修饰符
-  - .stop （阻止事件冒泡 //`event.stopPropagation()`）
-  - .prevent (阻止默认行为 // `event.preventDefault()`)
-  - .self (只有元素本身触发时才触发方法)
-  - .once (事件只执行一次，无论点击几次)
-  - .sync （对prop进行双向绑定）
-  - .keyCode （监听按键的指令）
-  - .capture （添加事件侦听器时使用事件捕获模式）
-:::
-
-::: details Vue组件间传值方式有哪些？🌟
-- 父传子：props 接受传值
-- 子传父：$emit 事件发送
+::: details Vue组件通信（组件间传值）方式有哪些？
+- 父子组件间的传值：本质就是`prop`向下传递，事件向上传递。父组件通过v-bind(:)绑定的属性prop会给子组件下发数据(子组件props接收)，子组件通过事件($emit)给父组件发送信息（父组件 v-on (@) 来捕获事件）。
 - 兄弟组件：中央总线(Event-Bus)，`$emit`发送，`$on`接受
 :::
 
@@ -224,18 +203,19 @@
   - 场景：当需要在数据变化时执行异步或开销较大的操作时，即 当一个属性发生变化时，需要执行对应的操作
 :::
 
-::: details 页面输入URL回车后刷新的空白时间做了什么？
-- DNS域名解析
-- 建立TCP连接、三次握手
-- 发送HTTP请求、服务端处理请求、返回响应结果
-- 关闭TCP连接、四次挥手
-- 浏览器渲染
-  - 构建DOM树
-  - 样式计算
-  - 创建布局树
-  - 转为分层树
-  - 为每个图层生成绘制列表
-  - 通过合成线程渲染到页面
+::: details Vue常用的修饰符
+- 表单修饰符
+  - .lazy（在光标离开input框才会更新数据）
+  - .trim（过滤首尾的空格）
+  - .number（先输入数字就会限制输入只能是数字）
+- 事件修饰符
+  - .stop （阻止事件冒泡 //`event.stopPropagation()`）
+  - .prevent (阻止默认行为 // `event.preventDefault()`)
+  - .self (只有元素本身触发时才触发方法)
+  - .once (事件只执行一次，无论点击几次)
+  - .sync （对prop进行双向绑定）
+  - .keyCode （监听按键的指令）
+  - .capture （添加事件侦听器时使用事件捕获模式）
 :::
 
 ::: details `hash` 和 `history` 两种路由的区别 🌟
@@ -266,10 +246,70 @@
 - 而在hash模式中，连同`#`及后面路由参数的hash部分，虽然出现在`URL`中，但不会被包括在`HTTP`请求中，对服务端完全没有影响，因此改变`hash`不会重新加载页面
 :::
 
+::: details Vue路由守卫
+- 全局守卫 `router.beforeEach`
+  ```js
+  router.beforeEach((to, from, next) => {
+    if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+    else next()
+  })
+  ```
+- 路由独享守卫 `beforeEnter`
+  ```js
+  const routes = [
+    {
+      path: '/users/:id',
+      component: UserDetails,
+      beforeEnter: (to, from) => {
+        // reject the navigation
+        return false
+      },
+    },
+  ]
+  ```
+- 组件内的守卫 `beforeRouteEnter`
+  ```js
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      // 通过 `vm` 访问组件实例
+    })
+  }
+  ```
+::: 
+
 ::: details Vue路由权限是怎么实现的？
 - 登录以后，后端接口会返回当前用户可访问的路由菜单
 - 拿这张动态路由表与我们前端自己的静态路由表做比对和筛选，从而展示出当前用户权限下的菜单
 ::: 
+
+::: details vuex mutation?
+- 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。
+- commit 推送一个mutation
+::: 
+
+::: details vuex action？
+- Action 提交 mutation，而非直接变更状态。
+- Action 可以包含任意异步操作。
+::: 
+
+::: details vuex commit dispatch 区别？
+- dispatch 推送一个action (因此 dispatch 包含了异步操作)，this.$store.dispatch('mutations方法名',值)
+- commit：同步操作，写法：this.$store.commit('mutations方法名',值)
+::: 
+
+::: details 页面输入URL回车后刷新的空白时间做了什么？
+- DNS域名解析
+- 建立TCP连接、三次握手
+- 发送HTTP请求、服务端处理请求、返回响应结果
+- 关闭TCP连接、四次挥手
+- 浏览器渲染
+  - 构建DOM树
+  - 样式计算
+  - 创建布局树
+  - 转为分层树
+  - 为每个图层生成绘制列表
+  - 通过合成线程渲染到页面
+:::
 
 ::: details Vue自定义指令
 - 注册
@@ -336,52 +376,6 @@
   ```
 ::: 
 
-::: details Vue路由守卫
-- 全局守卫 `router.beforeEach`
-  ```js
-  router.beforeEach((to, from, next) => {
-    if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
-    else next()
-  })
-  ```
-- 路由独享守卫 `beforeEnter`
-  ```js
-  const routes = [
-    {
-      path: '/users/:id',
-      component: UserDetails,
-      beforeEnter: (to, from) => {
-        // reject the navigation
-        return false
-      },
-    },
-  ]
-  ```
-- 组件内的守卫 `beforeRouteEnter`
-  ```js
-  beforeRouteEnter (to, from, next) {
-    next(vm => {
-      // 通过 `vm` 访问组件实例
-    })
-  }
-  ```
-::: 
-
-::: details vuex mutation?
-- 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。
-- commit 推送一个mutation
-::: 
-
-::: details vuex action？
-- Action 提交 mutation，而非直接变更状态。
-- Action 可以包含任意异步操作。
-::: 
-
-::: details vuex commit dispatch 区别？
-- dispatch 推送一个action (因此 dispatch 包含了异步操作)，this.$store.dispatch('mutations方法名',值)
-- commit：同步操作，写法：this.$store.commit('mutations方法名',值)
-::: 
-
 #### JavaScript
 
 ::: details 数据类型
@@ -402,73 +396,13 @@ function checkType(val){
 ```
 :::
 
-::: details 原型链与继承
-- 原型链：每个对象拥有一个原型对象，对象从原型继承方法和属性，原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推，直到一个对象的原型对象为`null`。这种关系常被称为原型链 (prototype chain)
-- 这些属性和方法定义在 Object 的 `构造器函数` (constructor functions) 之上的 `prototype` 属性上，而非对象实例本身。
-- 从构造函数的·prototype·属性派生出`__proto__`属性，它是`对象实例`和它的`构造器`之间建立的链接,作用是将原型中的所有属性和方法都被复制到实例中
--  实例的 `__proto__` == constructor 的 `prototype` 属性
--  当访问实例(对象)的一个属性时，会先查找实例本身是否有这个属性，如果没有，就从实例的 `__proto__`中查找这个属性 (也就是 constructor 的 prototype)
--  继承的属性和方法是定义在`prototype`属性之上的。
--  构造器是函数也是对象类型
--  每个实例对象（object）都有一个私有属性（称之为 `__proto__`）指向它的构造函数的原型对象（prototype）。
--  参考
-   - [对象原型](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes)
-   - [继承与原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
-   - [Vue3 面向对象编程](read://https_juejin.cn/?url=https%3A%2F%2Fjuejin.cn%2Fpost%2F7039252967374979103)
-   - [从函数式编程和面向对象的思考到Vue3的函数式编程](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fqq_21561833%2Farticle%2Fdetails%2F118969397)
-:::
-
-::: details 实现继承的方式有哪些
-- 原型链继承
-- 构造函数继承
-- 组合式继承
-- 寄生组合式继承
-- Object.create()
-- ES6 Class extends
-- 参考
-  - [javascript实现继承的七种方式](https://juejin.cn/post/6844904161071333384)
-  - [彻底弄清js继承的几种实现方式](https://segmentfault.com/a/1190000022677985)
-:::
-
 ::: details JS有哪些作用域
 - 全局作用域
 - 函数作用域
 - 块级作用域
 :::
 
-::: details 闭包
-- 函数的嵌套函数及其作用域上下文，
-- 外部作用域能够访问内部作用域的变量
-- 实际用的不多，因为闭包会引起内存泄漏等性能问题。
-- 在一些第三方工具库里，比如 防抖的 工具函数中 会使用到 闭包。
-:::
-
-::: details 闭包为什么会引起内存泄漏
-- 根据`垃圾回收机制`，被另一个作用域引用的变量不会被回收。
-:::
-
-::: details 如何避免内存泄漏
-- 减少闭包，以及释放闭包内存占用
-  - create = null // 释放对匿名函数的引用 
-  - 匿名函数立即执行
-- 减少全局变量声明，使用l块级作用域
-:::
-
-::: details 事件捕获和事件冒泡 ，如何设置捕获和冒泡
-- 事件冒泡：事件流的触发顺序从里一直向外传递
-- 事件捕获：事件流的触发顺序从外一直向里传递
-- `addEventListener`函数的`第三个参数`是个`布尔值`。
-  - 当布尔值是`false`时（默认值），表示向上冒泡触发事件；
-  - 当布尔值是`true`时，表示向下捕获触发事件；
-:::
-
-::: details 事件委托（代理)
-- 描述：把事件监听器设置在目标元素的父节点上，然后利用冒泡原理设置每个子节点。
-- 好处：只操作了一次 DOM ，提高了程序的性能。
-- 例如：给`ul`注册点击事件，然后利用事件对象的`target`来找到当前点击的`li`，然后事件冒泡到`ul`上，`ul`有注册事件，就会触发事件监听器。
-:::
-
-::: details 常用到的ES6知识点 🌟
+::: details 常用到的ES6知识点
 - let const
 - 解构赋值
 - 模版字符串
@@ -480,58 +414,19 @@ function checkType(val){
 - async await
 :::
 
-::: details `const`定义的对象可以更改里面的属性吗
-- 可以。因为const声明的对象，只是保存对象的引用地址，只要地址不变，就不会出错。
-- 如何使之不变：使用`Object.freeze(obj)`冻结对象，就能使其内部的属性不可变，但有局限，就是obj对象中要是有属性是对象，该对象内属性还能改变，要全不可变的话，就需要使用`递归`等方式一层一层全部冻结。
-:::
-
-::: details 对象深拷贝
-- `JSON.parse(JSON.stringify(obj))`
-:::
-
-::: details let const var 区别
+::: details `let` `const` `var` 区别
 - var： 存在变量提升；一个变量可多次声明
 - let ，const： 块级作用域；不存在变量提升；声明前变量不可用（暂时性死区）；不允许在相同作用域中重复声明
 - const：只读的变量，声明后值类型数据不能改变，引用类型地址指向不能改变 内部属性可以改变；const必须初始化
 :::
 
-::: details promise 有几种状态
-- `pending` `fullfill` `reject`
-:::
-
-::: details `promise.all()`的参数
-- 一组`promise实例`的数组
-:::
-
-::: details Promise内的setTimeout执行顺序是怎么样的
-- 面试题
-  ```js
-    setTimeout(function () {
-      console.log(1);
-    }, 0);
-
-    new Promise(function (resolve) {
-      console.log(2)
-      for (let i = 0; i < 10000; i++) {
-        i == 9999 && resolve();
-      }
-      console.log(3)
-    }).then(function () {
-      console.log(4)
-    });
-    console.log(5);
-    // 2 3 5 4 1
-  ```
-- 解析
-  - 首先，Promise定以后会立即执行，所以会先打印2；
-  - 然后，resolve和reject调用不会终止Promise内的参数函数继续执行，所以会打印3；
-  - 之后，Promise的then方法和setTimeout都是异步任务，会先执行完本轮“事件循环”，所以会打印5；
-  - 最后，由于then方法是异步里面的微任务，而setTimeout是异步的宏任务，会先打印4.
+::: details `const`定义的对象可以更改里面的属性吗
+- 可以。因为const声明的对象，只是保存对象的引用地址，只要地址不变，就不会出错。
+- 如何使之不变：使用`Object.freeze(obj)`冻结对象，就能使其内部的属性不可变，但有局限，就是obj对象中要是有属性是对象，该对象内属性还能改变，要全不可变的话，就需要使用`递归`等方式一层一层全部冻结。
 :::
 
 ::: details 数组 map() 的返回值
-- pending fullfill reject
-- Vue3 是通过 Proxy API 实现对属性的 getter 和 setter  的代理，并原生支持对数组和对象的监听。
+- 123
 :::
 
 ::: details 数组去重有哪些方法
@@ -620,15 +515,113 @@ var array3 = [...array1, ...array2];
 - 数据存放大小：cookie：`4KB`左右，localStorage和sessionStorage：可以保存`5MB`的信息。
 :::
 
-::: details `sessionStorage`在同域下的多窗口之间能共享状态吗？
+::: details `sessionStorage`在同域下的`多窗口`之间能共享状态吗？
 - 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
+:::
+
+::: details 对象深拷贝
+- `JSON.parse(JSON.stringify(obj))`
+:::
+
+::: details 原型链与继承
+- 原型链：每个对象拥有一个原型对象，对象从原型继承方法和属性，原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推，直到一个对象的原型对象为`null`。这种关系常被称为原型链 (prototype chain)
+- 这些属性和方法定义在 Object 的 `构造器函数` (constructor functions) 之上的 `prototype` 属性上，而非对象实例本身。
+- 从构造函数的·prototype·属性派生出`__proto__`属性，它是`对象实例`和它的`构造器`之间建立的链接,作用是将原型中的所有属性和方法都被复制到实例中
+-  实例的 `__proto__` == constructor 的 `prototype` 属性
+-  当访问实例(对象)的一个属性时，会先查找实例本身是否有这个属性，如果没有，就从实例的 `__proto__`中查找这个属性 (也就是 constructor 的 prototype)
+-  继承的属性和方法是定义在`prototype`属性之上的。
+-  构造器是函数也是对象类型
+-  每个实例对象（object）都有一个私有属性（称之为 `__proto__`）指向它的构造函数的原型对象（prototype）。
+-  参考
+   - [对象原型](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes)
+   - [继承与原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+   - [Vue3 面向对象编程](read://https_juejin.cn/?url=https%3A%2F%2Fjuejin.cn%2Fpost%2F7039252967374979103)
+   - [从函数式编程和面向对象的思考到Vue3的函数式编程](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fqq_21561833%2Farticle%2Fdetails%2F118969397)
+:::
+
+::: details 实现继承的方式有哪些
+- 原型链继承
+- 构造函数继承
+- 组合式继承
+- 寄生组合式继承
+- Object.create()
+- ES6 Class extends
+- 参考
+  - [javascript实现继承的七种方式](https://juejin.cn/post/6844904161071333384)
+  - [彻底弄清js继承的几种实现方式](https://segmentfault.com/a/1190000022677985)
+:::
+
+::: details 闭包
+- 函数的嵌套函数及其作用域上下文，
+- 外部作用域能够访问内部作用域的变量
+- 实际用的不多，因为闭包会引起内存泄漏等性能问题。
+- 在一些第三方工具库里，比如 防抖的 工具函数中 会使用到 闭包。
+:::
+
+::: details 闭包为什么会引起内存泄漏
+- 根据`垃圾回收机制`，被另一个作用域引用的变量不会被回收。
+:::
+
+::: details 如何避免内存泄漏
+- 减少闭包，以及释放闭包内存占用
+  - create = null // 释放对匿名函数的引用 
+  - 匿名函数立即执行
+- 减少全局变量声明，使用l块级作用域
+:::
+
+::: details 事件捕获和事件冒泡 ，如何设置捕获和冒泡
+- 事件冒泡：事件流的触发顺序从里一直向外传递
+- 事件捕获：事件流的触发顺序从外一直向里传递
+- `addEventListener`函数的`第三个参数`是个`布尔值`。
+  - 当布尔值是`false`时（默认值），表示向上冒泡触发事件；
+  - 当布尔值是`true`时，表示向下捕获触发事件；
+:::
+
+::: details 事件委托（代理)
+- 描述：把事件监听器设置在目标元素的父节点上，然后利用冒泡原理设置每个子节点。
+- 好处：只操作了一次 DOM ，提高了程序的性能。
+- 例如：给`ul`注册点击事件，然后利用事件对象的`target`来找到当前点击的`li`，然后事件冒泡到`ul`上，`ul`有注册事件，就会触发事件监听器。
+:::
+
+::: details promise 有几种状态
+- `pending` `fullfill` `reject`
+:::
+
+::: details `promise.all()`的参数
+- 一组`promise实例`的数组
+:::
+
+::: details Promise内的setTimeout执行顺序是怎么样的
+- 面试题
+  ```js
+    setTimeout(function () {
+      console.log(1);
+    }, 0);
+
+    new Promise(function (resolve) {
+      console.log(2)
+      for (let i = 0; i < 10000; i++) {
+        i == 9999 && resolve();
+      }
+      console.log(3)
+    }).then(function () {
+      console.log(4)
+    });
+    console.log(5);
+    // 2 3 5 4 1
+  ```
+- 解析
+  - 首先，Promise定以后会立即执行，所以会先打印2；
+  - 然后，resolve和reject调用不会终止Promise内的参数函数继续执行，所以会打印3；
+  - 之后，Promise的then方法和setTimeout都是异步任务，会先执行完本轮“事件循环”，所以会打印5；
+  - 最后，由于then方法是异步里面的微任务，而setTimeout是异步的宏任务，会先打印4.
 :::
 
 #### CSS
 
 ::: details 元素水平垂直居中
 - 水平居中
-  - `flex: display:flex`; `just-content:center`
+  - `flex: display:flex`; `justice-content:center`
   - `text-aglin: center`
   - `margin : 0 auto`
 - 垂直居中
@@ -647,6 +640,10 @@ var array3 = [...array1, ...array2];
 ### 中级（20K）
 
 #### Vue
+
+::: details 可以使用箭头函数来定义生命周期方法吗？
+- 不可以，因为箭头函数绑定了父级作用域上下文，因此`this`与预期的`Vue`实例不同
+:::
 
 ::: details `$nextTick()`是如何实现的
 - 123
@@ -734,15 +731,11 @@ var array3 = [...array1, ...array2];
 
 ### Vue3 
 
-#### 初级
-
 ::: details Vue3 怎么定义响应式数据
 - 123
 :::
 
 ### TypeScript
-
-#### 初级
 
 ::: details 说说泛型及其使用场景
 - 描述：不预先指定具体的类型，相当于给类型先设一个占位符
