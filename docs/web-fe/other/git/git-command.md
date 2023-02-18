@@ -120,4 +120,5 @@ git push -u origin --tags
 - 填写 Token密钥
 - 点击更新（refresh）
 
-[参考](read://https_www.jianshu.com/?url=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fcf61a7408175)
+#### 参考
+[Gitlab与Github双向同步](https://www.jianshu.com/p/cf61a7408175)

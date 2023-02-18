@@ -144,64 +144,57 @@ npm install sass -D
       $--font-path: '~element-ui/lib/theme-chalk/fonts';
       @import "~element-ui/packages/theme-chalk/src/index";
     ```
-  - Fixed Bug
+  ::: details Fixed Bug
     1. `[sass] Can't find stylesheet to import.`
-      - Error Info : 
+        - Error Info : 
         ```sh
         Internal server error: [sass] Can't find stylesheet to import.
         @import "~element-ui/packages/theme-chalk/src/index";
         ```
-      - Bug Fixed :
-
-        **将 `~` 改为 `node_modules/`**
-        ```scss
+        - Bug Fixed : **将 `~` 改为 `node_modules/`**
+        ```js
         // element-variables.scss
 
         @import "node_modules/element-ui/packages/theme-chalk/src/index";
         ```
-
-    2. `Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.`
-      - Error Info :
+    2. `[sass] Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.`
+        - Error Info :
         ```sh
         Deprecation Warning: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
         Recommendation: math.div(1, 5) or calc(1 / 5)
         More info and automated migrator: https://sass-lang.com/d/slash-div
         ```
-      - Bug Fixed :
+        - Bug Fixed :
         ```sh
         npm install -g sass-migrator
         sass-migrator division **/*.scss
         ```
-
-    3. `$weight: Passing a number without unit % (0) is deprecated.`
-      - Error Info :
+    3. `[sass] $weight: Passing a number without unit % (0) is deprecated.`
+        - Error Info :
         ```sh
         Deprecation Warning: $weight: Passing a number without unit % (0) is deprecated.
         To preserve current behavior: $weight * 1%
         More info: https://sass-lang.com/d/function-units
         ```
-      - Bug Fixed :
-  
+        - Bug Fixed :
         `"sass": "^1.58.0"` => `"sass": "^1.55.0"`
         ```sh
         npm uninstall sass -D // 卸载
         npm install sass@1.55.0 -D 
         ```
-
     4. Chrome 控制台：`element-icons.woff net::ERR_ABORTED 404 (Not Found)`
-      - Error Info :
+        - Error Info :
         ```sh
         GET http://127.0.0.1:5173/~element-ui/lib/theme-chalk/fonts/element-icons.woff net::ERR_ABORTED 404 (Not Found)
         ```
-      - Bug Fixed :
-        
+        - Bug Fixed :
         **将 `~` 改为 `node_modules/`**
         ```scss
         // element-variables.scss
         
         $--font-path: 'node_modules/element-ui/lib/theme-chalk/fonts';
-        
         ```
+  :::
 
 ### 4. PostCSS
 >  `PostCSS` b被称作 `后处理器`，其作用是给我们的CSS属性自动加上所需的前缀，以应对浏览器兼容性。 

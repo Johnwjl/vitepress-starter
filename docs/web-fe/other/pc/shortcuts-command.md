@@ -132,3 +132,7 @@ cd "$(brew --repo)/Library/Taps/homebrew/homebrew-cask"
   ```
   nvm alias default 16.14.0
   ```
+
+  ## NPM
+
+  - npm -D -S 

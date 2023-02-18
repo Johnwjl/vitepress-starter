@@ -60,12 +60,12 @@
   - 定时轮询
   - 通过 websocket 即时通信技术
 - 参考
-  - [websocket实时获取数据（数据可视化大屏）](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fweixin_52703987%2Farticle%2Fdetails%2F122956621)
+  - [websocket实时获取数据（数据可视化大屏）](https://blog.csdn.net/weixin_52703987/article/details/122956621)
 :::
 
 ::: details 登录鉴权 判断当前用户已登陆
 - JWT 前端将token存到本地，在请求的headers里提供token
-- [判断用户是否的登录的方式：JWT 与 session 、cookies](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fweixin_43822185%2Farticle%2Fdetails%2F104074147)
+- [判断用户是否的登录的方式：JWT 与 session 、cookies](https://blog.csdn.net/weixin_43822185/article/details/104074147)
 :::
 
 ::: details 地图大数据量的撒点很卡顿,如何解决
@@ -73,7 +73,7 @@
 - 检测「海量标注」中的数据项，判断其坐标是否在浏览器视口区域，从而进行分片渲染
 
 - 参考
-  - [高德地图「海量点标记 + 海量标注」卡顿问题 解决方案](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2FMarker__%2Farticle%2Fdetails%2F124321573)
+  - [高德地图「海量点标记 + 海量标注」卡顿问题 解决方案](https://blog.csdn.net/Marker__/article/details/124321573)
 :::
 #### Vue
 
@@ -539,8 +539,8 @@ var array3 = [...array1, ...array2];
 -  参考
    - [对象原型](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes)
    - [继承与原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
-   - [Vue3 面向对象编程](read://https_juejin.cn/?url=https%3A%2F%2Fjuejin.cn%2Fpost%2F7039252967374979103)
-   - [从函数式编程和面向对象的思考到Vue3的函数式编程](read://https_blog.csdn.net/?url=https%3A%2F%2Fblog.csdn.net%2Fqq_21561833%2Farticle%2Fdetails%2F118969397)
+   - [Vue3 面向对象编程](https://juejin.cn/post/7039252967374979103)
+   - [从函数式编程和面向对象的思考到Vue3的函数式编程](https://blog.csdn.net/qq_21561833/article/details/118969397)
 :::
 
 ::: details 实现继承的方式有哪些
@@ -660,11 +660,12 @@ var array3 = [...array1, ...array2];
 :::
 
 ::: details 单线程的JavaScript是如何实现异步的
-- JavaScript通常的宿主环境是浏览器，浏览器是多线程的。
-- 浏览器主线程负责自上而下`顺序执行`，当遇到`setTimeout()`后，便将其交给`定时器线程`去执行，自己继续执行下面的代码, 从而达到异步的目的。
-- 任务队列: 当定时器线程计时执行完之后，会将回调函数放入任务队列中。当这些任务加入到任务队列后并不会立即执行，而是处于等候状态。等主线程处理完了自己的事情后，才来执行任务队列中任务。
-
-- [参考](https://juejin.cn/post/6844904159385223175)
+- 总结
+  - JavaScript通常的宿主环境是浏览器，浏览器是多线程的。
+  - 浏览器主线程负责自上而下`顺序执行`，当遇到`setTimeout()`后，便将其交给`定时器线程`去执行，自己继续执行下面的代码, 从而达到异步的目的。
+  - 任务队列: 当定时器线程计时执行完之后，会将回调函数放入任务队列中。当这些任务加入到任务队列后并不会立即执行，而是处于等候状态。等主线程处理完了自己的事情后，才来执行任务队列中任务。
+- 参考
+  - [单线程的JavaScript是如何实现异步的](https://juejin.cn/post/6844904159385223175)
 :::
 
 ::: details `EventLoop` 微任务 宏任务
@@ -674,14 +675,16 @@ var array3 = [...array1, ...array2];
 :::
 
 ::: details New关键字的底层原理
-- 123
-- [参考](https://segmentfault.com/q/1010000004557184)
+- 总结
+  - 123
+- 参考
+  - [new关键字的底层实现原理](https://segmentfault.com/q/1010000004557184)
 :::
 
 ::: details 强制缓存和协商缓存
 - 123
 - 参考
-  - [http面试必会的：强制缓存和协商缓存](read://https_juejin.cn/?url=https%3A%2F%2Fjuejin.cn%2Fpost%2F6844903838768431118)
+  - [http面试必会的：强制缓存和协商缓存](https://juejin.cn/post/6844903838768431118)
 :::
 
 #### Webpack
@@ -695,7 +698,8 @@ var array3 = [...array1, ...array2];
   - 完成模块编译
   - 输出资源
   - 输出完成
-- [参考](https://webpack.wuhaolin.cn/5%E5%8E%9F%E7%90%86/5-1%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%A6%82%E6%8B%AC.html)
+- 参考
+  - [深入浅出webpack 5-1 工作原理概括](https://webpack.wuhaolin.cn/5%E5%8E%9F%E7%90%86/5-1%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%A6%82%E6%8B%AC.html)
 :::
 
 #### 实际项目中遇到问题及解决
@@ -703,7 +707,8 @@ var array3 = [...array1, ...array2];
 - 思路
   - 父子组件的通信传值
   - 通过在el原生组件上 使用 `v-bind="$attrs"` 和 `v-on="$listeners"` 尽量保持 element-ui 组件原有的特性与方法
-- [参考](read://https_segmentfault.com/?url=https%3A%2F%2Fsegmentfault.com%2Fa%2F1190000041757434)
+- 参考
+  - [二次封装这几个 element-ui 组件后，让代码更加优雅了](https://juejin.cn/post/7090453016960040967)
 :::
 ::: details 表格前端导出
 - 123
