@@ -5,3 +5,6 @@
   // 该命令会连同 package.json 一起更新
   yarn upgrade-interactive --latest
   ```
+
+## TS
+
