@@ -26,7 +26,7 @@ export default {
         },
         { text: "Works", 
           items: [
-            { text: 'Admin ( Vue2 + Vite )', link: '/vue2-admin-vite' },
+            { text: 'Admin ( Vue2 + Vite )', link: 'https://vue2-admin-vite.jellowang.cn/' },
           ]
         },
         { text: "Life", link: '/life/book/reading-log'},

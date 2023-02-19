@@ -135,4 +135,13 @@ cd "$(brew --repo)/Library/Taps/homebrew/homebrew-cask"
 
   ## NPM
 
-  - npm -D -S 
+  ### Install
+
+  ```sh
+  npm i module_name  -S  = >  npm install module_name --save    // 写入到 dependencies 对象 (需要发布到生产环境)
+
+  npm i module_name  -D  => npm install module_name --save-dev   // 写入到 devDependencies 对象 (只用于开发环境)
+
+  npm i module_name  -g  // 全局安装
+  ```
+  
