@@ -224,14 +224,14 @@ export default {
                 text: 'Movie',
                 collapsed: true,
                 items: [
-                  { text: 'Watching Log', link: '/life/Movie/watching-log' }, 
-                  { 
-                    text: 'Watching Note',
-                    collapsed: true,
-                    items: [
-                      { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
-                    ]
-                  }, 
+                  { text: 'Watching Log', link: '/life/movie/watching-log' }, 
+                  // { 
+                  //   text: 'Watching Note',
+                  //   collapsed: true,
+                  //   items: [
+                  //     { text: '《流浪地球2》', link: '/life/movie/watching-note/lldq2' }, 
+                  //   ]
+                  // }, 
                 ]
               },
               {
@@ -240,13 +240,6 @@ export default {
                 items: [
                   { text: '使用指南', link: '/life/iPhone/basic' }, 
                   { text: '进阶指南', link: '/life/iPhone/advance' }, 
-                  // { 
-                  //   text: 'Watching Note',
-                  //   collapsed: true,
-                  //   items: [
-                  //     { text: '《流浪地球2》', link: '/life/Movie/watching-note/lldq2' }, 
-                  //   ]
-                  // }, 
                 ]
               }
             ]
