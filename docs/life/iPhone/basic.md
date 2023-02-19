@@ -1,6 +1,18 @@
 # iPhone📱使用指南
 > 写给爸妈的苹果手机基本操作手册
 
+--- 
+**将本页添加到主屏幕，方便随时查看**
+
+- 点击链接 (自动跳转到了网页) -> 点击 `共享` 菜单 -> `添加到主屏幕` 
+
+<figure>
+  <img src="https://s2.loli.net/2023/02/19/kBtALPjWbhl2I6Y.gif" alt="" style="width:50%;margin: 0 auto;">
+  <figcaption style="text-align: center;color: #9e9e9e;">将本页添加到主屏幕</figcaption>
+</figure>
+
+---
+
 ## 介绍
 
 - `iPhone`(苹果手机📱)，音同`哎凤`，是`Apple`(苹果公司) 音同`哎剖` 生产发行的手机。
