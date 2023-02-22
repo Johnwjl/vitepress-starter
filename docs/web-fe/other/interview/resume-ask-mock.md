@@ -22,6 +22,20 @@
 #### 你在实际开发中遇到过哪些问题，你是怎么解决的
 
 ::: details 项目中碰到过的实际问题及解决方案？
+
+- vue解决跨域
+  - 用于本地开发:`vue.config.js` 中 在`proxy`中设置跨域 `changOrigin: true, //允许跨域`
+  - 原理：将域名发送给本地的服务器（启动vue项目的服务，localhost:8080），再由本地的服务器去请求真正的服务器。
+  - 用于真实axios请求：
+  - 参考:
+    - [在Vue项目开发过程中解决跨域问题](https://blog.csdn.net/qq_24264965/article/details/109008679)
+    - [我误会了 changeOrigin 这么多年](https://juejin.cn/post/7151966465606811678)
+    - [vue-cli3跨域配置之changeOrigin的默认值](https://segmentfault.com/a/1190000020317573)
+    - [webpack 配置 changeOrigin 无效的说明](https://blog.csdn.net/qq_39291919/article/details/108807111)
+    - [withCredentials有什么作用](https://www.jianshu.com/p/624718082e69)
+    - [withCredentials——让我加了班](https://juejin.cn/post/7163597193058729998)
+    - [vue.config配置跨域，axios不能引用process.env，还怎么区分运行环境？](https://segmentfault.com/q/1010000042680530)
+    - [关于Axios中写了axios.defaults.withCredentials = true，携带Session还是有问题](https://blog.csdn.net/BiYvGe/article/details/115664343)
 - 在vue项目的开发中，遇到过的典型问题之一就是 `vuex状态存储数据在刷新后丢失`，围绕如何将`vuex持久化存储`去解决这个问题。
   - 解决问题的前提是定位问题。因为Vuex里的数据是保存在运行内存中的，当页面刷新时，页面会重新加载Vue实例，Vuex里面的数据就会被重新赋值。
   - 第一种解决方案 是 同时将数据存在 sessionstorge，页面刷新初始化阶段vuex通过接收sessionStorage的数据来进行数据响应式。
@@ -57,10 +71,13 @@
 
 ::: details 大屏实时数据展示解决方案
 - 方式
-  - 定时轮询
+  - 长轮询(long polling)
+  - 服务器事件推送(Sever-Sent Events, SSE)
   - 通过 websocket 即时通信技术
 - 参考
   - [websocket实时获取数据（数据可视化大屏）](https://blog.csdn.net/weixin_52703987/article/details/122956621)
+  - [都2022年了，实时更新数据你还只会用短轮询?](https://juejin.cn/post/7139684620777291807)
+  - [VUE中使用EventSource接收服务器推送事件](https://blog.csdn.net/sleepwalker_1992/article/details/118221953)
 :::
 
 ::: details 登录鉴权 判断当前用户已登陆
@@ -523,8 +540,29 @@ var array3 = [...array1, ...array2];
 - 多窗口之间`sessionStorage`不可以共享状态！但是在某些`特定场景`下新开的页面会`复制`之前页面的`sessionStorage`
 :::
 
-::: details 对象深拷贝
-- `JSON.parse(JSON.stringify(obj))`
+::: details 深浅拷贝
+- 浅拷贝
+  - `JSON`方式:`JSON.parse(JSON.stringify(obj))`
+    - 缺点：无法实现对象中方法(function)的深拷贝
+  - 递归方式:
+    - 实现：
+      ```js
+      function deepClone(obj) {
+          var target = {};
+          for(var key in obj) {
+              if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                  if (typeof obj[key] === 'object') {
+                      target[key] = deepClone(obj[key]); 
+                  } else {
+                      target[key] = obj[key];
+                  }
+              }
+          }
+          return target;
+      }
+      ```
+- 深拷贝
+  - `Object.assign` : 第一层级是深拷贝，
 :::
 
 ::: details 原型链与继承
@@ -649,8 +687,16 @@ var array3 = [...array1, ...array2];
 - 不可以，因为箭头函数绑定了父级作用域上下文，因此`this`与预期的`Vue`实例不同
 :::
 
-::: details `$nextTick()`是如何实现的
-- 123
+::: details 说说`$nextTick()`及其实现原理
+- `$nextTick()`本质就是执行延迟回调的钩子，接受一个回调函数作为参数，在下次`DOM`更新循环结束之后执行延迟回调。
+- vue是异步执行DOM更新的
+- vue使用了`MutationObserver`API来监听DOM变动
+- js的事件循环机制
+  - `事件循环`(Event-Loop)维护一个或一组`任务队列`(Task-Queues)
+- 利用`Event-Loop`事件循环去进行异步操作，等vue的事件循环结束之后，再执行回调函数。
+- 通过任务队列中的微任务来实现。关于微任务,vue采用优雅降级的多种兼容方案，大多数情况下，`nextTick`会通过`Promise.resolve()`来创建一个成功的Promise，然后再通过`Promise.then()`来将回调函数添加入微任务队列。
+- 同时，nextTick 还设置了状态锁pedding，通过pedding来判断当前队列当中是否已经存在一个nextTick的任务。这样就可以避免多次执行nextTick的任务，降低系统资源的使用。
+- Vue（2.6.x） 在内部对异步队列尝试使用原生的`Promise.then`、`MutationObserver` 和 `setImmediate`，如果执行环境不支持，则会采用 `setTimeout(fn, 0)` 代替。
 :::
 
 #### JavaScript
@@ -674,9 +720,12 @@ var array3 = [...array1, ...array2];
 - 当前的微任务没有执行完成时，不会执行下一个宏任务
 :::
 
-::: details New关键字的底层原理
-- 总结
-  - 123
+::: details `new`关键字底层原理
+- `new`会做如下操作：
+  - 创建一个空对象
+  - 为对象添加`__proto__`,将该属性链接至构造函数的原型对象
+  - 将对象作为 this 的上下文
+  - 如果该函数没有返回对象，则返回`this`。
 - 参考
   - [new关键字的底层实现原理](https://segmentfault.com/q/1010000004557184)
 :::
@@ -685,6 +734,13 @@ var array3 = [...array1, ...array2];
 - 123
 - 参考
   - [http面试必会的：强制缓存和协商缓存](https://juejin.cn/post/6844903838768431118)
+:::
+
+::: details 浏览器最多能并发多少条请求
+- 123
+- 参考
+  - [浏览器允许的并发请求资源数是什么意思？](https://www.zhihu.com/question/20474326?utm_id=0) 
+  - [浏览器同域名请求的最大并发数限制](https://cloud.tencent.com/developer/article/1683127)
 :::
 
 #### Webpack

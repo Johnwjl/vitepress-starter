@@ -223,6 +223,10 @@ Now we can code [Login & Router & permissions](./02-login-router-permissions)
 
 ### Axios 
 
+> Axios 是一个基于 promise 的网络请求库
+#### Install
+
+`npm i axios -S` or `yarn add axios`
 
 
 ### vuex
