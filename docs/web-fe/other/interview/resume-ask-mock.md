@@ -661,6 +661,11 @@ var array3 = [...array1, ...array2];
 
 #### CSS
 
+::: details 浏览器兼容性
+- 引用一些成熟现有的插件`Normalize.css`来清除默认样式；
+- 使用加浏览器前缀的兼容性写法
+:::
+
 ::: details 元素水平垂直居中
 - 水平居中
   - `flex: display:flex`; `justice-content:center`
