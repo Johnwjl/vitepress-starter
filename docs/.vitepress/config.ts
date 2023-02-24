@@ -241,6 +241,13 @@ export default {
                   { text: '使用指南', link: '/life/iPhone/basic' }, 
                   { text: '进阶指南', link: '/life/iPhone/advance' }, 
                 ]
+              },
+              {
+                text: 'Daily Review',
+                collapsed: true,
+                items: [
+                  { text: '2023', link: '/life/daily-review/2023/2023-list' }, 
+                ]
               }
             ]
           }
