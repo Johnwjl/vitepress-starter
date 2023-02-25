@@ -75,6 +75,8 @@ git branch -M main
 ```sh
 git push -u origin main
 ```
+> 如需用户名、密码，则密码是需要新建一个身份令牌(token)
+
 
 Github远程仓库当前的目录结构如下：
 ```

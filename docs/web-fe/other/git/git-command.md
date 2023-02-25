@@ -100,10 +100,6 @@ git push -u origin --all
 git push -u origin --tags
 ```
 
-### git pull
-
-- `git pull` = `git fetch` + `git merge`
-
 ### 命令行内vim编辑操作
 - 在当前这个页面键入i(进入编辑模式)，此时会出现光标
 - 按esc，然后输入:(键盘上shift+：)，输入wq，即保存退出
@@ -113,7 +109,7 @@ git push -u origin --tags
 #### Github 操作
 - 新建一个仓库
 - 新建一个Token密钥 `setting` -> `Developer setting` -> `personal access tokens`
-<!-- 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 -->
+<!-- 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 -->
 #### Gitlab 操作
 - `设置` -> `仓库` -> `镜像仓库`
 - 填写Github URL 需要加上 `username` : https://Johnwjl@github.com/Johnwjl/Vue2_admin_vite.git

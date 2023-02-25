@@ -1,4 +1,4 @@
-# Git 分支
+# 分支操作
 
 ## 概述：
 
@@ -70,6 +70,39 @@ git branch -r
 git checkout wangjinlong_remote
 ```
 
+### 在`主干分支`上将`指定分支`合并过来（将分支合并到主干）（merge代码）
+
+```sh
+// 切换到主干分支 （切换到接收分支）
+git checkout main
+// 拉取最新的远程提交
+git fetch
+// 确保 main 分支具有最新更新
+git pull
+// 将指定分支的代码合并过来
+git merge wangjinlong
+```
+
+### 解决冲突
+
+- 一般 `=======` 标记符`之前`的内容是`接收分支`，之后的部分是`合并分支`。
+- 手动处理完文件中的冲突， `git add` 冲突文件 以告诉 Git 它们已解决。然后，运行正常 `git commit` 以生成合并提交。
+
+
+## Other
+
+### git pull
+
+- `git pull` = `git fetch` + `git merge`
+
+### git pull --rebase
+
+- 作用：
+
+- 所有`git pull`命令都将使用 `git rebase` 而不是 `git merge`
+```sh
+  git config --global branch.autosetuprebase always
+```
 
 ## 参考
 

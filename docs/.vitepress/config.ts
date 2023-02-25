@@ -188,6 +188,7 @@ export default {
                 collapsed: true,
                 items: [
                   { text: 'Git Command', link: '/web-fe/other/git/git-command' }, 
+                  { text: 'Git Branch Operation', link: '/web-fe/other/git/git-branch-operation' }, 
                 ]
               },
               {
