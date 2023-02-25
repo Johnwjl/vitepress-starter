@@ -698,12 +698,15 @@ var array3 = [...array1, ...array2];
 - vue使用了`MutationObserver`API来监听DOM变动
 - js的事件循环机制
   - `事件循环`(Event-Loop)维护一个或一组`任务队列`(Task-Queues)
+  - 事件循环机制会持续监控队列，并且按照先来后到的顺序执行其中的回调。
 - 利用`Event-Loop`事件循环去进行异步操作，等vue的事件循环结束之后，再执行回调函数。
 - 通过任务队列中的微任务来实现。关于微任务,vue采用优雅降级的多种兼容方案，大多数情况下，`nextTick`会通过`Promise.resolve()`来创建一个成功的Promise，然后再通过`Promise.then()`来将回调函数添加入微任务队列。
 - 同时，nextTick 还设置了状态锁pedding，通过pedding来判断当前队列当中是否已经存在一个nextTick的任务。这样就可以避免多次执行nextTick的任务，降低系统资源的使用。
 - Vue（2.6.x） 在内部对异步队列尝试使用原生的`Promise.then`、`MutationObserver` 和 `setImmediate`，如果执行环境不支持，则会采用 `setTimeout(fn, 0)` 代替。
 :::
 
+::: details 现场手写一个`Table`组件
+- 123
 #### JavaScript
 
 ::: details `EventLoop` 事件循环机制
@@ -746,6 +749,14 @@ var array3 = [...array1, ...array2];
 - 参考
   - [浏览器允许的并发请求资源数是什么意思？](https://www.zhihu.com/question/20474326?utm_id=0) 
   - [浏览器同域名请求的最大并发数限制](https://cloud.tencent.com/developer/article/1683127)
+:::
+
+::: details 手写数组的reverse()方法
+- 123
+:::
+
+::: details 手写数组的flat()方法
+- 123
 :::
 
 #### Webpack
