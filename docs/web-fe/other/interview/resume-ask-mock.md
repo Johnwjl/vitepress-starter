@@ -805,6 +805,9 @@ var array3 = [...array1, ...array2];
 - 123
 :::
 
+- [Vue3.0面试题汇总](https://juejin.cn/post/7139921537896808479)
+- [2022年我的面试万字总结（Vue3+TS）](https://juejin.cn/post/7160962909332307981)
+
 ### TypeScript
 
 ::: details 说说泛型及其使用场景
