@@ -144,15 +144,78 @@ Vue.use(Element)
 > 此时开始 基于 `Vue Router` 和 `Element-UI` 搭建简单的登陆页面和路由菜单
 > 参见下文： `三、框架功能及业务实现`  中的该功能章节
 
+### less
+
+#### 安装
+
+- 指定`less-loader`版本为`5`,当前（2023-02）最高版本`11`，版本过高会因不兼容而报错。
+
+```sh
+yarn add less less-loader@5 -D
+```
+
+```json
+// package.json
+"less": "^4.1.3",
+"less-loader": "5",
+```
+### scss/sass
+
+#### 安装
+
+- 指定`sass-loader`版本为`5`,当前（2023-02）最高版本`11`，版本过高会因不兼容而报错。
+
+```sh
+yarn add sass sass-loader -D
+```
+
+```json
+// package.json
+"less": "^4.1.3",
+"less-loader": "5",
+```
+
+### windi CSS
+
+#### Install
+
+```sh
+vue add windicss
+```
+
+#### 配置
+
+```js
+// vue.config.js
+
+module.exports = {
+  pluginOptions: {
+    windicss: {
+      // 具体配置请查看 https://github.com/windicss/vite-plugin-windicss/blob/main/packages/plugin-utils/src/options.ts
+    },
+  },
+}
+```
+#### 引入
+
+```js
+// main.js
+
+import 'windi.css' // 已自动添加
+```
+
 ### Axios 
 
+> Axios 是一个基于 promise 的网络请求库
+#### Install
 
+`npm i axios -S` or `yarn add axios`
 
 ### vuex
 
 
 ## 三、框架功能及业务实现
 
-### 1. 基于 `Vue Router` 和 `Element-UI` 搭建简单的登陆页面和路由菜单
+### 1. 基于 `Vue Router` 和 `Element-UI` 实现 `登陆页`、`导航菜单`、`菜单权限`
 
-> 构思：登陆页由于页面上元素简单（仅一个Form表单），不需要嵌套组件，所以是页面级单文件组件，vue文件创建路径如下：`src/views/login/
+> vue官方组件命名规范：多个单词、大驼峰命名。

@@ -7,7 +7,7 @@ titleTemplate: Personal Website
 hero:
   name: Jello's Blog
   text: Personal Website
-  tagline: Web FE , Works , and Life .
+  tagline: What an incredible time to be a web developer.
 # image:
 #   src: /avatar-1.jpg
 #   alt: avatar
