@@ -751,8 +751,21 @@ var array3 = [...array1, ...array2];
   - [浏览器同域名请求的最大并发数限制](https://cloud.tencent.com/developer/article/1683127)
 :::
 
-::: details 手写数组的reverse()方法
-- 123
+::: details 手写数组的 sort() reverse() 方法
+- 冒泡排序法
+  ```js
+  var sortArray = function(nums) {
+    const { length } = nums;
+    for (let i = 0; i < length; i++) {
+      for (let j = 0; j < length - 1 - i; j++) {
+        if (nums[j] > nums[j + 1]) {
+          [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
+        }
+      }
+    }
+    return nums;
+  };
+  ```
 :::
 
 ::: details 手写数组的flat()方法
