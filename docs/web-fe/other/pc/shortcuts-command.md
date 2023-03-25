@@ -31,6 +31,7 @@
 - `Shfit(⇧) + Command(⌘) + N`  Open New Window
 - `Command(⌘) + P`  Quickly Open File
 - `Command(⌘) + K + S` Open Shortcuts
+- `Control(⌃) + Option(⌥) + N` code runner 快捷键
 
 ### Linux Common Command
 - ls　显示文件或目录
