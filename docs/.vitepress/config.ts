@@ -18,7 +18,7 @@ export default {
         { text: "Web FE", 
           items: [
             { text: 'Vue2', link: '/web-fe/vue2/vue2-note' },
-            { text: 'Vue3', link: '/web-fe/vue3' },
+            { text: 'Vue3', link: '/web-fe/vue3/english-translation/why-vue' },
             { text: 'JavaScript', link: '/web-fe/javascript/es6+/promise' },
             { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
             { text: 'Other', link: '/web-fe/other/interview/resume-ask-mock' },
@@ -145,6 +145,21 @@ export default {
                   { text: '02. Login & Router & Permissions', link: '/web-fe/vue2/admin-vite/02-login-router-permissions' }, 
                 ]
               }
+            ]
+          }
+        ],
+        '/web-fe/vue3/': [
+          {
+            text: 'Vue3',
+            // collapsed: false,
+            items: [
+              {
+                text: 'English Translation',
+                collapsed: true,
+                items: [
+                  { text: 'Why Vue ?', link: '/web-fe/vue3/english-translation/why-vue' }, 
+                ]
+              },
             ]
           }
         ],
