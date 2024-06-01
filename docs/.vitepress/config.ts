@@ -24,6 +24,11 @@ export default {
             { text: 'Other', link: '/web-fe/other/interview/resume-ask-mock' },
           ]
         },
+        { text: "CS", 
+          items: [
+            { text: '计算机组成', link: '/cs/computer-organization/index' },
+          ]
+        },
         { text: "Works", 
           items: [
             { text: 'Admin ( Vue2 + Vite )', link: 'https://vue2-admin-vite.jellowang.cn/' },
@@ -213,6 +218,16 @@ export default {
                   { text: 'PC Shortcuts & Command', link: '/web-fe/other/pc/shortcuts-command' }, 
                 ]
               },
+            ]
+          }
+        ],
+        // cs
+        '/cs/': [
+          {
+            text: 'Computer Organization',
+            // collapsed: false,
+            items: [
+              { text: 'Computer Organization', link: '/cs/computer-organization/index' }, 
             ]
           }
         ],

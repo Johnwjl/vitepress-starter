@@ -5,8 +5,8 @@
   "author": "Jello",
   "license": "MIT",
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.45",
-    "vue": "^3.2.47"
+    "vitepress": "^1.2.2",
+    "vue": "^3.4.27"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "feed": "^4.2.2",
-    "github-calendar": "^2.3.2",
-    "medium-zoom": "^1.0.8"
+    "github-calendar": "^2.3.4",
+    "medium-zoom": "^1.1.0"
   }
 }
