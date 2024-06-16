@@ -1,5 +1,6 @@
 ## 知名前端团队博客网站
 
+- [Google Web开发课程系列](https://web.dev/learn/?hl=zh-cn)
 - [Web前端导航 - 腾讯出品](https://www.alloyteam.com/nav/)
 - [腾讯前端团队](https://www.alloyteam.com/)
 - [百度前端团队](https://ife.baidu.com/)
@@ -17,6 +18,10 @@
 - [Learning Resource Roadmap - (Front-End Development)](https://learning-resource-path.gitbook.io/resources)
 - [Front-End Developer Handbook 2024](https://frontendmasters.com/guides/front-end-handbook/2024/)
 - [看云 书籍广场 - 前端开发](https://www.kancloud.cn/tag/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91)
+- [前端开发者手册](https://dwqs.gitbooks.io/frontenddevhandbook/content/)
+- [大前端工具集](https://github.com/nieweidong/fetool)
+- [7招提升你的前端开发效率](https://juejin.cn/post/6844903457690927111)
+- [我是如何从零开始学习前端的](https://segmentfault.com/a/1190000004652898?_ea=680358)
 
 ## 前端框架社区
 
