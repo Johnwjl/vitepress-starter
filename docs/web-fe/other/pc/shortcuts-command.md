@@ -34,7 +34,7 @@
 - `Control(⌃) + Option(⌥) + N` code runner 快捷键
 
 ### Linux Common Command
-- ls　显示文件或目录
+- ls　查看文件或目录
   ```
   -l  列出文件详细信息 l(list)
   -a  列出当前目录下所有文件及目录，包括隐藏的 a(all)
