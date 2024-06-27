@@ -82,3 +82,9 @@ async function increment() {
   // ...
 }
 ```
+
+## 计算属性
+
+使用[计算属性](https://cn.vuejs.org/guide/essentials/computed.html)来描述**依赖响应式状态**的复杂逻辑。
+
+计算属性值会基于其响应式依赖被缓存。一个计算属性仅会在其响应式依赖更新时才重新计算。
