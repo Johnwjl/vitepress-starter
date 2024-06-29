@@ -15,7 +15,7 @@
 **参考视频**：
 - [上斜俯卧撑 - lyfta](https://www.lyfta.app/zh-CN/exercise/incline-push-up--8af)
 
-#### 后撑反屈伸
+#### 凳上反屈伸
 参考视频：
 - [Dip on Floor with Chair - lyfta](https://www.lyfta.app/exercise/dip-on-floor-with-chair-8qy)
 
@@ -90,7 +90,11 @@
 **次组**：8次 2组
 
 
-## 腰腹核心徒手训练（每日）
+## 腰腹核心徒手训练（每日晨练）
+
+#### 凯格尔练习
+
+#### 臀桥
 
 腰肌
 #### 小燕飞
