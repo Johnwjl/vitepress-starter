@@ -252,7 +252,7 @@ export default {
                     collapsed: true,
                     items: [
                       { text: '《胜者思维》', link: '/life/book/reading-note/szsw' }, 
-                      // { text: 'Watching Note', link: '/life/book/reading-note' }, 
+                      { text: '《软技能：代码之外的生存指南》', link: '/life/book/reading-note/rjn' }, 
                     ]
                   }, 
                 ]
@@ -271,14 +271,14 @@ export default {
                   // }, 
                 ]
               },
-              {
-                text: 'iPhone',
-                collapsed: true,
-                items: [
-                  { text: '使用指南', link: '/life/iPhone/basic' }, 
-                  { text: '进阶指南', link: '/life/iPhone/advance' }, 
-                ]
-              },
+              // {
+              //   text: 'iPhone',
+              //   collapsed: true,
+              //   items: [
+              //     { text: '使用指南', link: '/life/iPhone/basic' }, 
+              //     { text: '进阶指南', link: '/life/iPhone/advance' }, 
+              //   ]
+              // },
               {
                 text: 'Daily Review',
                 collapsed: true,
