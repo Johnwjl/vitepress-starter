@@ -47,26 +47,12 @@
 
 - [Mail Me](mailto:wangjinlong@jellowang.cn)
 
-## Other
+## 浏览器兼容性查询
 
-### 浏览器兼容
+### 主流浏览器的互操作性兼容性测试通过率
 
-<br>
+- [interop-2024](https://wpt.fyi/interop-2024?stable)
 
-#### 浏览器市场占比情况
-
-- [Desktop Browser Market Share China 2022.02 - 2023.02](https://gs.statcounter.com/browser-market-share/desktop/china/#monthly-202202-202302-bar)
-
-![](https://s2.loli.net/2023/02/24/gIdsxX563ptvwHA.png)
-
-- [Mobile Browser Market Share China](https://gs.statcounter.com/browser-market-share/mobile/china/#monthly-202201-202301-bar)
-
-![](https://s2.loli.net/2023/02/24/LHfOlP3XYRJhTKF.png)
-
-#### 主流浏览器的兼容性测试通过率
-
-- [interop-2022](https://wpt.fyi/interop-2022?stable)
-
-#### 浏览器兼容性查询
+### 现代Web技术在各浏览器的支持情况及兼容性查询
 
 - [Can I use](https://caniuse.com/)

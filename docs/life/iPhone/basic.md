@@ -6,11 +6,6 @@
 
 - 点击链接 (自动跳转到了网页) -> 点击 `共享` 菜单 -> `添加到主屏幕` 
 
-<figure>
-  <img src="https://s2.loli.net/2023/02/19/kBtALPjWbhl2I6Y.gif" alt="" style="width:50%;margin: 0 auto;">
-  <figcaption style="text-align: center;color: #9e9e9e;">将本页添加到主屏幕</figcaption>
-</figure>
-
 ---
 
 ## 介绍
@@ -41,11 +36,6 @@
 #### 图片编辑
 
 - 标注：点击图片 -> 长按图片 -> 点击`画笔` -> 选择颜色 -> 手指画出标注 -> 点击`完成` -> 选择 `转发给朋友`/`收藏`/`保存图片`
-
-<figure>
-  <img src="https://s2.loli.net/2023/02/19/cqOsoLD93dab7RQ.gif" alt="" style="width:50%;margin: 0 auto;">
-  <figcaption style="text-align: center;color: #9e9e9e;">微信-图片编辑-标注</figcaption>
-</figure>
 
 ### 微信读书
 

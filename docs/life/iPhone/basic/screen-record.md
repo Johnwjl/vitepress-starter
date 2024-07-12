@@ -13,24 +13,19 @@
 
 - 打开 **控制中心** `从屏幕右上角往下轻扫`，再次轻点`屏幕录制`按钮 <img src="https://help.apple.com/assets/6387F6CB0C1E2145A22E8306/6387F6E20C1E2145A22E8317/zh_CN/a5528a3fcf15083141f9576956adebbd.png" alt="所选“屏幕录制”按钮" height="30" width="30" originalimagename="GlobalArt/IL_ScreenRecordRed.png" style="display: inline-block;vertical-align: bottom;">
 
+### 将自己的说话声音录制进去
+- 长按`录屏`，打开`麦克风`
+
 ## 通话录音
 
 > iOS系统因为涉及隐私保护问题不支持通话录音功能。
-
 > iPhone 出于隐私政策 全系列不支持电话录音功能。
-
 > 在欧美地区未经对方知情录音通话是触犯隐私法律的。
 
 ### 用旧手机来当作录音设备
+
 - 虽说苹果手机没有通话录音，但有一个简单的录音方法，就是用你的旧手机放在旁边录音。
 - 比如`来电`或是`微信通话`的时候，你把苹果手机`开外放扩音`，将小米手机打开`录音` 开始录音。旧手机要保持充电习惯，随身携带。
-
-### 通过录屏的方式来实现`通话录音`
-- 在`录屏`基础上，打开`麦克风`（把自己的声音录进去）
-<figure>
-  <img src="https://s2.loli.net/2023/02/08/myA9wGkxVdvBbHQ.gif" alt="RPReplay_Final1675831843.mov.gif" style="width:50%;margin: 0 auto;">
-  <figcaption style="text-align: center;color: #9e9e9e;">长按录音，打开麦克风</figcaption>
-</figure>
 
 ## 录音（语音备忘录）
 
