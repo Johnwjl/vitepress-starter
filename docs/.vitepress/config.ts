@@ -6,6 +6,7 @@ export default {
     ],
     appearance: 'dark',
     lastUpdated: true,
+    cleanUrls: true,
     markdown: {
       // theme: 'material-theme-palenight',
       lineNumbers: true // 代码行号
