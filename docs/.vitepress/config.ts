@@ -1,4 +1,6 @@
-export default {
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
     title: 'Jello\'s Blog',
     description: 'Personal Website',
     head: [
@@ -12,6 +14,25 @@ export default {
       lineNumbers: true // 代码行号
     },
     themeConfig: {
+      search: {
+        provider: 'local',
+        options: {
+              // _render(src, env, md) {
+              //   debugger
+              // console.log('src', src)
+              // console.log('env', env)
+              // console.log('md', md)
+              //   const html = md.render(src, env)
+              //   if (env.frontmatter?.search === false) return ''
+              //   if (env.relativePath.startsWith('life/book/')) {
+              //     debugger
+              //     console.log(env.relativePath)
+              //     return ''
+              //   }
+              //   return html
+              // }
+        }
+      },
       // logo: '/logo.svg',
       logo: { light: '/logo-1.svg', dark: '/logo-2.svg'},
       nav: [
@@ -35,7 +56,7 @@ export default {
             { text: 'Admin ( Vue2 + Vite )', link: 'https://vue2-admin-vite.jellowang.cn/' },
           ]
         },
-        { text: "Life", link: '/life/book/reading-log'},
+        // { text: "Life", link: '/life/me'},
         // { text: "我的掘金", link: "https://juejin.cn/user/2242659452477016" },
         { text: "About me", link: "/me"},
       ],
@@ -243,6 +264,7 @@ export default {
           {
             text: 'Life',
             items: [
+              { text: 'me', link: 'life' }, 
               {
                 text: 'Book',
                 collapsed: true,
@@ -293,8 +315,11 @@ export default {
       },
       lastUpdatedText: 'Updated Date'
     },
+    rewrites: {
+      'life/me.md': 'life.md',
+    },
     async buildEnd(siteConfig) {
       // console.log('siteConfig', siteConfig)
       // ...
     }
-  }
+})

@@ -33,9 +33,9 @@ import {
   version,
   watch,
   watchEffect
-} from "./chunk-D4D2XWKF.js";
+} from "./chunk-ZRZ4CPYY.js";
 
-// node_modules/.pnpm/vitepress@1.2.2_@algolia+client-search@4.23.3_postcss@8.4.38_search-insights@2.13.0/node_modules/vitepress/lib/vue-demi.mjs
+// node_modules/.pnpm/vitepress@1.3.0_@algolia+client-search@4.24.0_postcss@8.4.39_search-insights@2.15.0/node_modules/vitepress/lib/vue-demi.mjs
 var isVue2 = false;
 var isVue3 = true;
 function set(target, key, val) {
@@ -55,7 +55,7 @@ function del(target, key) {
   delete target[key];
 }
 
-// node_modules/.pnpm/@vueuse+shared@10.10.0_vue@3.4.27/node_modules/@vueuse/shared/index.mjs
+// node_modules/.pnpm/@vueuse+shared@10.11.0_vue@3.4.31/node_modules/@vueuse/shared/index.mjs
 function computedEager(fn, options) {
   var _a;
   const result = shallowRef();
@@ -1552,7 +1552,7 @@ function whenever(source, cb, options) {
   return stop;
 }
 
-// node_modules/.pnpm/@vueuse+core@10.10.0_vue@3.4.27/node_modules/@vueuse/core/index.mjs
+// node_modules/.pnpm/@vueuse+core@10.11.0_vue@3.4.31/node_modules/@vueuse/core/index.mjs
 function computedAsync(evaluationCallback, initialState, optionsOrRef) {
   let options;
   if (isRef(optionsOrRef)) {
@@ -1822,8 +1822,9 @@ function onClickOutside(target, handler, options = {}) {
       setTimeout(() => {
         var _a;
         const el = unrefElement(target);
-        if (((_a = window2.document.activeElement) == null ? void 0 : _a.tagName) === "IFRAME" && !(el == null ? void 0 : el.contains(window2.document.activeElement)))
+        if (((_a = window2.document.activeElement) == null ? void 0 : _a.tagName) === "IFRAME" && !(el == null ? void 0 : el.contains(window2.document.activeElement))) {
           handler(event);
+        }
       }, 0);
     })
   ].filter(Boolean);
@@ -4991,7 +4992,7 @@ function useFileSystemAccess(options = {}) {
   };
 }
 function useFocus(target, options = {}) {
-  const { initialValue = false, focusVisible = false } = options;
+  const { initialValue = false, focusVisible = false, preventScroll = false } = options;
   const innerFocused = ref(false);
   const targetElement = computed(() => unrefElement(target));
   useEventListener(targetElement, "focus", (event) => {
@@ -5007,7 +5008,7 @@ function useFocus(target, options = {}) {
       if (!value && innerFocused.value)
         (_a = targetElement.value) == null ? void 0 : _a.blur();
       else if (value && !innerFocused.value)
-        (_b = targetElement.value) == null ? void 0 : _b.focus();
+        (_b = targetElement.value) == null ? void 0 : _b.focus({ preventScroll });
     }
   });
   watch(
@@ -6453,8 +6454,9 @@ function useParallax(target, options = {}) {
     elementHeight: height
   } = useMouseInElement(target, { handleOutside: false, window: window2 });
   const source = computed(() => {
-    if (orientation.isSupported && (orientation.alpha != null && orientation.alpha !== 0 || orientation.gamma != null && orientation.gamma !== 0))
+    if (orientation.isSupported && (orientation.alpha != null && orientation.alpha !== 0 || orientation.gamma != null && orientation.gamma !== 0)) {
       return "deviceOrientation";
+    }
     return "mouse";
   });
   const roll = computed(() => {
@@ -6975,8 +6977,7 @@ function useScrollLock(element, initialState = false) {
     set(v) {
       if (v)
         lock();
-      else
-        unlock();
+      else unlock();
     }
   });
 }
@@ -7075,10 +7076,9 @@ function useSpeechRecognition(options = {}) {
         recognition.lang = lang2;
     });
     recognition.onresult = (event) => {
-      const transcript = Array.from(event.results).map((result2) => {
-        isFinal.value = result2.isFinal;
-        return result2[0];
-      }).map((result2) => result2.transcript).join("");
+      const currentResult = event.results[event.resultIndex];
+      const { transcript } = currentResult[0];
+      isFinal.value = currentResult.isFinal;
       result.value = transcript;
       error.value = void 0;
     };
@@ -7319,8 +7319,7 @@ function useStorageAsync(key, initialValue, storage, options = {}) {
           data.value = mergeDefaults(value, rawInit);
         else if (type === "object" && !Array.isArray(value))
           data.value = { ...rawInit, ...value };
-        else
-          data.value = value;
+        else data.value = value;
       } else {
         data.value = await serializer.read(rawValue);
       }
@@ -8075,8 +8074,7 @@ function useUserMedia(options = {}) {
     (v) => {
       if (v)
         _start();
-      else
-        _stop();
+      else _stop();
     },
     { immediate: true }
   );
@@ -8885,130 +8883,81 @@ function useWindowSize(options = {}) {
   }
   return { width, height };
 }
+
 export {
-  DefaultMagicKeysAliasMap,
-  StorageSerializers,
-  TransitionPresets,
-  assert,
-  computedAsync as asyncComputed,
-  refAutoReset as autoResetRef,
-  breakpointsAntDesign,
-  breakpointsBootstrapV5,
-  breakpointsMasterCss,
-  breakpointsPrimeFlex,
-  breakpointsQuasar,
-  breakpointsSematic,
-  breakpointsTailwind,
-  breakpointsVuetify,
-  breakpointsVuetifyV2,
-  breakpointsVuetifyV3,
-  bypassFilter,
-  camelize,
-  clamp,
-  cloneFnJSON,
-  computedAsync,
   computedEager,
-  computedInject,
   computedWithControl,
-  containsProp,
-  computedWithControl as controlledComputed,
-  controlledRef,
+  tryOnScopeDispose,
   createEventHook,
-  createFetch,
-  createFilterWrapper,
   createGlobalState,
-  createInjectionState,
-  reactify as createReactiveFn,
-  createReusableTemplate,
-  createSharedComposable,
-  createSingletonPromise,
-  createTemplatePromise,
-  createUnrefFn,
-  customStorageEventName,
-  debounceFilter,
-  refDebounced as debouncedRef,
-  watchDebounced as debouncedWatch,
-  defaultDocument,
-  defaultLocation,
-  defaultNavigator,
-  defaultWindow,
-  directiveHooks,
-  computedEager as eagerComputed,
-  executeTransition,
-  extendRef,
-  formatDate,
-  formatTimeAgo,
-  get,
-  getLifeCycleTarget,
-  getSSRHandler,
-  hasOwn,
-  hyphenate,
-  identity,
-  watchIgnorable as ignorableWatch,
-  increaseWithUnit,
-  injectLocal,
-  invoke,
-  isClient,
-  isDef,
-  isDefined,
-  isIOS,
-  isObject,
-  isWorker,
-  makeDestructurable,
-  mapGamepadToXbox360Controller,
-  noop,
-  normalizeDate,
-  notNullish,
-  now,
-  objectEntries,
-  objectOmit,
-  objectPick,
-  onClickOutside,
-  onKeyDown,
-  onKeyPressed,
-  onKeyStroke,
-  onKeyUp,
-  onLongPress,
-  onStartTyping,
-  pausableFilter,
-  watchPausable as pausableWatch,
-  promiseTimeout,
   provideLocal,
-  rand,
+  injectLocal,
+  createInjectionState,
+  createSharedComposable,
+  extendRef,
+  get,
+  isDefined,
+  makeDestructurable,
+  toValue,
+  resolveUnref,
   reactify,
   reactifyObject,
+  toReactive,
   reactiveComputed,
   reactiveOmit,
+  isClient,
+  isWorker,
+  isDef,
+  notNullish,
+  assert,
+  isObject,
+  now,
+  timestamp,
+  clamp,
+  noop,
+  rand,
+  hasOwn,
+  isIOS,
+  createFilterWrapper,
+  bypassFilter,
+  debounceFilter,
+  throttleFilter,
+  pausableFilter,
+  directiveHooks,
+  hyphenate,
+  camelize,
+  promiseTimeout,
+  identity,
+  createSingletonPromise,
+  invoke,
+  containsProp,
+  increaseWithUnit,
+  objectPick,
+  objectOmit,
+  objectEntries,
+  getLifeCycleTarget,
+  toRef2 as toRef,
+  resolveRef,
   reactivePick,
   refAutoReset,
+  useDebounceFn,
   refDebounced,
   refDefault,
+  useThrottleFn,
   refThrottled,
   refWithControl,
-  resolveRef,
-  resolveUnref,
+  controlledRef,
   set2 as set,
-  setSSRHandler,
+  watchWithFilter,
+  watchPausable,
   syncRef,
   syncRefs,
-  templateRef,
-  throttleFilter,
-  refThrottled as throttledRef,
-  watchThrottled as throttledWatch,
-  timestamp,
-  toReactive,
-  toRef2 as toRef,
   toRefs2 as toRefs,
-  toValue,
   tryOnBeforeMount,
   tryOnBeforeUnmount,
   tryOnMounted,
-  tryOnScopeDispose,
   tryOnUnmounted,
-  unrefElement,
   until,
-  useActiveElement,
-  useAnimate,
   useArrayDifference,
   useArrayEvery,
   useArrayFilter,
@@ -9021,28 +8970,92 @@ export {
   useArrayReduce,
   useArraySome,
   useArrayUnique,
+  useCounter,
+  formatDate,
+  normalizeDate,
+  useDateFormat,
+  useIntervalFn,
+  useInterval,
+  useLastChanged,
+  useTimeoutFn,
+  useTimeout,
+  useToNumber,
+  useToString,
+  useToggle,
+  watchArray,
+  watchAtMost,
+  watchDebounced,
+  watchDeep,
+  watchIgnorable,
+  watchImmediate,
+  watchOnce,
+  watchThrottled,
+  watchTriggerable,
+  whenever,
+  computedAsync,
+  computedInject,
+  createReusableTemplate,
+  createTemplatePromise,
+  createUnrefFn,
+  unrefElement,
+  defaultWindow,
+  defaultDocument,
+  defaultNavigator,
+  defaultLocation,
+  useEventListener,
+  onClickOutside,
+  onKeyStroke,
+  onKeyDown,
+  onKeyPressed,
+  onKeyUp,
+  onLongPress,
+  onStartTyping,
+  templateRef,
+  useMounted,
+  useSupported,
+  useMutationObserver,
+  useActiveElement,
+  useRafFn,
+  useAnimate,
   useAsyncQueue,
   useAsyncState,
   useBase64,
   useBattery,
   useBluetooth,
+  useMediaQuery,
+  breakpointsTailwind,
+  breakpointsBootstrapV5,
+  breakpointsVuetifyV2,
+  breakpointsVuetifyV3,
+  breakpointsVuetify,
+  breakpointsAntDesign,
+  breakpointsQuasar,
+  breakpointsSematic,
+  breakpointsMasterCss,
+  breakpointsPrimeFlex,
   useBreakpoints,
   useBroadcastChannel,
   useBrowserLocation,
   useCached,
+  usePermission,
   useClipboard,
   useClipboardItems,
+  cloneFnJSON,
   useCloned,
+  getSSRHandler,
+  setSSRHandler,
+  StorageSerializers,
+  customStorageEventName,
+  useStorage,
+  usePreferredDark,
   useColorMode,
   useConfirmDialog,
-  useCounter,
   useCssVar,
   useCurrentElement,
   useCycleList,
   useDark,
-  useDateFormat,
-  refDebounced as useDebounce,
-  useDebounceFn,
+  useManualRefHistory,
+  useRefHistory,
   useDebouncedRefHistory,
   useDeviceMotion,
   useDeviceOrientation,
@@ -9052,16 +9065,18 @@ export {
   useDocumentVisibility,
   useDraggable,
   useDropZone,
+  useResizeObserver,
   useElementBounding,
   useElementByPoint,
   useElementHover,
   useElementSize,
+  useIntersectionObserver,
   useElementVisibility,
   useEventBus,
-  useEventListener,
   useEventSource,
   useEyeDropper,
   useFavicon,
+  createFetch,
   useFetch,
   useFileDialog,
   useFileSystemAccess,
@@ -9069,28 +9084,23 @@ export {
   useFocusWithin,
   useFps,
   useFullscreen,
+  mapGamepadToXbox360Controller,
   useGamepad,
   useGeolocation,
   useIdle,
   useImage,
+  useScroll,
   useInfiniteScroll,
-  useIntersectionObserver,
-  useInterval,
-  useIntervalFn,
   useKeyModifier,
-  useLastChanged,
   useLocalStorage,
+  DefaultMagicKeysAliasMap,
   useMagicKeys,
-  useManualRefHistory,
   useMediaControls,
-  useMediaQuery,
   useMemoize,
   useMemory,
-  useMounted,
   useMouse,
   useMouseInElement,
   useMousePressed,
-  useMutationObserver,
   useNavigatorLanguage,
   useNetwork,
   useNow,
@@ -9098,26 +9108,20 @@ export {
   useOffsetPagination,
   useOnline,
   usePageLeave,
+  useScreenOrientation,
   useParallax,
   useParentElement,
   usePerformanceObserver,
-  usePermission,
   usePointer,
   usePointerLock,
   usePointerSwipe,
   usePreferredColorScheme,
   usePreferredContrast,
-  usePreferredDark,
   usePreferredLanguages,
   usePreferredReducedMotion,
   usePrevious,
-  useRafFn,
-  useRefHistory,
-  useResizeObserver,
-  useScreenOrientation,
   useScreenSafeArea,
   useScriptTag,
-  useScroll,
   useScrollLock,
   useSessionStorage,
   useShare,
@@ -9125,27 +9129,21 @@ export {
   useSpeechRecognition,
   useSpeechSynthesis,
   useStepper,
-  useStorage,
   useStorageAsync,
   useStyleTag,
-  useSupported,
   useSwipe,
   useTemplateRefsList,
   useTextDirection,
   useTextSelection,
   useTextareaAutosize,
-  refThrottled as useThrottle,
-  useThrottleFn,
   useThrottledRefHistory,
   useTimeAgo,
-  useTimeout,
-  useTimeoutFn,
+  formatTimeAgo,
   useTimeoutPoll,
   useTimestamp,
   useTitle,
-  useToNumber,
-  useToString,
-  useToggle,
+  TransitionPresets,
+  executeTransition,
   useTransition,
   useUrlSearchParams,
   useUserMedia,
@@ -9160,19 +9158,7 @@ export {
   useWebWorkerFn,
   useWindowFocus,
   useWindowScroll,
-  useWindowSize,
-  watchArray,
-  watchAtMost,
-  watchDebounced,
-  watchDeep,
-  watchIgnorable,
-  watchImmediate,
-  watchOnce,
-  watchPausable,
-  watchThrottled,
-  watchTriggerable,
-  watchWithFilter,
-  whenever
+  useWindowSize
 };
 /*! Bundled license information:
 
@@ -9183,4 +9169,4 @@ vitepress/lib/vue-demi.mjs:
    * @license MIT
    *)
 */
-//# sourceMappingURL=vitepress___@vueuse_core.js.map
+//# sourceMappingURL=chunk-EBOSOPXJ.js.map
