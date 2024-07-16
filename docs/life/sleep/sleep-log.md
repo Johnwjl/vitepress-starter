@@ -27,9 +27,12 @@
 |          11           | 23:00 - 05:00   ｜  6h | :yawning_face: |              :weight_lifting: :shower:<br/>:no_mobile_phones: :non-potable_water:              |                  1                  |
 |          12           | 00:00 - 09:00   ｜  6h |   :sleeping:   |   :swimmer: :shower:<br/>:books: :lotus_position:<br/>:no_mobile_phones: :non-potable_water:   |                  0                  |
 |          13           | 00:00 - 09:00   ｜  6h |   :sleeping:   | :shower:<br/>:books: :lotus_position:<br/>:no_mobile_phones: :non-potable_water:<br/> :monkey: |                  0                  |
+|          14           | 00:00 - 09:00   ｜  6h |   :sleeping:   | :shower:<br/>:books: :lotus_position:<br/>:no_mobile_phones: :non-potable_water:<br/> :monkey: |                  0                  |
+|          15           | 00:00 - 09:00   ｜  6h |   :sleeping:   | :shower:<br/>:books: :lotus_position:<br/>:no_mobile_phones: :non-potable_water:<br/> :monkey: |                  1                  |
+|          16           | 00:00 - 09:00   ｜  6h |   :sleeping:   | :shower:<br/>:books: :lotus_position:<br/>:no_mobile_phones: :non-potable_water:<br/> :monkey: |                  0                  |
 
 #### 复盘
 
-- 无痛早起率：0/4 ，0%
-- 赖床率：2/4，%
-- 低心率提示率：1/4，%
+- 无痛早起率：0/7 ，0%
+- 赖床率：5/7，%
+- 低心率提示率：2/7，%
