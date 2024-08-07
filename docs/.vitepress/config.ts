@@ -43,7 +43,7 @@ export default defineConfig({
             { text: 'Vue3', link: '/web-fe/vue3/english-translation/why-vue' },
             { text: 'JavaScript', link: '/web-fe/javascript/es6+/promise' },
             { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
-            { text: 'Other', link: '/web-fe/other/interview/resume-ask-mock' },
+            { text: 'Other', link: '/web-fe/interview/interview-log-2024' },
           ]
         },
         { text: "CS", 
@@ -219,7 +219,7 @@ export default defineConfig({
                 text: 'Interview',
                 collapsed: true,
                 items: [
-                  { text: 'Interview Log', link: '/web-fe/other/interview/interview-log' }, 
+                  { text: 'Interview Log', link: '/web-fe/other/interview/interview-log-2024' }, 
                   {
                     text: 'Interview Detail Log', 
                     collapsed: true,

@@ -232,22 +232,7 @@ this.$router.push({path:'/home',query: {id:'1'}})
 
 ### 打包优化
 
-
-
-
-# JS (ES5、ES6 +)
-
-### ES6 +
-- 常用的有哪些
-  - Array.from()
-    - 作用：从```类数组或可迭代对象```创建它的```浅拷贝```
-    - 参数：```Array.from(arrayLike, mapFn, thisArg)``` , mapFn 支持箭头函数
-    - 场景：```arrayLike``` 可以是 String、Set、Map 、arguments
-  - new Set() 、new Map()
-- 数组的用法 及返回值 （ES5、ES6）
-
 #### 数组扁平化
-- let const 和var 区别；const 常量真的不可以修改吗，如果我想修改要怎么做
 - 
 #### 箭头函数 
 - 箭头函数没有自己的this，而是绑定了父级作用域的上下文。因此箭头函数的this永远指向其父级作用域。
@@ -316,21 +301,11 @@ this.$router.push({path:'/home',query: {id:'1'}})
 - promise 使用场景 代码实践 原理 解决了哪些问题
 - async/await 
 
-#### 浅拷贝、深拷贝
-- 含义：浅拷贝是只指当```对象属性值```或者```数组项```是 ```引用类型```的时候 ，由于只拷贝了其引用，源和副本的变更是互相影响的。而深拷贝则是相互独立、互不影响的。
-- 浅拷贝
-  - 数组方法concat()、slice()、对象方法Object.assign()、扩展运算符（...）、Array.from()、Object.create()都属于浅拷贝
-- 深拷贝
-  - ```JSON.parse(JSON.stringify(originArray))```
-  - 递归遍历
 
-### ES5
-- 原型链 继承
-- 闭包
+
 - 跨域
 - 事件冒泡、事件捕获
 - event-loop 事件循环机制
-- 防抖、节流
 - 本地存储 cookie sessionStorage localStorage
 
 # CSS
