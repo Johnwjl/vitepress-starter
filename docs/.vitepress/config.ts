@@ -17,17 +17,6 @@ export default defineConfig({
         gtag('js', new Date());
         gtag('config', 'G-374HL7DXQG');`
       ],
-      ['script', {},
-        `
-          var _hmt = _hmt || [];
-          (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?765ab4560c8bb4a619a5ed38e78c3670";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-          })();
-        `
-        ]
     ],
     appearance: 'dark',
     lastUpdated: true,
