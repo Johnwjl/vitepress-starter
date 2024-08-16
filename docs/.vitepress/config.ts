@@ -5,6 +5,18 @@ export default defineConfig({
     description: 'Personal Website',
     head: [
       ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+      [
+        'script',
+        { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-374HL7DXQG' }
+      ],
+      [
+        'script',
+        {},
+        `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-374HL7DXQG');`
+      ]
     ],
     appearance: 'dark',
     lastUpdated: true,

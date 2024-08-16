@@ -476,3 +476,11 @@ console.log(clone.details === original.details); // false
 ## 后台管理篇
 
 ## 小程序篇
+
+## 大屏
+
+### 大屏适配解决方案
+
+字体
+
+缩放
