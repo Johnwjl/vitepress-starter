@@ -6,6 +6,8 @@ import { onMounted, nextTick, watch } from 'vue';
 import mediumZoom from 'medium-zoom'
 
 import './index.css';
+// 访问量计数
+import busuanzi from 'busuanzi.pure.js'
 
 export default {
   ...Theme,
@@ -19,6 +21,7 @@ export default {
             // mediumZoom('[data-zoomable]')
             // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' });
             mediumZoom('.main img', { background: 'var(--vp-c-bg)' });
+            busuanzi.fetch()
         }),
         { immediate: true },
       )

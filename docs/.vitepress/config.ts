@@ -140,10 +140,10 @@ export default defineConfig({
         // },
         
       ],
-      // footer: {
-      //   message: 'Powered by VitePress',
-      //   copyright: '© 2023 Jello'
-      // },
+      footer: {
+        message: 'Powered by VitePress 本站访客数 <span id="busuanzi_value_site_uv" /> 人次',
+        copyright: '© 2024 Jello 本站总访问量 <span id="busuanzi_value_site_pv" /> 次'
+      },
       sidebar: {
         '/web-fe/javascript/': [
           {

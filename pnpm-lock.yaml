@@ -18,6 +18,9 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
     devDependencies:
+      busuanzi.pure.js:
+        specifier: ^1.0.3
+        version: 1.0.3
       vite:
         specifier: ^5.3.3
         version: 5.3.3
@@ -495,6 +498,9 @@ packages:
 
   birpc@0.2.17:
     resolution: {integrity: sha512-+hkTxhot+dWsLpp3gia5AkVHIsKlZybNT5gIYiDlNzJrmYPcTM9k5/w2uaj3IPpd7LlEYpmCj4Jj1nC41VhDFg==}
+
+  busuanzi.pure.js@1.0.3:
+    resolution: {integrity: sha512-tPULdyx+8NNb9geZYDpktKmHAYx9f2LEOBaHyWCaM7iPEMIa/43KgYAUluuU7YG9UFSOFpj4dO7Nj2Vlu3V9Rg==}
 
   copy-anything@3.0.5:
     resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
@@ -1122,6 +1128,8 @@ snapshots:
       '@algolia/transporter': 4.24.0
 
   birpc@0.2.17: {}
+
+  busuanzi.pure.js@1.0.3: {}
 
   copy-anything@3.0.5:
     dependencies:
