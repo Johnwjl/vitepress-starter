@@ -55,7 +55,7 @@ export default defineConfig({
             { text: 'Vue3', link: '/web-fe/vue3/english-translation/why-vue' },
             { text: 'JavaScript', link: '/web-fe/javascript/es6+/promise' },
             { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
-            { text: 'Other', link: '/web-fe/interview/interview-log-2024' },
+            { text: 'Other', link: '/web-fe/other/blog-upgrade/blog-upgrade-log' },
           ]
         },
         { text: "CS", 
@@ -140,10 +140,10 @@ export default defineConfig({
         // },
         
       ],
-      footer: {
-        message: 'Powered by VitePress 本站访客数 <span id="busuanzi_value_site_uv" /> 人次',
-        copyright: '© 2024 Jello 本站总访问量 <span id="busuanzi_value_site_pv" /> 次'
-      },
+      // footer: {
+      //   message: 'Powered by VitePress',
+      //   copyright: '© 2024 Jello'
+      // },
       sidebar: {
         '/web-fe/javascript/': [
           {
