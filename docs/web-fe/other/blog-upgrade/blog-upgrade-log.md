@@ -5,3 +5,4 @@
 - 2024.8.16, Add Feature: [谷歌统计分析](./blog-upgrade-log-note/comment.md)
 - 2024.8.16, Add Feature: [访问量计数显示](./blog-upgrade-log-note/comment.md)
 - 2024.8.17, Add Feature: [评论](./blog-upgrade-log-note/comment.md)
+- 2024.8.18, Add Feature: [性能优化](./blog-upgrade-log-note/performance-optimization.md)
