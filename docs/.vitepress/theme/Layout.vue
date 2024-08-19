@@ -1,10 +1,6 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-// import Twikoo from './Twikoo.vue'
-import { defineAsyncComponent } from 'vue'
-const Twikoo = defineAsyncComponent(() =>
-  import('./Twikoo.vue')
-)
+import Twikoo from './Twikoo.vue'
 
 const { Layout } = DefaultTheme
 </script>
