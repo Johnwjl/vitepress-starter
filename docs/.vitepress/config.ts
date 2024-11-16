@@ -55,11 +55,14 @@ export default defineConfig({
             { text: 'Vue3', link: '/web-fe/vue3/english-translation/why-vue' },
             { text: 'JavaScript', link: '/web-fe/javascript/es6+/promise' },
             { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
+            { text: '前端工程化', link: '/web-fe/front-end_engineering/introduction' },
+            { text: '前端部署', link: '/web-fe/deploy/start' },
             { text: 'Other', link: '/web-fe/other/blog-upgrade/blog-upgrade-log' },
           ]
         },
         { text: "CS", 
           items: [
+            { text: 'Python', link: '/cs/python/初识python' },
             { text: '计算机组成', link: '/cs/computer-organization/index' },
           ]
         },
@@ -203,6 +206,21 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Why Vue ?', link: '/web-fe/vue3/english-translation/why-vue' }, 
+                ]
+              },
+            ]
+          }
+        ],
+        '/web-fe/front-end_engineering/': [
+          {
+            text: '前端工程化',
+            // collapsed: false,
+            items: [
+              {
+                text: '起步',
+                collapsed: true,
+                items: [
+                  { text: '简介', link: '/web-fe/vue3/front-end_engineering/introduction' }, 
                 ]
               },
             ]
