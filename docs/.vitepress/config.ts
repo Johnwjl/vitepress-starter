@@ -220,7 +220,22 @@ export default defineConfig({
                 text: '起步',
                 collapsed: true,
                 items: [
-                  { text: '简介', link: '/web-fe/vue3/front-end_engineering/introduction' }, 
+                  { text: '简介', link: '/web-fe/front-end_engineering/introduction' }, 
+                ]
+              },
+            ]
+          }
+        ],
+        '/web-fe/deploy/': [
+          {
+            text: '前端部署',
+            // collapsed: false,
+            items: [
+              {
+                text: '起步',
+                collapsed: true,
+                items: [
+                  { text: '简介', link: '/web-fe/deploy/start' }, 
                 ]
               },
             ]
