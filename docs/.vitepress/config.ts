@@ -208,6 +208,14 @@ export default defineConfig({
                   { text: 'Why Vue ?', link: '/web-fe/vue3/english-translation/why-vue' }, 
                 ]
               },
+              {
+                text: '响应式 API',
+                collapsed: true,
+                items: [
+                  { text: 'computed vs watchers', link: '/web-fe/vue3/computed-vs-watchers' }, 
+                ]
+              },
+              { text: 'Vue2 vs Vue3', link: '/web-fe/vue3/vue2-vs-vue3' }
             ]
           }
         ],
