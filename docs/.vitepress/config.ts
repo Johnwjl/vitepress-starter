@@ -51,13 +51,13 @@ export default defineConfig({
         // { text: "home", link: "/" },
         { text: "Web FE", 
           items: [
-            { text: 'Vue2', link: '/web-fe/vue2/vue2-note' },
-            { text: 'Vue3', link: '/web-fe/vue3/english-translation/why-vue' },
-            { text: 'JavaScript', link: '/web-fe/javascript/es6+/promise' },
-            { text: 'TypeScript', link: '/web-fe/typescript/typescript-note' },
-            { text: '前端工程化', link: '/web-fe/front-end_engineering/introduction' },
-            { text: '前端部署', link: '/web-fe/deploy/start' },
-            { text: 'Other', link: '/web-fe/other/blog-upgrade/blog-upgrade-log' },
+            { text: 'Vue2', link: '/FE/vue2/vue2-note' },
+            { text: 'Vue3', link: '/FE/vue3/english-translation/why-vue' },
+            { text: 'JavaScript', link: '/FE/javascript/es6+/promise' },
+            { text: 'TypeScript', link: '/FE/typescript/typescript-note' },
+            { text: '前端工程化', link: '/FE/front-end_engineering/introduction' },
+            { text: '前端部署', link: '/FE/deploy/Prior' },
+            { text: 'Other', link: '/FE/other/blog-upgrade/blog-upgrade-log' },
           ]
         },
         { text: "CS", 
@@ -73,7 +73,7 @@ export default defineConfig({
         },
         // { text: "Life", link: '/life/me'},
         // { text: "我的掘金", link: "https://juejin.cn/user/2242659452477016" },
-        { text: "About me", link: "/me"},
+        { text: "Me", link: "/me"},
       ],
       socialLinks: [
 
@@ -148,7 +148,7 @@ export default defineConfig({
       //   copyright: '© 2024 Jello'
       // },
       sidebar: {
-        '/web-fe/javascript/': [
+        '/FE/javascript/': [
           {
             text: 'JavaScript',
             // collapsed: false,
@@ -157,46 +157,46 @@ export default defineConfig({
                 text: 'ES5',
                 collapsed: true,
                 items: [
-                  { text: '01. Project Build', link: '/web-fe/vue2/admin-cli/01-project-build' }, 
-                  // { text: '02. Login & Router & Permissions', link: '/web-fe/vue2/admin-cli/02-login-router-permissions' }, 
+                  { text: '01. Project Build', link: '/FE/vue2/admin-cli/01-project-build' }, 
+                  // { text: '02. Login & Router & Permissions', link: '/FE/vue2/admin-cli/02-login-router-permissions' }, 
                 ]
               },
               {
                 text: 'ES6+',
                 collapsed: true,
                 items: [
-                  { text: 'Promise', link: '/web-fe/javascript/es6+/promise' }, 
+                  { text: 'Promise', link: '/FE/javascript/es6+/promise' }, 
                 ]
               }
             ]
           }
         ],
-        '/web-fe/vue2/': [
+        '/FE/vue2/': [
           {
             text: 'Vue2',
             // collapsed: false,
             items: [
-              { text: 'Vue2 Note', link: '/web-fe/vue2/vue2-note' }, 
+              { text: 'Vue2 Note', link: '/FE/vue2/vue2-note' }, 
               {
                 text: 'Admin (CLI)',
                 collapsed: true,
                 items: [
-                  { text: '01. Project Build', link: '/web-fe/vue2/admin-cli/01-project-build' }, 
-                  // { text: '02. Login & Router & Permissions', link: '/web-fe/vue2/admin-cli/02-login-router-permissions' }, 
+                  { text: '01. Project Build', link: '/FE/vue2/admin-cli/01-project-build' }, 
+                  // { text: '02. Login & Router & Permissions', link: '/FE/vue2/admin-cli/02-login-router-permissions' }, 
                 ]
               },
               {
                 text: 'Admin (Vite)',
                 collapsed: true,
                 items: [
-                  { text: '01. Project Build', link: '/web-fe/vue2/admin-vite/01-project-build' }, 
-                  { text: '02. Login & Router & Permissions', link: '/web-fe/vue2/admin-vite/02-login-router-permissions' }, 
+                  { text: '01. Project Build', link: '/FE/vue2/admin-vite/01-project-build' }, 
+                  { text: '02. Login & Router & Permissions', link: '/FE/vue2/admin-vite/02-login-router-permissions' }, 
                 ]
               }
             ]
           }
         ],
-        '/web-fe/vue3/': [
+        '/FE/vue3/': [
           {
             text: 'Vue3',
             // collapsed: false,
@@ -205,21 +205,21 @@ export default defineConfig({
                 text: 'English Translation',
                 collapsed: true,
                 items: [
-                  { text: 'Why Vue ?', link: '/web-fe/vue3/english-translation/why-vue' }, 
+                  { text: 'Why Vue ?', link: '/FE/vue3/english-translation/why-vue' }, 
                 ]
               },
               {
                 text: '响应式 API',
                 collapsed: true,
                 items: [
-                  { text: 'computed vs watchers', link: '/web-fe/vue3/computed-vs-watchers' }, 
+                  { text: 'computed vs watchers', link: '/FE/vue3/computed-vs-watchers' }, 
                 ]
               },
-              { text: 'Vue2 vs Vue3', link: '/web-fe/vue3/vue2-vs-vue3' }
+              { text: 'Vue2 vs Vue3', link: '/FE/vue3/vue2-vs-vue3' }
             ]
           }
         ],
-        '/web-fe/front-end_engineering/': [
+        '/FE/front-end_engineering/': [
           {
             text: '前端工程化',
             // collapsed: false,
@@ -228,28 +228,22 @@ export default defineConfig({
                 text: '起步',
                 collapsed: true,
                 items: [
-                  { text: '简介', link: '/web-fe/front-end_engineering/introduction' }, 
+                  { text: '简介', link: '/FE/front-end_engineering/introduction' }, 
                 ]
               },
             ]
           }
         ],
-        '/web-fe/deploy/': [
+        '/FE/deploy/': [
           {
             text: '前端部署',
             // collapsed: false,
             items: [
-              {
-                text: '起步',
-                collapsed: true,
-                items: [
-                  { text: '简介', link: '/web-fe/deploy/start' }, 
-                ]
-              },
+              { text: '前置篇', link: '/FE/deploy/Prior' }
             ]
           }
         ],
-        '/web-fe/other/': [
+        '/FE/other/': [
           {
             text: 'Other',
             // collapsed: false,
@@ -258,12 +252,12 @@ export default defineConfig({
                 text: 'Blog Upgrade',
                 collapsed: true,
                 items: [
-                  { text: 'Blog Upgrade Log', link: '/web-fe/other/blog-upgrade/blog-upgrade-log' }, 
+                  { text: 'Blog Upgrade Log', link: '/FE/other/blog-upgrade/blog-upgrade-log' }, 
                   {
                     text: 'Blog Upgrade Log Note', 
                     collapsed: true,
                     items: [
-                      { text: '图片点击放大', link: '/web-fe/other/blog-upgrade/blog-upgrade-log-note/img-zoom' }, 
+                      { text: '图片点击放大', link: '/FE/other/blog-upgrade/blog-upgrade-log-note/img-zoom' }, 
                     ]
                   }, 
                 ]
@@ -272,31 +266,31 @@ export default defineConfig({
                 text: 'Interview',
                 collapsed: true,
                 items: [
-                  { text: 'Interview Log', link: '/web-fe/other/interview/interview-log-2024' }, 
+                  { text: 'Interview Log', link: '/FE/other/interview/interview-log-2024' }, 
                   {
                     text: 'Interview Detail Log', 
                     collapsed: true,
                     items: [
-                      { text: '20230207 才信网络科技', link: '/web-fe/other/interview/interview-detail-log/20230207-cxwlkj' }, 
+                      { text: '20230207 才信网络科技', link: '/FE/other/interview/interview-detail-log/20230207-cxwlkj' }, 
                     ]
                   }, 
-                  { text: 'Interview Note', link: '/web-fe/other/interview/interview-note' }, 
-                  { text: 'Resume Ask Mock', link: '/web-fe/other/interview/resume-ask-mock' }, 
+                  { text: 'Interview Note', link: '/FE/other/interview/interview-note' }, 
+                  { text: 'Resume Ask Mock', link: '/FE/other/interview/resume-ask-mock' }, 
                 ]
               },
               {
                 text: 'Git',
                 collapsed: true,
                 items: [
-                  { text: 'Git Command', link: '/web-fe/other/git/git-command' }, 
-                  { text: 'Git Branch Operation', link: '/web-fe/other/git/git-branch-operation' }, 
+                  { text: 'Git Command', link: '/FE/other/git/git-command' }, 
+                  { text: 'Git Branch Operation', link: '/FE/other/git/git-branch-operation' }, 
                 ]
               },
               {
                 text: 'PC',
                 collapsed: true,
                 items: [
-                  { text: 'PC Shortcuts & Command', link: '/web-fe/other/pc/shortcuts-command' }, 
+                  { text: 'PC Shortcuts & Command', link: '/FE/other/pc/shortcuts-command' }, 
                 ]
               },
             ]
