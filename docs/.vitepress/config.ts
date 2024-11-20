@@ -71,6 +71,11 @@ export default defineConfig({
             { text: 'Admin ( Vue2 + Vite )', link: 'https://vue2-admin-vite.jellowang.cn/' },
           ]
         },
+        { text: "Thoughts", 
+          items: [
+            { text: '终身发展', link: '/Thoughts/lifelong-development/Adapt-to-the-future' },
+          ]
+        },
         // { text: "Life", link: '/life/me'},
         // { text: "我的掘金", link: "https://juejin.cn/user/2242659452477016" },
         { text: "Me", link: "/me"},
@@ -356,6 +361,17 @@ export default defineConfig({
                   { text: '2023', link: '/life/daily-review/2023/2023-list' }, 
                 ]
               }
+            ]
+          }
+        ],
+        // Thoughts
+        '/Thoughts/': [
+          {
+            text: '终身发展',
+            // collapsed: false,
+            items: [
+                { text: '面向未来自适应', link: '/Thoughts/lifelong-development/Adapt-to-the-future' },
+                { text: '如何成为超级个体', link: '/Thoughts/lifelong-development/How-to-Evolve-into-a-Hyper-Individual' },
             ]
           }
         ],
