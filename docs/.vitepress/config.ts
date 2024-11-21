@@ -57,7 +57,7 @@ export default defineConfig({
             { text: 'TypeScript', link: '/FE/typescript/typescript-note' },
             { text: '前端工程化', link: '/FE/front-end_engineering/introduction' },
             { text: '前端部署', link: '/FE/deploy/Prior' },
-            { text: 'Other', link: '/FE/other/blog-upgrade/blog-upgrade-log' },
+            { text: 'Other', link: '/FE/other/code-standards/code-standards' },
           ]
         },
         { text: "CS", 
@@ -254,18 +254,8 @@ export default defineConfig({
             // collapsed: false,
             items: [
               {
-                text: 'Blog Upgrade',
-                collapsed: true,
-                items: [
-                  { text: 'Blog Upgrade Log', link: '/FE/other/blog-upgrade/blog-upgrade-log' }, 
-                  {
-                    text: 'Blog Upgrade Log Note', 
-                    collapsed: true,
-                    items: [
-                      { text: '图片点击放大', link: '/FE/other/blog-upgrade/blog-upgrade-log-note/img-zoom' }, 
-                    ]
-                  }, 
-                ]
+                text: 'Code Standards',
+                link: '/FE/other/code-standards/code-standards.md'
               },
               {
                 text: 'Interview',
@@ -284,6 +274,13 @@ export default defineConfig({
                 ]
               },
               {
+                text: 'Remote Work',
+                collapsed: true,
+                items: [
+                  { text: 'Settlement-Modes', link: '/FE/other/remote-work/Settlement-Modes' }, 
+                ]
+              },
+              {
                 text: 'Git',
                 collapsed: true,
                 items: [
@@ -296,6 +293,20 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'PC Shortcuts & Command', link: '/FE/other/pc/shortcuts-command' }, 
+                ]
+              },
+              {
+                text: 'Blog Upgrade',
+                collapsed: true,
+                items: [
+                  { text: 'Blog Upgrade Log', link: '/FE/other/blog-upgrade/blog-upgrade-log' }, 
+                  {
+                    text: 'Blog Upgrade Log Note', 
+                    collapsed: true,
+                    items: [
+                      { text: '图片点击放大', link: '/FE/other/blog-upgrade/blog-upgrade-log-note/img-zoom' }, 
+                    ]
+                  }, 
                 ]
               },
             ]

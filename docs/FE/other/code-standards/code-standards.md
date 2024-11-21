@@ -1,30 +1,37 @@
-# 前端开发规范 Code Standards (Web FE)
+# 前端开发规范
 
-## 前端编码规范 (eslint 同步遵循以下配置)
+(eslint 同步遵循以下配置)
 
 - 行末无需分号
 - 逗号后面使用空格
+  
   ```js
-  var foo = 1, bar = 2
+    var foo = 1, bar = 2
   ```
-- 代码块({})前要添加空格
-  ```js
-   if(a) {
-    b()
-   }
 
-   function a() {}
+- 代码块({})前要添加空格
+  
+  ```js
+    if(a) {
+      b()
+    }
+
+    function a() {}
   ```
+
 - 字符串统一使用单引号的形式 `''`
 - 当字符串中有变量时请使用`模版字符串`
+  
   ```js
-  const str = `ab${test}`
+    const str = `ab${test}`
   ```
-- 变量声明遵循 `最小特权原则`，尽量使用 const, 需要变动的则用 let
+
+- 变量声明遵循 `最小特权原则`，尽量使用 `const` , 需要变动的则用 `let`
 - 对象属性值的简写方式
+  
   ```js
     const job = 'FrontEnd'
-  
+
     // bad
     const item = {
         job: job
@@ -35,8 +42,9 @@
         job
     }
   ```
+
   ```js
-  // 对象属性值的简写方式要和声明式的方式分组
+    // 对象属性值的简写方式要和声明式的方式分组
     const job = 'FrontEnd'
     const department = 'JDC'
     
@@ -56,11 +64,15 @@
         age: 25
     }
   ```
+
 - 使用拓展运算符 `...` 拷贝数组
+
   ```js
-  itemsCopy = [...items]
+    itemsCopy = [...items]
   ```
+
 - 使用解构赋值的场景
+  
   ```js
   // 当需要使用对象的多个属性时
   function getFullName (user = {}) {
@@ -70,35 +82,47 @@
   // 当需要使用数组的多个值时
   const [first, second] = arr
   ```
+
 - 简单数组拷贝
+
   ```js
-  const arr3 = [...arr]
+    const arr3 = [...arr]
   ```
+
 - 简单数组去重
+
   ```js
-  const newArr = [...new Set(arr)]
+    const newArr = [...new Set(arr)]
   ```
+
 - 深拷贝请使用lodash库 的 `_.cloneDeep(value)`
 - 数组合并
   - 不改变原数组(合并到新数组)
-  ```js
-  const arr3 = [...arr1, ...arr2];
-  ```
+  
+    ```js
+      const arr3 = [...arr1, ...arr2];
+    ```
+  
   - 改变原数组
-  ```js
-  arr1.push(...arr2);
-  ```
+  
+    ```js
+      arr1.push(...arr2);
+    ```
+
 - 使用 `includes` 替代 `或`判断逻辑
+
   ```js
     if(from === 'a' || from === 'b' || from === 'c'){}  // bad
 
     if(['a', 'b', 'c'].includes(from)) {} // good
   ```
+
 - 更可靠的判断数据类型
+
   ```js
-  function judgeDataType(val, type) {
-    const dataType = Object.prototype.toString.call(val).slice(8,-1).toLowerCase()
-    return type ? dataType === type : dataType;
+    function judgeDataType(val, type) {
+      const dataType = Object.prototype.toString.call(val).slice(8,-1).toLowerCase()
+      return type ? dataType === type : dataType;
     }
     console.log(judgeDataType("young")); // "string"
     console.log(judgeDataType(20190214)); // "number"
@@ -106,24 +130,28 @@
     console.log(judgeDataType([], "array")); // true
     console.log(judgeDataType({}, "array")); // false
   ```
+
 - 检查是否为空对象
+
   ```js
-  Object.keys({}).length  // 0
+    Object.keys({}).length  // 0
   ```
-- 使用`Map`代替`switch`或多个`if判断`
+
+- 使用 `Map` 代替 `switch` 或多个 `if判断`
+
   ```js
 
     function getStatusText(status) {
-    switch (status) {
-        case 1:
-        return '待发货';
-        case 2:
-        return '已发货';
-        case 3:
-        return '已完成';
-        default:
-        return '';
-    }
+      switch (status) {
+          case 1:
+          return '待发货';
+          case 2:
+          return '已发货';
+          case 3:
+          return '已完成';
+          default:
+          return '';
+      }
     }
 
     // 使用Map替代
@@ -133,22 +161,36 @@
         .set(3, '已完成');
     // 或
     const statusMap = new Map([
-    [1, '待发货'],
-    [2, '已发货'],
-    [3, '已完成'],
+      [1, '待发货'],
+      [2, '已发货'],
+      [3, '已完成'],
     ]); // 这种写法的内部执行的算法实际上也是循环执行set，与上面自己写set其实是一样的
     const statusText = statusMap.get(status);
 
     // 其实还有更简单的，直接用数组下标映射
     const statusText = ['待发货', '已发货', '已完成'][status - 1];
   ```
+
 - 其他数组处理技巧
   - flatMap
+
+  先在options里面添加上groupId，flatMap 会将 options 数组即
+  
   ```js
-    // 先在options里面添加上groupId
-    // flatMap会将options数组即[ [{ text: '公交', value: 0, active: true, groupId: 'commute' }], ...]变成[{ text: '公交', value: 0, active: true, groupId: 'commute' }, ...]
-    const activated = optionsGroup
-            .flatMap(item => item.options.map(option => ({ ...option, groupId: item.groupId })))
+  [ [{ text: '公交', value: 0, active: true, groupId: 'commute' }], ...]
+  ```
+
+  变成
+
+  ```js
+  [{ text: '公交', value: 0, active: true, groupId: 'commute' }, ...]
+  ```
+
+  ```js
+    const activated = 
+    optionsGroup
+            .flatMap(item => 
+            item.options.map(option => ({ ...option, groupId: item.groupId })))
             .filter(item => item.active);
   ```
 
