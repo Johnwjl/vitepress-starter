@@ -251,11 +251,36 @@ export default defineConfig({
         '/FE/other/': [
           {
             text: 'Other',
-            // collapsed: false,
+            collapsed: true,
             items: [
               {
                 text: 'Code Standards',
-                link: '/FE/other/code-standards/code-standards.md'
+                collapsed: true,
+                items: [
+                  { text: 'Code Standards', link: '/FE/other/code-standards/code-standards' }, 
+                ]
+              },
+              {
+                text: 'Git',
+                collapsed: true,
+                items: [
+                  { text: 'Git Command', link: '/FE/other/git/git-command' }, 
+                  { text: 'Git Branch Operation', link: '/FE/other/git/git-branch-operation' }, 
+                ]
+              },
+              {
+                text: 'WebSocket',
+                collapsed: true,
+                items: [
+                  { text: '起步', link: '/FE/other/WebSocket/start' }, 
+                ]
+              },
+              {
+                text: 'WebRTC',
+                collapsed: true,
+                items: [
+                  { text: '起步', link: '/FE/other/WebRTC/start' }, 
+                ]
               },
               {
                 text: 'Interview',
@@ -278,14 +303,6 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                   { text: 'Settlement-Modes', link: '/FE/other/remote-work/Settlement-Modes' }, 
-                ]
-              },
-              {
-                text: 'Git',
-                collapsed: true,
-                items: [
-                  { text: 'Git Command', link: '/FE/other/git/git-command' }, 
-                  { text: 'Git Branch Operation', link: '/FE/other/git/git-branch-operation' }, 
                 ]
               },
               {
