@@ -22,6 +22,7 @@ export default defineConfig({
     lastUpdated: true,
     cleanUrls: true,
     markdown: {
+      math: true,
       // theme: 'material-theme-palenight',
       lineNumbers: true // 代码行号
     },
@@ -51,8 +52,10 @@ export default defineConfig({
         // { text: "home", link: "/" },
         { text: "Web FE", 
           items: [
+            { text: 'Vue3', link: '/FE/vue3/Composition-API/start' },
             { text: 'Vue2', link: '/FE/vue2/vue2-note' },
-            { text: 'Vue3', link: '/FE/vue3/english-translation/why-vue' },
+            { text: 'HTML5', link: '/FE/html/usage' },
+            { text: 'CSS3', link: '/FE/css/skills' },
             { text: 'JavaScript', link: '/FE/javascript/es6+/promise' },
             { text: 'TypeScript', link: '/FE/typescript/typescript-note' },
             { text: '前端工程化', link: '/FE/front-end_engineering/introduction' },
@@ -62,18 +65,30 @@ export default defineConfig({
         },
         { text: "CS", 
           items: [
+            { text: 'C', link: '/cs/C/C_start' },
             { text: 'Python', link: '/cs/python/初识python' },
             { text: '计算机组成', link: '/cs/computer-organization/index' },
           ]
         },
-        { text: "Works", 
+        { text: "Showcases", 
           items: [
             { text: 'Admin ( Vue2 + Vite )', link: 'https://vue2-admin-vite.jellowang.cn/' },
+          ]
+        },
+        { text: "DevelopDocs", 
+          items: [
+            {text: '通用方案', link: '/DevelopDocs/通用方案/http'},
+            {text: '食堂点餐小程序', link: '/DevelopDocs/Canteen-Order-mp/code_structure'},
           ]
         },
         { text: "Thoughts", 
           items: [
             { text: '终身发展', link: '/Thoughts/lifelong-development/Adapt-to-the-future' },
+          ]
+        },
+        { text: "Master", 
+          items: [
+            { text: 'Math', link: '/Master/Math/Basics-of-Economic-Mathematics(396)' },
           ]
         },
         // { text: "Life", link: '/life/me'},
@@ -176,6 +191,29 @@ export default defineConfig({
             ]
           }
         ],
+        '/FE/vue3/': [
+          {
+            text: 'Vue3',
+            items: [
+              {
+                text: 'Composition API',
+                collapsed: true,
+                items: [
+                  { text: '综述', link: '/FE/vue3/Composition-API/start' }, 
+                  { text: 'computed vs watchers', link: '/FE/vue3/Composition-API/computed-vs-watchers' },
+                ]
+              },
+              {
+                text: 'English Translation',
+                collapsed: true,
+                items: [
+                  { text: 'Why Vue ?', link: '/FE/vue3/english-translation/why-vue' }, 
+                ]
+              },
+              { text: 'Vue3 vs Vue2', link: '/FE/vue3/vue3-vs-vue2' }
+            ]
+          }
+        ],
         '/FE/vue2/': [
           {
             text: 'Vue2',
@@ -198,29 +236,6 @@ export default defineConfig({
                   { text: '02. Login & Router & Permissions', link: '/FE/vue2/admin-vite/02-login-router-permissions' }, 
                 ]
               }
-            ]
-          }
-        ],
-        '/FE/vue3/': [
-          {
-            text: 'Vue3',
-            // collapsed: false,
-            items: [
-              {
-                text: 'English Translation',
-                collapsed: true,
-                items: [
-                  { text: 'Why Vue ?', link: '/FE/vue3/english-translation/why-vue' }, 
-                ]
-              },
-              {
-                text: '响应式 API',
-                collapsed: true,
-                items: [
-                  { text: 'computed vs watchers', link: '/FE/vue3/computed-vs-watchers' }, 
-                ]
-              },
-              { text: 'Vue2 vs Vue3', link: '/FE/vue3/vue2-vs-vue3' }
             ]
           }
         ],
@@ -330,12 +345,54 @@ export default defineConfig({
           }
         ],
         // cs
-        '/cs/': [
+        // C
+        '/cs/C': [
           {
-            text: 'Computer Organization',
+            text: 'C语言',
             // collapsed: false,
             items: [
-              { text: 'Computer Organization', link: '/cs/computer-organization/index' }, 
+              { text: '起步', link: '/cs/C/C_start' }, 
+              { text: 'Hello World', link: '/cs/C/C_01' }, 
+              { text: '基本数据类型和变量', link: '/cs/C/C_02' }, 
+            ]
+          }
+        ],
+        // 计算机组成
+        '/cs/computer-organization': [
+          {
+            text: '计算机组成',
+            // collapsed: false,
+            items: [
+              { text: '起步', link: '/cs/computer-organization/index' }, 
+            ]
+          }
+        ],
+        '/DevelopDocs/通用方案/': [
+          {
+            text: '通用方案',
+            // collapsed: false,
+            items: [
+              { text: 'HTTP 层 通用方案', link: '/DevelopDocs/通用方案/http' }, 
+            ]
+          }
+        ],
+        '/DevelopDocs/Canteen-Order-mp/': [
+          {
+            text: '食堂点餐小程序',
+            // collapsed: false,
+            items: [
+              { text: '代码梳理', link: '/DevelopDocs/Canteen-Order-mp/code_structure' }, 
+              { text: 'HTTP&API', link: '/DevelopDocs/Canteen-Order-mp/http' }, 
+            ]
+          }
+        ],
+        // 考研
+        '/Master/': [
+          {
+            text: 'Math',
+            // collapsed: false,
+            items: [
+                { text: '经济数学基础', link: '/Master/Math/Basics-of-Economic-Mathematics(396)' },
             ]
           }
         ],
