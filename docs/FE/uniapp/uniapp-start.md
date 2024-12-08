@@ -34,6 +34,24 @@
 
 而 `node_modules` 有 `package.json` 这样的依赖信息文件，可以从包管理器拉取（npm install）
 
+详细解释：
+
+`uni_modules` 是所有 `npm 模块` 和 `原生仓储插件` 的父级目录。
+
+- 如果 `uni_modules` 中的内容来源于 npm，则这些部分可以忽略，并通过 `npm install` 自动安装。
+- 如果是`原生仓储插件（非 npm 模块）`，则这些内容通常需要提交至 Git 仓库。
+
+处理方式总结：
+
+- `node_modules` 文件夹 应忽略：可以通过 `package.json` 和 `npm install` 安装恢复。
+- `uni_modules` 文件夹 应提交：它包含原生插件和其他非 npm 模块，无法通过 npm 安装恢复。
+- `uni_modules` 中的 npm 子模块可以忽略：它们与其他 npm 依赖一样可以通过安装脚本恢复。
+
+结论：
+
+- `uni_modules` 不能完全忽略，应提交至 Git 仓库。
+- 但其中的 npm 模块 可忽略，因为可以通过 npm install 或类似机制恢复。
+
 ## 全局文件
 
 ### App.vue
