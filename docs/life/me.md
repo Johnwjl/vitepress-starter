@@ -27,10 +27,7 @@ features:
     details: Web Front-End Development Log .
     link: life/book/reading-log
     linkText: Reading Log
-  - icon: 🛠️
-    title: Works Show
-    details: Admin ( Vue2 / Vue3 + Vite + TypeScript ) 
-  - icon: 🖖
-    title: Life Share
-    details: Book , Movie , and Travel .
+  - icon: 🖥️
+    title: Showcases
+    details: Admin ( Vue2 / Vue3 + Vite + TypeScript )
 ---
