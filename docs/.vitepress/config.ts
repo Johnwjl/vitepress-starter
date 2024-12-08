@@ -177,6 +177,7 @@ export default defineConfig({
                 text: 'ES5',
                 collapsed: true,
                 items: [
+                  { text: '控制循环', link: '/FE/javascript/es5/control-Loop' },
                   { text: '01. Project Build', link: '/FE/vue2/admin-cli/01-project-build' }, 
                   // { text: '02. Login & Router & Permissions', link: '/FE/vue2/admin-cli/02-login-router-permissions' }, 
                 ]
@@ -351,9 +352,13 @@ export default defineConfig({
             text: 'C语言',
             // collapsed: false,
             items: [
-              { text: '起步', link: '/cs/C/C_start' }, 
-              { text: 'Hello World', link: '/cs/C/C_01' }, 
-              { text: '基本数据类型和变量', link: '/cs/C/C_02' }, 
+              { text: '00 起步', link: '/cs/C/C_start' }, 
+              { text: '01 Hello World', link: '/cs/C/C_01' }, 
+              { text: '02 基本数据类型和变量', link: '/cs/C/C_02' }, 
+              { text: '03 输入与输出函数', link: '/cs/C/C_03' }, 
+              { text: '04 条件语句与逻辑控制', link: '/cs/C/C_04' }, 
+              { text: '04 循环结构', link: '/cs/C/C_05' }, 
+              { text: '06 数组与字符串', link: '/cs/C/C_06' }, 
             ]
           }
         ],
