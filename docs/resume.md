@@ -91,15 +91,13 @@
 
 #### Demo作品项目
 
-<!-- - [Jello admin](../../docs/works/jello-admin) -->
+<!-- - [Jello admin](../../docs/Showcases/jello-admin) -->
 
 #### 技术栈
 
 - 技术栈：Vue3 + Vite + VueRouter + Pinia + ElementPlus + Axios + TypeScript
 
 #### 实现功能
-
-### 政府智慧城市孪生系统数字化平台可视化大屏
 
 ### 政府食堂订餐小程序
 

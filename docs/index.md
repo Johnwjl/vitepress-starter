@@ -22,13 +22,10 @@ hero:
 #       text: 关于我
 #       link: /me/
 features:
-  - icon: ⚡️ 
-    title: Dev Log
-    details: Web Front-End Development Log .
-  - icon: 🛠️
-    title: Works Show
-    details: Admin ( Vue2 / Vue3 + Vite + TypeScript ) 
-  - icon: 🖖
-    title: Life Share
-    details: Book , Movie , and Travel .
+  - icon: ✍🏻
+    title: Web Dev Blog
+    details: 个人技术博客积累沉淀。
+  - icon: 🖥️
+    title: Showcases
+    details: PC、H5、小程序、APP等开源项目作品展示。
 ---
